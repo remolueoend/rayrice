@@ -1,0 +1,53 @@
+# Store message headers locally to speed things up.
+# If hcache is a folder, Mutt will create sub cache folders for each account which may speeds things up even more.
+set header_cache = ~/.cache/mutt
+
+# Store messages locally to speed things up, like searching message bodies.
+# Can be the same folder as header_cache.
+# This will cost important disk usage according to your e-mail amount.
+set message_cachedir = "~/.cache/mutt"
+
+# Allow Mutt to open a new IMAP connection automatically.
+unset imap_passive
+
+# Keep the IMAP connection alive by polling intermittently (time in seconds).
+set imap_keepalive = 300
+set imap_check_subscribed
+
+# How often to check for new mail (time in seconds).
+set mail_check = 60
+set mbox_type=Maildir
+
+## external configs:
+source vim-keys.muttrc
+# color scheme:
+source ~/.neomutt/neonwolf-256.neomuttrc
+# source ~/.neomutt/colors-gruvbox-shuber.muttrc
+# source ~/.neomutt/colors-gruvbox-shuber-extended.muttrc
+source ~/.neomutt/sidebar.muttrc
+# macros
+source ~/.neomutt/macros.muttrc
+
+# good fortune:
+set signature="bash ~/.neomutt/gen_signature.sh|"
+
+# html emails:
+set mailcap_path = ~/.neomutt/mailcap
+auto_view text/html image/*
+alternative_order text/plain text/html
+
+# sorting:
+set sort=threads
+set sort_aux=reverse-date
+
+
+## ACCOUNT PERSONAL:PRIMARY
+source "~/.neomutt/personal_primary"
+# Here we use the $folder variable that has just been set in the sourced file.
+# We must set it right now otherwise the 'folder' variable will change in the next sourced file.
+folder-hook $folder 'source ~/.neomutt/personal_primary'
+
+## ACCOUNT WORK:PRIMARY
+source "~/.neomutt/work_primary"
+folder-hook $folder 'source ~/.neomutt/work_primary'
+

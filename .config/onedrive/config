@@ -1,0 +1,8 @@
+# https://github.com/skilion/onedrive
+
+# sync_list in use, see `./sync_list`
+
+# Directory where the files will be synced
+sync_dir = "~/OneDrive"
+# Skip files and directories that match this pattern
+skip_file = ".*|~*"

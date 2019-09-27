@@ -8,7 +8,7 @@
   </alias>
   <alias>
     <family>sans-serif</family>
-    <prefer><family>Open Sans</family></prefer>
+    <prefer><family>Linux Biolinum</family></prefer>
   </alias>
   <alias>
     <family>sans</family>
@@ -16,7 +16,7 @@
   </alias>
   <alias>
     <family>monospace</family>
-    <prefer><family>Hasklig</family></prefer>
+    <prefer><family>Inconsolata</family></prefer>
   </alias>
 
    <!-- This sets Symbola as the final fallback font for the monospace font family. -->
@@ -26,5 +26,4 @@
     </match>
 
 </fontconfig>
-
 

@@ -1,0 +1,7 @@
+# change to personal_primary mailbox by pressing `f2`
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.neomutt/personal_primary<enter><change-folder>!<enter>'
+# change to work_primary mailbox by pressing `f3`
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.neomutt/work_primary<enter><change-folder>!<enter>'
+# improve selection of folder in current mailbox
+macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
+

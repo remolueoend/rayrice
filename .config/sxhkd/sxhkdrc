@@ -27,6 +27,8 @@ super + shift + w
 	$BROWSER
 super + shift + g
 	gimp
+super + alt + o
+	$HOME/dev/remolueoend/dyna-bookmarks/packages/cli/open-bookmark
 
 # Et cetera...
 super + grave
@@ -40,7 +42,8 @@ super + shift + x
 super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A shutdown -r now"
 super + x
-	mpc pause; pauseallmpv; i3lock -e -f -c 1d2021; xset dpms force off
+	spotify-ctrl Pause; pauseallmpv; i3lock -e -f -c 1d2021; xset dpms force off
+	# mpc pause; pauseallmpv; xset dpms force off; sxlock -f fixed
 XF86Launch1
 	xset dpms force off
 XF86AudioMute
@@ -87,10 +90,10 @@ super + Delete
 
 # Pause audio
 super + {_,shift +} p
-	lmc {toggle,pause}
+	spotify-ctrl {PlayPause,Pause}
 # Changes to next/previous tracks
 super + {comma,period}
-	lmc {prev,next}
+	spotify-ctrl {Previous,Next}
 # Restart track
 super + shift + less
 	lmc replay

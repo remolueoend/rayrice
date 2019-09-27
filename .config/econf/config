@@ -1,0 +1,8 @@
+econf=.config/econf/config
+i3=.config/i3/config
+ssh=.ssh/config
+vim=.vimrc
+zsh=.zshrc
+setup=dot-files/Arch/setup.sh
+dotfiles=dot-files/.dotfiles
+ranger=.config/ranger/rc.conf

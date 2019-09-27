@@ -1,0 +1,22 @@
+# decrypt passwords:
+source "gpg -dq --user <key_id> ~/.neomutt/<pw_filename>.gpg |"
+
+## Receive options:
+# username is normally full-email address
+set folder      = imaps://<username>@<imap_host>/
+set imap_user   = <username>
+set imap_pass   = $my_<password_var (set in pw_filename)>
+set spoolfile   = +INBOX
+set postponed   = +DRAFTS
+set record      = +SENT
+
+## Send options:
+set realname     = '<full name>'
+set from         = <username|email>
+set use_from     = yes
+set smtp_url     = smtps://$imap_user:$imap_pass@<smtp_host>
+set ssl_starttls = yes
+set smtp_authenticators = 'gssapi:login'
+
+## Hook -- IMPORTANT!
+account-hook $folder "set imap_user=$imap_user imap_pass=$imap_pass"

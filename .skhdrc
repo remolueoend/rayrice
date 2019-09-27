@@ -1,0 +1,64 @@
+# enter fullscreen mode for the focused container
+shift + lalt - f : chunkc tiling::window --toggle fullscreen
+
+# change focus between tiling / floating windows
+shift + lalt - space : chunkc tiling::window --toggle float
+
+# change layout of desktop
+lalt - e : chunkc tiling::desktop --layout bsp
+lalt - s : chunkc tiling::desktop --layout monocle
+
+# kill focused window
+lalt - q : chunkc tiling::window --close
+
+# change focus
+lalt - h : chunkc tiling::window --focus west
+lalt - j : chunkc tiling::window --focus south
+lalt - k : chunkc tiling::window --focus north
+lalt - l : chunkc tiling::window --focus east
+
+lalt - p : chunkc tiling::window --focus prev
+# lalt - n : chunkc tiling::window --focus next
+
+# move focused window
+shift + lalt - h : chunkc tiling::window --warp west
+shift + lalt - j : chunkc tiling::window --warp south
+shift + lalt - k : chunkc tiling::window --warp north
+shift + lalt - l : chunkc tiling::window --warp east
+
+lalt - r : chunkc tiling::desktop --rotate 90
+
+# move focused container to workspace
+shift + lalt - m : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
+shift + lalt - p : chunkc tiling::window --send-to-desktop prev
+# shift + lalt - n : chunkc tiling::window --send-to-desktop next
+shift + lalt - 1 : chunkc tiling::window --send-to-desktop 1
+shift + lalt - 2 : chunkc tiling::window --send-to-desktop 2
+shift + lalt - 3 : chunkc tiling::window --send-to-desktop 3
+shift + lalt - 4 : chunkc tiling::window --send-to-desktop 4
+shift + lalt - 5 : chunkc tiling::window --send-to-desktop 5
+shift + lalt - 6 : chunkc tiling::window --send-to-desktop 6
+
+lalt - 1 : chunkc tiling::desktop -f 1
+lalt - 2 : chunkc tiling::desktop -f 2
+lalt - 3 : chunkc tiling::desktop -f 3
+lalt - 4 : chunkc tiling::desktop -f 4
+lalt - 5 : chunkc tiling::desktop -f 5
+lalt - 6 : chunkc tiling::desktop -f 6
+
+lalt - return : osascript -e 'tell app "iTerm" to create window with default profile'
+
+# resize windows
+shift + lalt - y : "${HOME}"/bin/chunkwm-resize.sh left
+shift + lalt - u : "${HOME}"/bin/chunkwm-resize.sh down
+shift + lalt - i : "${HOME}"/bin/chunkwm-resize.sh up
+shift + lalt - o: "${HOME}"/bin/chunkwm-resize.sh right
+
+# create desktop, move window and follow focus
+lalt - n : chunkc tiling::desktop --create;\
+                  ids=$(chunkc tiling::query --desktops-for-monitor $(chunkc tiling::query --monitor-for-desktop $(chunkc tiling::query --desktop id)));\
+                  chunkc tiling::window --send-to-desktop $(echo ${ids##* });\
+                  chunkc tiling::desktop --focus $(echo ${ids##* })
+
+# destroy desktop
+lalt - d : chunkc tiling::desktop --annihilate

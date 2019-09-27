@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+dir=$(dirname 0)
+
+./spotify-ctrl Pause
+pauseallmpv
+notify-send DUNST_COMMAND_PAUSE
+i3lock -e -f -c 1d2021
+xset dpms force off

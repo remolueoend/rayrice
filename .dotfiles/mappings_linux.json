@@ -1,0 +1,16 @@
+{
+  "themes": "~/themes",
+  ".xprofile": "~/.xprofile",
+  ".profile": "~/.profile",
+  ".xsession": "~/.xsession",
+  ".config/onedrive/config": "~/.config/onedrive/config",
+  ".config/mimeapps.list": "~/.config/mimeapps.list",
+  ".config/zathura": "~/.config/zathura",
+  ".config/fontconfig": "~/.config/fontconfig",
+  ".config/i3blocks": "~/.config/i3blocks",
+  ".config/ranger": "~/.config/ranger",
+  ".config/sxhkd": "~/.config/sxhkd",
+  ".config/i3": "~/.config/i3",
+  ".local/bin/i3cmds/displayselect": "~/.local/bin/i3cmds/displayselect",
+  ".local/bin/statusbar/clock": "~/.local/bin/statusbar/clock"
+}
