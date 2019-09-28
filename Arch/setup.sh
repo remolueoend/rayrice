@@ -54,11 +54,6 @@ register_ssh_key() { # $1: 1password document ID, $2: key name
   ssh-keygen -y -P "$KEY_PW" -f $KEY_PATH > "$KEY_PATH.pub"
 }
 
-upgradeSystem() {
-  log_section "UPGRADING SYSTEM"
-  sudo pacman -Syu
-}
-
 installDrivers() {
   log_section "DRIVERS"
 
@@ -71,16 +66,6 @@ installDrivers() {
   sudo pacman -S pulseeffects alsa-utils
   log_config "loading noice-cancelling module"
   sudo echo "load-module module-echo-cancel" >> /etc/pulse/default.pa
-}
-
-installBasicEnvTools() {
-  log_section "INSTALLING BASIC ENV TOOLS"
-  sudo pacman -S git zsh gnupg jq
-
-  log_install "yay"
-  yay_src_dir=$(mktemp -d)
-  git clone https://aur.archlinux.org/yay.git $yay_src_dir
-  (cd $yay_src_dir && makepkg -si)
 }
 
 setup1password() {
@@ -112,8 +97,6 @@ registerGpgSshKeys() {
 
   log_config "downloading and importing GPG key for remolueoend@users.noreply.github.com"
   $GLOBAL_OP_EXEC get document l3gdeddn5jk3odpwv2555a3y6q | gpg --import
-  log_config "downloading and importing GPG key for rmo@panter.ch"
-  $GLOBAL_OP_EXEC get document l5lr64rsxyfpqux7k2acj3z6ta | gpg --import
 
   log_config "downloading and registering SSH key id_gitlab"
   register_ssh_key "4lptcypbxkvqftw3wj5qci7lvi" "id_gitlab"
@@ -123,33 +106,18 @@ registerGpgSshKeys() {
   register_ssh_key "ftihxdupswsmgz6tkzdbrspeba" "id_github"
 }
 
-installUserTools() {
-  log_section "INSTALLING USER TOOLS"
+manualInstallations() {
+  log_section "MANUAL INSTALLATIONS"
 
-  log_install "Go Version Manager (GVM)"
-  yay -S gvm && source $HOME/.bashrc
-  source "$HOME/.gvm/scripts/gvm"
-
-  # we ignore any release and beta tagged versions:
+  # GVM/GOLANG: we ignore any release and beta tagged versions:
   local LASTEST_GO_VERSION=$(gvm listall | awk '/go[0-9\.]{1,7}$/ {print}' | tail -n 1 | xargs)
-
   log_install "Golang version $LASTEST_GO_VERSION using GVM"
   gvm install $LASTEST_GO_VERSION && gvm use $LASTEST_GO_VERSION
 
   log_install "Rust Language"
-  sudo pacman -S rustup
   rustup toolchain install stable
   rustup default stable
 
-  log_install "docker"
-  #todo: docker service does not start
-  sudo pacman -S docker docker-compose
-  log_config "trying to start docker service and print info"
-  sudo systemctl start docker.service
-  docker info
-
-  log_install "NVM/Node.js"
-  yay -S nvm && source $HOME/.bashrc
   log_config "initializing NVM"
   export NVM_DIR="$HOME/.nvm"
   export NVM_SOURCE="/usr/share/nvm"
@@ -162,46 +130,16 @@ installUserTools() {
   log_config "activating $LATEST_NODE_VERSION (only for this script)"
   nvm use $LATEST_NODE_VERSION
 
-  log_install "yarn"
-  sudo pacman -S yarn
-
-  #todo: install missing virual-env extension for pyenv
-  log_install "pyenv"
-  yay -S pyenv && source $HOME/.bashrc
-
   log_install "Python 3.7.4 using pyenv"
   pyenv install 3.7.4
-  log_install "pipenv"
-  sudo pacman -S python-pipenv
-
-  log_install "ZSH"
-  sudo pacman -S zsh
-  log_config "activating ZSH as default shell"
-  chsh -s /usr/bin/zsh
-
+  
   log_install "prezto"
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
   log_install "custom prezto theme"
   npm install -g https://github.com/remolueoend/remolueoend.zsh-theme.git
-
-  log_install "VS Code"
-  sudo pacman -S code
-
-  log_install "GNU pass"
-  sudo pacman -S pass
-  log_config "registering pass autocompletion files"
-  mkdir -p $HOME/.zfunc
-  (cd $HOME/.zfunc && curl -o _pass https://git.zx2c4.com/password-store/plain/src/completion/pass.zsh-completion)
-
-  log_install "Emacs and Spacemacs"
-  sudo pacman -S emacs adobe-source-code-pro-fonts
+  
+  log_install "Spacemacs"
   git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-
-  log_install "Spotify"
-  yay -S spotify
-
-  log_install "Toggl"
-  yay -S toggldesktop
 
   log_install "OneDrive"
   git clone https://github.com/skilion/onedrive.git $HOME/src/onedrive
@@ -209,56 +147,52 @@ installUserTools() {
   make
   sudo make install
   popd
-  log_interactive "After dotfiles are initialized, call `onedrive` to setup OneDrive sync. Then enable the service by calling `systemd --user enable onedrive`"
 
-  log_install "vivaldi"
-  yay -S vivaldi
+}
+
+configureUserTools() {
+  log_section "CONFIGURING USER TOOLS"
+
+  log_config "activating ZSH as default shell"
+  chsh -s /usr/bin/zsh
+
+
+  log_config "registering pass autocompletion files"
+  mkdir -p $HOME/.zfunc
+  (cd $HOME/.zfunc && curl -o _pass https://git.zx2c4.com/password-store/plain/src/completion/pass.zsh-completion)
+
+
+  log_config "Setting up OneDrive. Ready?"
+  onedrive
+  systemd --user enable onedrive
+
+  log_config "setting up codecs for vivaldi"
   curl https://launchpadlibrarian.net/424938057/chromium-codecs-ffmpeg-extra_74.0.3729.169-0ubuntu0.16.04.1_amd64.deb | tail -c+1077 | tar JxC ~ --wildcards \*libffmpeg.so --xform 's,.*/,.local/lib/vivaldi/,'
 
-  log_install "ExpressVPN"
-  yay -S expressvpn
+  log_config "ExpressVPN"
   systemctl start expressvpn.service
   log_interactive "get ExpressVPN activation code from: https://www.expressvpn.com/subscriptions and paste it in the next prompt."
   expressvpn activate
   systemctl stop expressvpn.service
-
-  log_install "Deluge"
-  sudo pacman -S deluge
-  sudo ln -s $HOME/dot-files/systemd-units/deluged.service /etc/systemd/user/deluged.service
 }
 
-installHelperTools() {
-  log_section "INSTALLING HELPER TOOLS"
-  sudo pacman -S tldr the_silver_searcher entr ranger trash-cli wget
-}
-
-installFonts() {
-  log_section "INSTALLING FONTS"
-  yay -S ttf-twemoji-color
-}
-
-setupDotFiles() {
-  log_section "DOTFILES"
-
-  log_install "dot-files to $HOME/dot-files"
-  git clone git@gitlab.com:remolueoend/dot-files.git $HOME/dot-files
+linkDotFiles() {
+  log_section "LINK DOTFILES"
 
   log_install "rhysd/dotfiles"
   go get -v github.com/rhysd/dotfiles
-  log_config "linking dotfiles from $HOME/dot-files to $HOME"
-  (cd $HOME/dot-files && dotfiles link)
+  log_config "linking dotfiles from $HOME/voidrice to $HOME"
+  (cd $HOME/voidrice && dotfiles link)
 }
 
 # checkout:
 # https://github.com/DerekTBrown/pacmanity
 
 prepare_fs
-upgradeSystem
-installDrivers
-installBasicEnvTools
+# installDrivers
+manualInstallations
 setup1password
 registerGpgSshKeys
-installUserTools
-installHelperTools
-setupDotFiles
+configureUserTools
+linkDotFiles
 
