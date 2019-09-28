@@ -1,7 +1,6 @@
 {
   ".gitconfig": "~/.gitconfig",
   ".zpreztorc": "~/.zpreztorc",
-  ".zlogout": "~/.zlogout",
   ".gdbinit": "~/.gdbinit",
   ".nanorc": "~/.nanorc",
   ".config/econf": "~/.config/econf",
@@ -9,5 +8,9 @@
   ".neomutt": "~/.neomutt",
   ".ackrc": "~/.ackrc",
   ".spacemacs.d": "~/.spacemacs.d",
-  ".ssh/config": "~/.ssh/config"
+  ".ssh/config": "~/.ssh/config",
+  ".gnupg": "~/.gnupg",
+  ".bash_profile": "~/.bash_profile",
+  ".bashrc": "~/.bashrc",
+
 }
