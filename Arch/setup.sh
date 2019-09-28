@@ -40,6 +40,13 @@ prepare_fs() {
   mkdir -p $HOME/src
 }
 
+install_from_gist() {
+  local dir=$(mktemp -d)
+  git clone git@gist.github.com:bf0478724691d8ee4ae935f47b5354db.git $dir
+  sed -e '/^$/q' "$dir/remo-x1.pacmanity" | sudo pacman -S -
+  yay -S $(sed -e '/^$/d' "$dir/remo-x1.pacmanity" | tr '\n' ' ')
+}
+
 
 register_ssh_key() { # $1: 1password document ID, $2: key name
   # download doc from 1password and save it with perm 0600 in .ssh:
@@ -147,7 +154,9 @@ manualInstallations() {
   make
   sudo make install
   popd
-
+  
+  log_install "rhysd/dotfiles"
+  go get -v github.com/rhysd/dotfiles
 }
 
 configureUserTools() {
@@ -155,6 +164,9 @@ configureUserTools() {
 
   log_config "activating ZSH as default shell"
   chsh -s /usr/bin/zsh
+  
+  log_config "registering this setup as Arch distro"
+  echo "DOTFILES_OS=Arch" > "$HOME/.dot-files.env"
 
 
   log_config "registering pass autocompletion files"
@@ -179,8 +191,6 @@ configureUserTools() {
 linkDotFiles() {
   log_section "LINK DOTFILES"
 
-  log_install "rhysd/dotfiles"
-  go get -v github.com/rhysd/dotfiles
   log_config "linking dotfiles from $HOME/voidrice to $HOME"
   (cd $HOME/voidrice && dotfiles link)
 }
@@ -189,6 +199,7 @@ linkDotFiles() {
 # https://github.com/DerekTBrown/pacmanity
 
 prepare_fs
+install_from_gist
 # installDrivers
 manualInstallations
 setup1password
