@@ -77,24 +77,10 @@ installDrivers() {
 
 setup1password() {
   log_section "SETTING UP 1PASSWORD TO RETRIEVE GPG/SSH keys"
-
-  log_interactive "Fetch op from https://app-updates.agilebits.com/product_history/CLI and provide absolute path to .zip file"
-  read -e -p "op.zip file path: " OP_ZIP_PATH
-  log_config "extracting $OP_ZIP_PATH to $(dirname $GLOBAL_OP_EXEC)"
-  mkdir -p $HOME/bin
-  unzip $OP_ZIP_PATH -d $(dirname $GLOBAL_OP_EXEC)
-  log_config "validating op's signature. Enter pub key ID from https://support.1password.com/command-line-getting-started/"
-  read -e -p "pub key ID: " OP_PUB_KEY_ID
-  gpg --receive-keys "$OP_PUB_KEY_ID"
-  pushd $HOME/bin
-  gpg --verify op.sig op
-  popd
+  cp "$DIR/op" $GLOBAL_OP_EXEC
 
   log_interactive "Next we sign in to 1password. Keep all credentials ready."
   $GLOBAL_OP_EXEC signin               # initial setup
-}
-
-signinTo1password() {
   eval $($GLOBAL_OP_EXEC signin my)    # actual sign in
 }
 
@@ -139,12 +125,12 @@ manualInstallations() {
 
   log_install "Python 3.7.4 using pyenv"
   pyenv install 3.7.4
-  
+
   log_install "prezto"
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
   log_install "custom prezto theme"
   npm install -g https://github.com/remolueoend/remolueoend.zsh-theme.git
-  
+
   log_install "Spacemacs"
   git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
@@ -154,7 +140,7 @@ manualInstallations() {
   make
   sudo make install
   popd
-  
+
   log_install "rhysd/dotfiles"
   go get -v github.com/rhysd/dotfiles
 }
@@ -164,7 +150,7 @@ configureUserTools() {
 
   log_config "activating ZSH as default shell"
   chsh -s /usr/bin/zsh
-  
+
   log_config "registering this setup as Arch distro"
   echo "DOTFILES_OS=Arch" > "$HOME/.dot-files.env"
 
