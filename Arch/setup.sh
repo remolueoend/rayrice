@@ -76,10 +76,7 @@ installDrivers() {
 }
 
 setup1password() {
-  log_section "SETTING UP 1PASSWORD TO RETRIEVE GPG/SSH keys"
-  cp "$DIR/op" $GLOBAL_OP_EXEC
-
-  log_interactive "Next we sign in to 1password. Keep all credentials ready."
+  log_interactive "Trying to sign in to 1password. Keep all credentials ready."
   $GLOBAL_OP_EXEC signin               # initial setup
   eval $($GLOBAL_OP_EXEC signin my)    # actual sign in
 }
