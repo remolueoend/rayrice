@@ -31,8 +31,8 @@ log_success() {
 
 
 
-
-GLOBAL_OP_EXEC="$HOME/.local/bin/op"
+export GPG_TTY=$(tty)
+GLOBAL_OP_EXEC="$HOME/voidrice/.local/bin/op"
 DIR=$(dirname $0)
 
 prepare_fs() {
@@ -61,6 +61,14 @@ register_ssh_key() { # $1: 1password document ID, $2: key name
   ssh-keygen -y -P "$KEY_PW" -f $KEY_PATH > "$KEY_PATH.pub"
 }
 
+register_gpg_key() { # $1: 1password document ID, $2: key name
+  log_config "registering GPG key $2"
+
+  # get the password saved in the same doc
+  local KEY_PW=$($GLOBAL_OP_EXEC get item "$1" | jq -r '.details.sections[0].fields[] | select(.t | contains("Password")).v')
+  $GLOBAL_OP_EXEC get document "$1" | gpg --import --passphrase="$KEY_PW"
+}
+
 installDrivers() {
   log_section "DRIVERS"
 
@@ -77,16 +85,23 @@ installDrivers() {
 
 setup1password() {
   log_interactive "Trying to sign in to 1password. Keep all credentials ready."
-  $GLOBAL_OP_EXEC signin               # initial setup
-  eval $($GLOBAL_OP_EXEC signin my)    # actual sign in
+  local addr email master
+  read -p "sign-in address: " addr
+  read -p "e-mail address: " email
+  read -p "master key: " master
+  eval $($GLOBAL_OP_EXEC signin $addr $email $master)
+}
+
+
+signinTo1password() {
+  eval $($GLOBAL_OP_EXEC signin my)
 }
 
 registerGpgSshKeys() {
   signinTo1password
   log_section "REGISTERING GPG/SSH KEYS"
 
-  log_config "downloading and importing GPG key for remolueoend@users.noreply.github.com"
-  $GLOBAL_OP_EXEC get document l3gdeddn5jk3odpwv2555a3y6q | gpg --import
+  register_gpg_key l3gdeddn5jk3odpwv2555a3y6q remolueoend@users.noreply.github.com
 
   log_config "downloading and registering SSH key id_gitlab"
   register_ssh_key "4lptcypbxkvqftw3wj5qci7lvi" "id_gitlab"
@@ -100,7 +115,7 @@ manualInstallations() {
   log_section "MANUAL INSTALLATIONS"
 
   # GVM/GOLANG: we ignore any release and beta tagged versions:
-  local LASTEST_GO_VERSION=$(gvm listall | awk '/go[0-9\.]{1,7}$/ {print}' | tail -n 1 | xargs)
+  LASTEST_GO_VERSION=$(gvm listall | awk '/go[0-9\.]{1,7}$/ {print}' | tail -n 1 | xargs)
   log_install "Golang version $LASTEST_GO_VERSION using GVM"
   gvm install $LASTEST_GO_VERSION && gvm use $LASTEST_GO_VERSION
 
@@ -157,9 +172,9 @@ configureUserTools() {
   (cd $HOME/.zfunc && curl -o _pass https://git.zx2c4.com/password-store/plain/src/completion/pass.zsh-completion)
 
 
-  log_config "Setting up OneDrive. Ready?"
-  onedrive
-  systemd --user enable onedrive
+  #log_config "Setting up OneDrive. Ready?"
+  #onedrive
+  #systemd --user enable onedrive
 
   log_config "setting up codecs for vivaldi"
   curl https://launchpadlibrarian.net/424938057/chromium-codecs-ffmpeg-extra_74.0.3729.169-0ubuntu0.16.04.1_amd64.deb | tail -c+1077 | tar JxC ~ --wildcards \*libffmpeg.so --xform 's,.*/,.local/lib/vivaldi/,'
@@ -183,7 +198,7 @@ linkDotFiles() {
 
 prepare_fs
 install_from_gist
-# installDrivers
+installDrivers
 manualInstallations
 setup1password
 registerGpgSshKeys

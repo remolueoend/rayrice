@@ -13,7 +13,7 @@ dunst &			# dunst for notifications
 mpdupdate &
 
 # load custom keybindings
-xkbcomp $HOME/xkb.dump $DISPLAY
+xkbcomp $HOME/voidrice/xkb.dump $DISPLAY
 
 # load theme
 xrdb -merge $HOME/themes/normalize.xresource

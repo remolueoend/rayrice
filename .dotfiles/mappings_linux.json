@@ -11,8 +11,9 @@
   ".config/ranger": "~/.config/ranger",
   ".config/sxhkd": "~/.config/sxhkd",
   ".config/i3": "~/.config/i3",
-  ".local/bin/i3cmds/displayselect": "~/.local/bin/i3cmds/displayselect",
-  ".local/bin/statusbar/clock": "~/.local/bin/statusbar/clock",
+  ".local/bin": "~/.local/bin",
+  ".local/share/applications": "~/.local/share/applications",
+  ".local/share/larbs": "~/.local/share/larbs",
   ".config/dunst/dunstrc": "~/.config/dunst/dunstrc",
   ".config/getkeys": "~/.config/getkeys",
   ".config/gtk-2.0": "~/.config/gtk-2.0",
@@ -30,7 +31,6 @@
   ".config/user-dirs": "~/.config/user-dirs",
   ".config/wall.png": "~/.config/wall.png",
   ".icons": "~/.icons",
-  ".local": "~/.local",
   ".vim": "~/.vim",
-  ".inputrc": "~/.inputrc",
+  ".inputrc": "~/.inputrc"
 }

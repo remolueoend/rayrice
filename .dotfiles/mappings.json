@@ -11,6 +11,6 @@
   ".ssh/config": "~/.ssh/config",
   ".gnupg": "~/.gnupg",
   ".bash_profile": "~/.bash_profile",
-  ".bashrc": "~/.bashrc",
+  ".bashrc": "~/.bashrc"
 
 }
