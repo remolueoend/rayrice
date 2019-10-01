@@ -4,6 +4,7 @@
   ".profile": "~/.profile",
   ".xsession": "~/.xsession",
   ".config/onedrive/config": "~/.config/onedrive/config",
+  ".config/onedrive/sync_list": "~/.config/onedrive/sync_list",
   ".config/mimeapps.list": "~/.config/mimeapps.list",
   ".config/zathura": "~/.config/zathura",
   ".config/fontconfig": "~/.config/fontconfig",
