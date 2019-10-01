@@ -10,6 +10,7 @@ xset r rate 200 50 &	# Speed xrate up
 unclutter &		# Remove mouse when idle
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications
+nm-applet &		# network sys-tray
 mpdupdate &
 
 # load custom keybindings
