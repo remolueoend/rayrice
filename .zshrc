@@ -21,7 +21,7 @@ fpath=( $ZFUNC_FOLDER "${fpath[@]}" )
 # Get current OS and try to source OS specific files
 if [[ -s "$HOME/.dot-files.env" ]]; then
   source "$HOME/.dot-files.env"
-  source "$HOME/dot-files/$DOTFILES_OS/.zshrc"
+  source "$HOME/voidrice/$DOTFILES_OS/.zshrc"
 else
   echo "[WARN] no .dot-files.env found in home directory. OS specific envs won't be sourced."
 fi
@@ -32,8 +32,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 ## PATH extensions
-# HOMEDIR binaries:
-export PATH=$HOME/dot-files/bin:$PATH
+
 # default node version:
 export PATH=$HOME/.nvm/versions/node/v8.11.1/bin:$PATH
 
@@ -54,7 +53,7 @@ function use_node {
 }
 function use_go {
     source "$HOME/.gvm/scripts/gvm"
-    gvm use go1.12.7
+    gvm use go1.13.1
 }
 function use_python {
     eval "$(pyenv init -)"

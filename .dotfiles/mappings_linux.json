@@ -18,11 +18,10 @@
   ".config/getkeys": "~/.config/getkeys",
   ".config/gtk-2.0": "~/.config/gtk-2.0",
   ".config/gtk-3.0": "~/.config/gtk-3.0",
-  ".config/mpd": "~/.config/mpd",
+  ".config/mpd/mpd.conf": "~/.config/mpd/mpd.conf",
   ".config/mpv": "~/.config/mpv",
   ".config/ncmpcpp": "~/.config/ncmpcpp",
   ".config/newsboat": "~/.config/newsboat",
-  ".config/nvim": "~/.config/nvim",
   ".config/sxiv": "~/.config/sxiv",
   ".config/aliasrc": "~/.config/aliasrc",
   ".config/bmdirs": "~/.config/bmdirs",
@@ -30,7 +29,9 @@
   ".config/fontawesome": "~/.config/fontawesome",
   ".config/user-dirs": "~/.config/user-dirs",
   ".config/wall.png": "~/.config/wall.png",
+  ".config/polybar": "~/.config/polybar",
+  ".fonts": "~/.fonts",
   ".icons": "~/.icons",
-  ".vim": "~/.vim",
+  ".config/nvim": "~/.config/nvim",
   ".inputrc": "~/.inputrc"
 }

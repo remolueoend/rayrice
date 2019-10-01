@@ -4,5 +4,6 @@ ssh=.ssh/config
 vim=.vimrc
 zsh=.zshrc
 setup=dot-files/Arch/setup.sh
-dotfiles=dot-files/.dotfiles
+dotfiles=voidrice/.dotfiles
 ranger=.config/ranger/rc.conf
+polybar=.config/polybar
