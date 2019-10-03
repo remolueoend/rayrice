@@ -52,10 +52,13 @@ function use_node {
     nvm use $VERSION
 }
 function use_go {
+    # enables golang v1.13.1 for the current shell using gvm
     source "$HOME/.gvm/scripts/gvm"
     gvm use go1.13.1
 }
+
 function use_python {
+    # enables python version [$:3.5.6] for the current shell using pyenv
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
     local VERSION=${1:-3.5.6}
