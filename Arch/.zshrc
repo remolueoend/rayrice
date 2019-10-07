@@ -5,3 +5,5 @@ DIR=(dirname $0)
 # but we want to do it manually using `ssh-add`
 # using passwords provided by 1password
 eval $(keychain --eval --quiet id_github id_gitlab)
+
+source ~/.config/aliasrc

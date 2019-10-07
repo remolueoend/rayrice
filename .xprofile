@@ -11,7 +11,7 @@ unclutter &		# Remove mouse when idle
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications
 nm-applet &		# network sys-tray
-mpdupdate &
+# mpdupdate &
 
 # load custom keybindings
 xkbcomp $HOME/voidrice/xkb.dump $DISPLAY

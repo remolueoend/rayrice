@@ -72,6 +72,13 @@ function eth_mount {
     sudo mount $1 $2 -o username=$3
 }
 
+function eth_mount_software {
+    # $1 eth-username
+    local mnt_point="/mnt/eth-software"
+    sudo mkdir -p $mnt_point
+    sudo mount //software.ethz.ch/$1$ $mnt_point -t cifs -o username=$1,vers=2.1
+}
+
 # completion files:
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit

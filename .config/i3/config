@@ -12,8 +12,6 @@ focus_on_window_activation focus # switch ws to window requesting focus
 
 # #---Basic Definitions---# #
 for_window [class="^.*"] border pixel 2
-gaps inner 15
-gaps outer 15
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 
@@ -29,20 +27,14 @@ for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
-#bar{
-#	font pango:monospace 8
-#	status_command i3blocks
-#	position top
-#	mode dock
-#	modifier None
-#}
+#polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # #---Basic Bindings---# #
 bindsym $mod+Shift+Return	exec --no-startup-id samedir
 
-bindsym $mod+Shift+space 	floating toggle
-bindsym $mod+space		focus mode_toggle
+bindsym $mod+Shift+z	 	floating toggle
+bindsym $mod+z			focus mode_toggle
 
 bindsym $mod+Escape		workspace prev
 bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
@@ -57,7 +49,6 @@ bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec -
 bindsym $mod+Shift+r		exec --no-startup-id winresize
 
 bindsym $mod+t			split toggle
-bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
 
 bindsym $mod+Shift+y		exec --no-startup-id i3resize left
 
@@ -70,11 +61,6 @@ bindsym $mod+o			sticky toggle
 bindsym $mod+Shift+o		exec --no-startup-id i3resize right
 
 bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
-
-bindsym $mod+s			gaps inner current plus 5
-bindsym $mod+Shift+s		gaps inner current minus 5
-
-bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
 set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
 mode "$freeze" { bindsym $mod+Shift+f mode "default"
@@ -100,9 +86,6 @@ bindsym $mod+Ctrl+k		move workspace to output up
 bindsym $mod+l			focus right
 bindsym $mod+Shift+l		move right 30
 bindsym $mod+Ctrl+l		move workspace to output right
-
-bindsym $mod+z			gaps outer current plus 5
-bindsym $mod+Shift+z		gaps outer current minus 5
 
 bindsym $mod+c			exec --no-startup-id cabl
 

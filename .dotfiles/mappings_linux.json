@@ -31,6 +31,7 @@
   ".config/user-dirs": "~/.config/user-dirs",
   ".config/wall.png": "~/.config/wall.png",
   ".config/polybar": "~/.config/polybar",
+  ".config/rofi/config": "~/.config/rofi/config",
   ".fonts": "~/.fonts",
   ".icons": "~/.icons",
   ".config/nvim": "~/.config/nvim",
