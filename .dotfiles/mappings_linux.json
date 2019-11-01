@@ -35,5 +35,6 @@
   ".fonts": "~/.fonts",
   ".icons": "~/.icons",
   ".config/nvim": "~/.config/nvim",
+  ".config/redshift": "~/.config/redshift",
   ".inputrc": "~/.inputrc"
 }

@@ -4,7 +4,7 @@ alias ka="killall" \
 	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
 	calcurse="calcurse -D ~/.config/calcurse" \
 	magit="nvim -c MagitOnly" \
-	p="sudo pacman" \
+	pac="sudo pacman" \
 	SS="sudo systemctl" \
 	f="$FILE" \
 	g="git" \

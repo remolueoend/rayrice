@@ -7,3 +7,6 @@ DIR=(dirname $0)
 eval $(keychain --eval --quiet id_github id_gitlab)
 
 source ~/.config/aliasrc
+
+# Additional PATH extensions
+export PATH=$HOME/src/build:$PATH

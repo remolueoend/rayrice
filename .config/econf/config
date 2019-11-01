@@ -7,3 +7,5 @@ dotfiles=voidrice/.dotfiles
 ranger=.config/ranger/rc.conf
 polybar=.config/polybar
 vim=.config/nvim/init.vim
+sxhkd=.config/sxhkd/sxhkdrc
+alias=.config/aliasrc
