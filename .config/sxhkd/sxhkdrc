@@ -2,7 +2,8 @@
 super + Return
 	$TERMINAL
 super + space
-	rofi -modi run,drun -show drun -line-padding 4 -columns 2 -width 40 -padding 30 -hide-scrollbar -show-icons
+	rofi -combi-modi window,drun,run -show combi -modi combi -line-padding 4 -columns 2 -width 40 -padding 30 -hide-scrollbar -show-icons
+# rofi -modi run,drun -show drun -line-padding 4 -columns 2 -width 40 -padding 30 -hide-scrollbar -show-icons
 super + r
 	$TERMINAL -e $FILE
 super + e
