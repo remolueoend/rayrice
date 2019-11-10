@@ -10,7 +10,7 @@ nm-applet &		# network sys-tray
 # mpdupdate &
 
 # setup xkb and other keybaord related configs:
-$HOME/.local/bin/setup_keyboard.sh
+source $HOME/.local/bin/setup_keyboard.sh
 
 # load theme
 xrdb -merge $HOME/themes/normalize.xresource
