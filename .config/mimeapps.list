@@ -10,3 +10,4 @@ image/gif=img.desktop;
 application/rss+xml=rss.desktop
 x-scheme-handler/http=http.desktop
 x-scheme-handler/https=http.desktop
+inode/directory=ranger.desktop
