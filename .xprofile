@@ -7,8 +7,12 @@ unclutter &		# Remove mouse when idle
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications
 nm-applet &		# network sys-tray
-/usr/lib/org_kde_powerdevil &
+# /usr/lib/org_kde_powerdevil &
 # mpdupdate &
+
+# Trackpad
+# synclient TapButton1=1 # enable tap to click
+synclient PalmDetect=1 # enable palm detection
 
 # setup xkb and other keybaord related configs:
 source $HOME/.local/bin/setup_keyboard.sh

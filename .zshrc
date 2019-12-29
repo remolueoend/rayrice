@@ -32,7 +32,14 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 ## PATH extensions
-
+# rust binaries
+export PATH=$HOME/.cargo/bin:$PATH
+# dotnet
+export PATH=$HOME/.dotnet/tools:$PATH
+# ocaml
+export PATH=$HOME/.opam/default/bin:$PATH
+# haskell
+export PATH=$HOME/.ghcup/bin:$PATH
 # default node version:
 export PATH=$HOME/.nvm/versions/node/v8.11.1/bin:$PATH
 
@@ -63,6 +70,10 @@ function use_python {
     eval "$(pyenv virtualenv-init -)"
     local VERSION=${1:-3.5.6}
     pyenv shell $VERSION && echo "Now using $(python --version)"
+}
+
+function use_ocaml {
+    eval $(opam env)
 }
 
 function eth_mount {
@@ -108,3 +119,6 @@ PERL5LIB="/home/remo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/remo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/remo/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/remo/perl5"; export PERL_MM_OPT;
+
+# auto-load environments:
+use_ocaml

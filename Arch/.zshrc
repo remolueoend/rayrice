@@ -10,3 +10,5 @@ source ~/.config/aliasrc
 
 # Additional PATH extensions
 export PATH=$HOME/src/build:$PATH
+
+export browser=vivaldi-stable

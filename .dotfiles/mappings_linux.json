@@ -32,9 +32,11 @@
   ".config/wall.png": "~/.config/wall.png",
   ".config/polybar": "~/.config/polybar",
   ".config/rofi/config": "~/.config/rofi/config",
+  ".config/rofi/scripts": "~/.config/rofi/scripts",
   ".fonts": "~/.fonts",
   ".icons": "~/.icons",
   ".config/nvim": "~/.config/nvim",
   ".config/redshift": "~/.config/redshift",
-  ".inputrc": "~/.inputrc"
+  ".inputrc": "~/.inputrc",
+  ".config/systemd": "~/.config/systemd"
 }

@@ -8,7 +8,6 @@
 	signingkey = 62130C97
 [core]
 	autocrlf = input
-	editor = nvim
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
