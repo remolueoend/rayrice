@@ -1,0 +1,8 @@
+[Unit]
+Description=Runs checkup, which syncs the package database witout installing anything
+ConditionACPower=true
+
+[Service]
+Type=simple
+ExecStart=/home/remo/.local/bin/cron/checkup
+Nice=19
