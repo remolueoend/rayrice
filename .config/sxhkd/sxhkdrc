@@ -3,10 +3,12 @@ super + Return
 	$TERMINAL
 super + space
 	rofi -combi-modi window,drun,run -show combi -modi combi -line-padding 4 -columns 2 -width 40 -padding 30 -hide-scrollbar -show-icons
+super + alt + i
+	rofi -show fb -modi fb:~/.config/rofi/scripts/file-browser.sh
 super + r
 	$TERMINAL -e $FILE
-super + e
-	$TERMINAL -e neomutt
+# super + e
+	# $TERMINAL -e neomutt
 super + m
 	$TERMINAL -e ncmpcpp
 super + n
@@ -21,8 +23,8 @@ super + shift + c
 	camtoggle
 super + shift + e
 	tutorialvids
-super + w
-	webby | xargs -r $BROWSER
+# super + w
+	# webby | xargs -r $BROWSER
 super + shift + w
 	$BROWSER
 super + shift + g
