@@ -1,4 +1,3 @@
-# vim: filetype=i3
 # File originally by Luke Smith <https://lukesmith.xyz>
 
 # This config file will use environmental variables such as $BROWSER and $TERMINAL.
@@ -11,9 +10,22 @@
 focus_on_window_activation focus # switch ws to window requesting focus
 
 # #---Basic Definitions---# #
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
+# colors (see: https://thomashunter.name/i3-configurator/)
+# class                 border  bground text    indicator child_border
+client.focused          #FF0000 #285577 #FFFFFF #2E9EF4   #FF0000
+client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
+client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+client.background       #FFFFFF
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
@@ -26,6 +38,7 @@ for_window [instance="dropdown_dropdowncalc"] resize set 800 300
 for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
+for_window [class="Yad" title="yad-calendar"] floating enable
 
 #polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
