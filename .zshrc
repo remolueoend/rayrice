@@ -34,6 +34,7 @@ fi
 ## PATH extensions
 # rust binaries
 export PATH=$HOME/.cargo/bin:$PATH
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 # dotnet
 export PATH=$HOME/.dotnet/tools:$PATH
 # ocaml
