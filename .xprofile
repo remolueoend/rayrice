@@ -7,7 +7,7 @@ unclutter &		# Remove mouse when idle
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications
 nm-applet &		# network sys-tray
-# /usr/lib/org_kde_powerdevil &
+/usr/lib/org_kde_powerdevil &
 # mpdupdate &
 
 # Trackpad
