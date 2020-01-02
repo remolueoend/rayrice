@@ -1,10 +1,12 @@
 [Unit]
 Description=Downloads yay/pacman packages every hour. Does not install anything
+ConditionACPower=true
 
 [Timer]
-OnCalendar=daily
+OnCalendar=*-*-* 15:00:00
 AccuracySec=12h
 Persistent=true
 
 [Install]
 WantedBy=timers.target
+WantedBy=default.target

@@ -6,7 +6,7 @@
 query_result=$(/usr/bin/pacman -Qu)
 
 if [ "$1" == "-c" ]; then
-  echo "$query_result" | head -c -1 | wc -l
+  echo "$query_result" | wc -l
 else
   notify-send "$query_result"
 fi

@@ -43,6 +43,8 @@ export PATH=$HOME/.opam/default/bin:$PATH
 export PATH=$HOME/.ghcup/bin:$PATH
 # default node version:
 export PATH=$HOME/.nvm/versions/node/v8.11.1/bin:$PATH
+# Ruby gem executables:
+export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
 # function creating a new temporary jupyter notebook
 function trashbook {
