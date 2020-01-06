@@ -11,6 +11,7 @@ Check your internet connection, if pacman is already running, or run update manu
 pkill -RTMIN+8 i3blocks
 
 if pacman -Qu | grep -v "\[ignored\]"
+polybar-msg hook updates 1 # udpate available updates in polybar
 then
 	notify-send "🎁 Repository Sync" "Updates available. Click statusbar icon (📦) for update."
 else

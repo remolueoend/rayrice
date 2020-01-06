@@ -2,11 +2,8 @@
 
 # by default: shows a notification bubble with all packages ready to update
 # if flag -c is provided, it writes the number up outdated packages to stdout
-
-query_result=$(/usr/bin/pacman -Qu)
-
 if [ "$1" == "-c" ]; then
-  echo "$query_result" | wc -l
+    /usr/bin/pacman -Qu | wc -l
 else
-  notify-send "$query_result"
+    notify-send $(/usr/bin/pacman -Qu)
 fi
