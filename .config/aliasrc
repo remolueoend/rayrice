@@ -27,9 +27,10 @@ alias ka="killall" \
 	ffmpeg="ffmpeg -hide_banner" \
 	open="xdg-open" \
 	neovim="nvim" \
-  et="TERM=screen-256color emacsclient -t" \
+  et="TERM=screen-256color emacsclient -t -c" \
   ec="emacsclient -c" \
-  magit="TERM=screen-256color emacsclient -t -e \(magit-status\)"
+  magit="TERM=screen-256color emacsclient -t -e \(magit-status\)" \
+  wiki="et $HOME/wiki/"
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 

@@ -1,6 +1,6 @@
 [Unit]
 Description=Downloads yay/pacman packages every hour. Does not install anything
-ConditionACPower=true
+ConditionACPower=false
 
 [Timer]
 OnCalendar=*-*-* 15:00:00

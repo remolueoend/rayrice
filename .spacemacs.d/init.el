@@ -45,11 +45,11 @@ values."
      ;; ----------------------------------------------------------------
      ;; themes-megapack ;; additional themes, see: https://themegallery.robdor.com/
      helm
-     ;; (auto-completion :variables
-     ;;                  auto-completion-enable-help-tooltip t
-     ;;                  auto-completion-enable-sort-by-usage t)
-     auto-completion
-     ;; better-defaults
+     (auto-completion :variables
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-enable-sort-by-usage t)
+     ;; auto-completion
+     better-defaults
      emacs-lisp
      git
      markdown
@@ -59,7 +59,7 @@ values."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
-     ;; version-control
+     version-control
      javascript
      yaml
      typescript
@@ -75,6 +75,7 @@ values."
    '(
      yasnippet-snippets
      doom-themes
+     keychain-environment
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -334,8 +335,12 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ; custom shortcut for triggering company automcompletion:
   (define-key evil-insert-state-map (kbd "C-SPC") 'company-indent-or-complete-common)
+  ; always follow symlinks to files managed by vcs/git:
   (setq vc-follow-symlinks t)
+  ; load env vars on startup, required to get ssh-agent/keychain integration working:
+  (keychain-refresh-environment)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

@@ -97,8 +97,9 @@ function eth_mount_software {
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
-# use Emacs keybindings because VI bindings don't behave well with nvim:terminal
-bindkey -e
+# configure VI mode for ZSH:
+bindkey -v
+bindkey "^R" history-incremental-search-backward
 
 # ZSH options
 unsetopt correct

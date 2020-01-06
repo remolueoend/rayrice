@@ -1,5 +1,6 @@
 # Switch to US international with Caps as Mod/Escape
 setxkbmap -option caps:super -variant altgr-intl && killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
+# setxkbmap -option caps:super -option ctrl:swap_lalt_lctl -variant altgr-intl && killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
 
 # Properties button extra Mod/Escape
 xmodmap -e 'keycode 135 = Super_R' &
