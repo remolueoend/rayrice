@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
+
+file_name=active_wallpaper
+
 # Sets the background. If given an argument, will set file as background.
-[ ! -z "$1" ] && cp "$1" ~/.config/wall.png && notify-send -i "$HOME/.config/wall.png" "Wallpaper changed."
-xwallpaper --zoom ~/.config/wall.png
+[ ! -z "$1" ] && cp "$1" ~/.config/$file_name && notify-send -i "$HOME/.config/$file_name" "Wallpaper changed."
+xwallpaper --maximize ~/.config/$file_name

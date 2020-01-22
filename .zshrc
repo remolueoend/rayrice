@@ -71,7 +71,7 @@ function use_python {
     # enables python version [$:3.5.6] for the current shell using pyenv
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
-    local VERSION=${1:-3.5.6}
+    local VERSION=${1:-3.8.1}
     pyenv shell $VERSION && echo "Now using $(python --version)"
 }
 
@@ -126,3 +126,7 @@ PERL_MM_OPT="INSTALL_BASE=/home/remo/perl5"; export PERL_MM_OPT;
 
 # auto-load environments:
 use_ocaml
+
+source /home/remo/.config/broot/launcher/bash/br
+
+alias E="SUDO_EDITOR=\"emacsclient\" sudo -e"

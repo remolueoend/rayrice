@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+light-locker & # allows secure session locking using `light-locker-command -l`
 setbg &		# Set the background
 sxhkd &	# Bind keys
 
