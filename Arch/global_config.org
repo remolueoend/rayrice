@@ -1,0 +1,10 @@
+- =/etc/lightdm/lightdm.conf=:
+  #+begin_src shell
+    ...
+    [Seat:*]
+    ...
+    # should be set automatically when installing webkit2-greeter:
+    greeter-session = lightdm-webkit2-greeter
+    # use i3 as default DE/WM:
+    user-session=i3
+  #+end_src
