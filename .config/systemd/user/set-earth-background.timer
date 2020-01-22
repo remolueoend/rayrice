@@ -1,0 +1,11 @@
+[Unit]
+Description=Live Earth Wallpaper timer
+# ConditionACPower=false
+
+[Timer]
+OnCalendar=*-*-* *:0,30
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+WantedBy=default.target
