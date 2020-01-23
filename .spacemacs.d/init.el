@@ -70,6 +70,7 @@ values."
      lsp
      java
      xclipboard
+     latex
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -345,6 +346,7 @@ you should place your code here."
   (setq vc-follow-symlinks t)
   ; load env vars on startup, required to get ssh-agent/keychain integration working:
   (keychain-refresh-environment)
+  (set-default 'preview-scale-function 1.2)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

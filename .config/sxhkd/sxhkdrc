@@ -46,8 +46,8 @@ super + shift + x
 super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A shutdown -r now"
 super + x
-  light-locker-command -l
-	# spotify-ctrl Pause; i3lock -e -f -c 1d2021; xset dpms force off
+	spotify-ctrl Pause; i3lock -e -f -c 1d2021; xset dpms force off
+  # light-locker-command -l
 	# mpc pause; pauseallmpv; xset dpms force off; sxlock -f fixed
 XF86Launch1
 	xset dpms force off
