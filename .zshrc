@@ -32,6 +32,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 ## PATH extensions
+# go vars
+export PATH=$HOME/go/bin:$PATH
+export GOPATH=$HOME/go/src
+# export GOROOT=/usr/bin
 # rust binaries
 export PATH=$HOME/.cargo/bin:$PATH
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
@@ -41,30 +45,12 @@ export PATH=$HOME/.dotnet/tools:$PATH
 export PATH=$HOME/.opam/default/bin:$PATH
 # haskell
 export PATH=$HOME/.ghcup/bin:$PATH
-# default node version:
-export PATH=$HOME/.nvm/versions/node/v8.11.1/bin:$PATH
 # Ruby gem executables:
 export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
 # function creating a new temporary jupyter notebook
 function trashbook {
     (cd ~/dev/trash/notebooks && source .env/bin/activate && jupyter-lab && deactivate)
-}
-
-function use_node {
-    export NVM_DIR="$HOME/.nvm"
-    export NVM_SOURCE="/usr/share/nvm"
-    source "$NVM_SOURCE/nvm.sh"
-    source "$NVM_SOURCE/init-nvm.sh"
-
-    local VERSION=${1:-v8.11.1}
-
-    nvm use $VERSION
-}
-function use_go {
-    # enables golang v1.13.1 for the current shell using gvm
-    source "$HOME/.gvm/scripts/gvm"
-    gvm use go1.13.1
 }
 
 function use_python {
@@ -123,9 +109,6 @@ PERL5LIB="/home/remo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/remo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/remo/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/remo/perl5"; export PERL_MM_OPT;
-
-# auto-load environments:
-use_ocaml
 
 source /home/remo/.config/broot/launcher/bash/br
 

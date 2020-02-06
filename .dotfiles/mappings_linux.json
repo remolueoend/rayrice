@@ -37,5 +37,4 @@
     ".config/redshift": "~/.config/redshift",
     ".inputrc": "~/.inputrc",
     ".config/systemd": "~/.config/systemd",
-    ".config/powerkit/powerkit.conf": "~/.config/powerkit/powerkit.conf"
 }

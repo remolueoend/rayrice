@@ -55,9 +55,9 @@ values."
      git
      markdown
      org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      spell-checking
      syntax-checking
      version-control
@@ -347,6 +347,8 @@ you should place your code here."
   ; load env vars on startup, required to get ssh-agent/keychain integration working:
   (keychain-refresh-environment)
   (set-default 'preview-scale-function 1.2)
+  (add-to-list 'load-path "~/.spacemacs.d")
+  (require 'custom-functions)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

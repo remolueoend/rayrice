@@ -2,3 +2,7 @@
 
 # emacs tmp-files:
 .#* 
+
+# auto-generated files of IntelliJ:
+.local/bin/idea
+.local/share/applications/jetbrains-idea.desktop
