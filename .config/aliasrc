@@ -27,7 +27,6 @@ alias ka="killall" \
 	ffmpeg="ffmpeg -hide_banner" \
 	open="xdg-open" \
 	neovim="nvim" \
-  et="TERM=screen-256color emacsclient -t -c" \
   ec="emacsclient -c" \
   magit="TERM=screen-256color emacsclient -t -e \(magit-status\)" \
   note="TERM=screen-256color emacsclient -t -e \(spacemacs/new-empty-buffer\)" \

@@ -36,5 +36,5 @@
     ".config/nvim": "~/.config/nvim",
     ".config/redshift": "~/.config/redshift",
     ".inputrc": "~/.inputrc",
-    ".config/systemd": "~/.config/systemd",
+    ".config/systemd": "~/.config/systemd"
 }

@@ -3,7 +3,7 @@
 
 # Adds `~/.local/bin/` and all subdirectories to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-export EDITOR="emacsclient -t"
+export EDITOR="et"
 export TERMINAL="st"
 export BROWSER="vivaldi-stable"
 export browser="vivaldi-stable"
