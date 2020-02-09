@@ -3,7 +3,6 @@ alias ka="killall" \
 	mkd="mkdir -pv" \
 	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
 	calcurse="calcurse -D ~/.config/calcurse" \
-	magit="nvim -c MagitOnly" \
 	pac="sudo pacman" \
 	SS="sudo systemctl" \
 	f="$FILE" \
@@ -28,7 +27,6 @@ alias ka="killall" \
 	open="xdg-open" \
 	neovim="nvim" \
   ec="emacsclient -c" \
-  magit="TERM=screen-256color emacsclient -t -e \(magit-status\)" \
   note="TERM=screen-256color emacsclient -t -e \(spacemacs/new-empty-buffer\)" \
   wiki="et $HOME/wiki/" \
   sysrice="sudo yadm -Y /etc/sysrice"
