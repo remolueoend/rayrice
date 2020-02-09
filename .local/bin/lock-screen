@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
 
-dir=$(dirname 0)
+# locks the screen after pausing IO (audio, notifications) etc.
+# powers off the screen immediately.
+# uses a blurred screenshot as lockscreen background.
 
-./spotify-ctrl Pause
-pauseallmpv
-notify-send DUNST_COMMAND_PAUSE
-i3lock -e -f -c 1d2021
-xset dpms force off
+spotify-ctrl Pause                 # pause spotify
+pauseallmpv                        # pause mpv
+notify-send DUNST_COMMAND_PAUSE    # pause notifications
+
+# takes a while, so do it after turning off everthing else:
+bg_path="$(mktemp -d)/bg.png"
+import -window root $bg_path
+magick $bg_path -blur 0x10 $bg_path
+
+i3lock -e -f -i $bg_path           # start i3lock
+xset dpms force off                # power off screen

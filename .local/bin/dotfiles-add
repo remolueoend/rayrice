@@ -5,6 +5,7 @@
 # $1: path of the file/folder to add to the dotfiles
 
 # todo: make repo path and config path configurable
+
 work_dir=$HOME                                               # base path where dotfiles are linked to
 repo_path="$HOME/voidrice"                                   # path to the dotfiles repo
 dotfiles_config="$repo_path/.dotfiles/mappings_linux.json"   # path to the dotfiles mappings file
