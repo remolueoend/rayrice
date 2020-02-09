@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+# starts magit if the current directory is a git repository
+
+if git rev-parse --git-dir > /dev/null 2>&1; then
+    et -e "(magit-status)"
+else
+    >&2 echo "$PWD is not a GIT repository"
+fi
+
