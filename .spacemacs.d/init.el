@@ -36,18 +36,19 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(go
-     d
-     react
-     python
-     systemd
-     ocaml
+   '(
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;; themes-megapack ;; additional themes, see: https://themegallery.robdor.com/
+     go
+     d
+     react
+     python
+     systemd
+     ocaml
      helm
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
@@ -60,7 +61,8 @@ values."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     spell-checking
+     (spell-checking :variables
+                     spell-checking-enable-by-default nil)
      syntax-checking
      version-control
      javascript
@@ -350,7 +352,9 @@ you should place your code here."
   (setq vc-follow-symlinks t)
   ; load env vars on startup, required to get ssh-agent/keychain integration working:
   (keychain-refresh-environment)
+  ; increase preview font size, required by latex preview mode:
   (set-default 'preview-scale-function 1.2)
+  ; include external functions files:
   (add-to-list 'load-path "~/.spacemacs.d")
   (require 'custom-functions)
 )
