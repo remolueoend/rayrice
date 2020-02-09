@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+
+# moves the file at the given path to the dotfiles repo
+# and adds the path to the .dotfiles mappings
+# $1: path of the file/folder to add to the dotfiles
+
+# todo: make repo path and config path configurable
+repo_path="$HOME/voidrice"
+dotfiles_config="$repo_path/.dotfiles/mappings_linux.json"
+file_path=$(realpath --relative-to="$HOME" "$1")
+orig_path=$(realpath $1)
+new_path="$repo_path/$file_path"
+
+new_mappings="$(jq ". + {\"$file_path\": \"~/$file_path\"}" < $dotfiles_config)"
+
+echo "adding $file_path: ~/$file_path to mappings"
+echo "$new_mappings" > $dotfiles_config
+
+echo "moving original file $orig_path to $new_path"
+mkdir -p $(dirname $new_path)
+mv $orig_path $new_path
+
+echo "creating symlink $new_path -> $orig_path"
+ln -s $new_path $orig_path
