@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+onedrive --confdir=/media/hd/onedrive_backup_config --synchronize --verbose

@@ -10,3 +10,4 @@ vim=.config/nvim/init.vim
 sxhkd=.config/sxhkd/sxhkdrc
 alias=.config/aliasrc
 zathura=.config/zathura/zathurarc
+onedrive=.config/onedrive
