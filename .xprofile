@@ -7,6 +7,16 @@ unclutter &		# Remove mouse when idle
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications
 nm-applet &		# network sys-tray
+
+# start automatic screen locking after 5 minutes,
+# displaying a notification 15 secs before locking the session
+xautolock \
+    -time 5 \
+    -locker lock-screen \
+    -detectsleep \
+    -notify 15 \
+    -notifier "notify-send -t 15000 \"XautoLock\" \"Locking in 15 Seconds\"" &
+
 # mpdupdate &
 
 # Trackpad
