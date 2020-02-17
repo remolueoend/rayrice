@@ -32,6 +32,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 ## PATH extensions
+# NPM global packages:
+export PATH=$HOME/.npm/bin:$PATH
 # go vars
 export PATH=$HOME/go/bin:$PATH
 export GOPATH=$HOME/go/src
