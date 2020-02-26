@@ -33,24 +33,35 @@ for_window [instance="dropdown_*"] floating enable
 for_window [instance="dropdown_*"] move scratchpad
 for_window [instance="dropdown_*"] sticky enable
 for_window [instance="dropdown_*"] scratchpad show
-for_window [instance="dropdown_tmuxdd"] resize set 625 450
+for_window [instance="dropdown_tmuxdd"] resize set 1125 750
 for_window [instance="dropdown_dropdowncalc"] resize set 800 300
 for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 for_window [class="Yad" title="yad-calendar"] floating enable
 
-#polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# status bar
+bar {
+	font pango:mono 10
+	status_command i3blocks
+	position bottom
+	mode dock
+	modifier None
+  workspace_min_width 25
+}
+
 
 # #---Basic Bindings---# #
 bindsym $mod+Shift+Return	exec --no-startup-id samedir
+bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
 
+# floating window bindings
 bindsym $mod+Shift+z	 	floating toggle
 bindsym $mod+z			focus mode_toggle
 
-bindsym $mod+Escape		workspace prev
-bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
+# workspace navigation
+bindsym $mod+n		workspace prev
+bindsym $mod+m		workspace next
 
 #STOP/HIDE EVERYTHING:
 bindsym $mod+Shift+Delete	exec --no-startup-id lmc truemute ; exec --no-startup-id lmc pause ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
@@ -60,8 +71,6 @@ bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
 
 bindsym $mod+Shift+r		exec --no-startup-id winresize
-
-bindsym $mod+t			split toggle
 
 bindsym $mod+Shift+y		exec --no-startup-id i3resize left
 
@@ -77,31 +86,25 @@ bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
 
 bindsym $mod+f			fullscreen toggle
 
-bindsym $mod+g			workspace prev
-
 bindsym $mod+h			focus left
 bindsym $mod+Shift+h		move left 30
-bindsym $mod+Ctrl+h		move workspace to output left
+# bindsym $mod+Ctrl+h		move workspace to output left
 
 bindsym $mod+j			focus down
 bindsym $mod+Shift+j		move down 30
-bindsym $mod+Ctrl+j		move workspace to output down
+# bindsym $mod+Ctrl+j		move workspace to output down
 
 bindsym $mod+k			focus up
 bindsym $mod+Shift+k		move up 30
-bindsym $mod+Ctrl+k		move workspace to output up
+# bindsym $mod+Ctrl+k		move workspace to output up
 
 bindsym $mod+l			focus right
 bindsym $mod+Shift+l		move right 30
-bindsym $mod+Ctrl+l		move workspace to output right
-
-bindsym $mod+c			exec --no-startup-id cabl
-
-bindsym $mod+v			exec --no-startup-id $term -e $EDITOR -c "VimwikiIndex"
+# bindsym $mod+Ctrl+l		move workspace to output right
 
 bindsym $mod+b			bar mode toggle
-bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id hover left
 
+bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id hover left
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id hover right
 
 # #---Workspace Bindings---# #

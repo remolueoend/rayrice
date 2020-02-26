@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+echo "power switch called" > /home/remo/powerswitch.out.txt
