@@ -4,7 +4,8 @@
 
 usage="Manage jupyter lab servers. Usage:\n
     \tstart\t\tstarts a jupyter server in the current directory or opens the UI of an already running server
-    \tstop [dir]\tstops all running servers or only the one running at the provided directory path\n"
+    \tstop [dir]\tstops all running servers or only the one running at the provided directory path
+    \tlist\t\tlists all running jupyter servers\n"
 
 ip=0.0.0.0
 cwd=$(pwd -P)
@@ -64,7 +65,7 @@ case "$1" in
         fi
         ;;
     list)
-        jupyter notebook list
+        jupyter notebook list "${@:2}"
         ;;
     *)
         echo -e "$usage"
