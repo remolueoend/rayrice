@@ -1,0 +1,71 @@
+#!/usr/bin/env sh
+
+# call `lab` to print help/usage message.
+
+usage="Manage jupyter lab servers. Usage:\n
+    \tstart\t\tstarts a jupyter server in the current directory or opens the UI of an already running server
+    \tstop [dir]\tstops all running servers or only the one running at the provided directory path\n"
+
+ip=0.0.0.0
+cwd=$(pwd -P)
+
+# returns the URL of the jupyter server running in the current working directory.
+function get_cwd_url()
+{
+    jupyter notebook list | grep "$cwd" | awk -F " :: " '{ print $1 }'
+}
+
+# start a jupyter server in the current directory (where the command was called).
+# if there is already a server running, the URL of the server is opened instead.
+function start()
+{
+    url=$(get_cwd_url)
+    if [ -z "$url" ]; then
+        echo "starting server at $cwd"
+        jupyter lab --ip=$ip . 1>/dev/null 2>/dev/null &
+    else
+        echo "found running server, opening URL"
+        xdg-open $url
+    fi
+}
+
+# stops all running jupyter servers.
+function stop_all()
+{
+    echo "stopping all running jupyter servers..."
+    while IFS= read -r line; do
+        port=$(echo "$line" | jq '.port')
+        jupyter notebook stop $port
+    done <<< "$(jupyter notebook list --json)"
+}
+
+# stops a jupyter server running at the given directory path.
+# $1: directory path of the server
+function stop()
+{
+    echo "stopping jupyter server at $1..."
+    port=$(jupyter notebook list --json | jq --arg DIR "$1" 'select(.notebook_dir == $DIR).port')
+    if [ -z "$port" ]; then
+        echo "no server seems to be running at $1"
+    else
+        jupyter notebook stop $port
+    fi
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        if [ -z "$2" ]; then
+            stop_all
+        else
+            stop $(readlink -f $2)
+        fi
+        ;;
+    list)
+        jupyter notebook list
+        ;;
+    *)
+        echo -e "$usage"
+esac

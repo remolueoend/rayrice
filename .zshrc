@@ -50,11 +50,6 @@ export PATH=$HOME/.ghcup/bin:$PATH
 # Ruby gem executables:
 export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
-# function creating a new temporary jupyter notebook
-function trashbook {
-    (cd ~/dev/trash/notebooks && source .env/bin/activate && jupyter-lab && deactivate)
-}
-
 function use_python {
     # enables python version [$:3.5.6] for the current shell using pyenv
     eval "$(pyenv init -)"
