@@ -79,6 +79,9 @@ bindsym $mod+Shift+u		exec --no-startup-id i3resize down
 
 bindsym $mod+Shift+i		exec --no-startup-id i3resize up
 
+bindsym $mod+t          split toggle
+
+
 bindsym $mod+o			sticky toggle
 bindsym $mod+Shift+o		exec --no-startup-id i3resize right
 
@@ -192,3 +195,16 @@ bindsym $mod+Shift+Left		move left
 bindsym $mod+Shift+Down		move down
 bindsym $mod+Shift+Up		move up
 bindsym $mod+Shift+Right 	move right
+
+# #-------Apps and Workspaces ----------# #
+set $mode_launcher Launch: [c]hat [m]usic
+bindsym $mod+c mode "$mode_launcher"
+mode "$mode_launcher" {
+  # Chat
+  bindsym c mode default; exec --no-startup-id $HOME/.local/bin/workspaces/ws-open-chat.sh
+  # Music
+  bindsym m mode default; exec --no-startup-id $HOME/.local/bin/workspaces/ws-open-music.sh
+
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}

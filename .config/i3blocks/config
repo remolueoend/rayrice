@@ -7,10 +7,6 @@ markup=pango
 command=battery BAT0
 interval=5
 
-[clock]
-label=📅
-interval=1
-
 [volume]
 interval=once
 signal=10
@@ -38,6 +34,10 @@ signal=5
 
 [internet]
 interval=10
+
+[clock]
+label=📅
+interval=1
 
 
 # [mailbox]

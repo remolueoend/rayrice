@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
-location="$1"; [ -z "$location" ] || { location="$location+" && rm -f "$HOME/.local/share/weatherreport" ;}
+# location=$1; [ -z "$location" ] || { location="$location+" && rm -f "$HOME/.local/share/weatherreport" ;}
+location=$(cat "$HOME/.location")
 
 getforecast() { ping -q -c 1 1.1.1.1 >/dev/null || exit 1
 curl -s "wttr.in/$location" > "$HOME/.local/share/weatherreport" || exit 1 ;}
@@ -17,7 +18,9 @@ case $BLOCK_BUTTON in
 🌞: Daily high" ;;
 esac
 
-if [ "$(stat -c %y "$HOME/.local/share/weatherreport" >/dev/null 2>&1 | awk '{print $1}')" != "$(date '+%Y-%m-%d')" ]
-	then getforecast && showweather
-	else showweather
+
+if [ "$(stat -c %y "$HOME/.local/share/weatherreport" | awk '{print $1}')" != "$(date '+%Y-%m-%d')" ]; then
+    getforecast && showweather
+else
+    showweather
 fi
