@@ -1,3 +1,7 @@
 #!/usr/bin/env sh
 
-i3-msg 'workspace 12:Music; exec spotify'
+if [ -z "$(pgrep spotify)" ]; then
+    i3-msg 'workspace 12:Music; exec spotify'
+else
+    i3-msg 'workspace 12:Music'
+fi
