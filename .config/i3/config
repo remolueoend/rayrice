@@ -197,13 +197,15 @@ bindsym $mod+Shift+Up		move up
 bindsym $mod+Shift+Right 	move right
 
 # #-------Apps and Workspaces ----------# #
-set $mode_launcher Launch: [c]hat [m]usic
+set $mode_launcher Launch: [c]hat [m]usic [a]ppointments
 bindsym $mod+c mode "$mode_launcher"
 mode "$mode_launcher" {
   # Chat
   bindsym c mode default; exec --no-startup-id $HOME/.local/bin/workspaces/ws-open-chat.sh
   # Music
   bindsym m mode default; exec --no-startup-id $HOME/.local/bin/workspaces/ws-open-music.sh
+  # Calendar
+  bindsym a mode default; exec --no-startup-id xdg-open https://calendar.google.com
 
   bindsym Escape mode "default"
   bindsym Return mode "default"

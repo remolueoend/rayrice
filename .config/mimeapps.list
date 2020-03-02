@@ -1,5 +1,5 @@
 [Default Applications]
-x-scheme-handler/magnet=torrent.desktop;
+x-scheme-handler/magnet=deluge.desktop;
 x-scheme-handler/mailto=mail.desktop;
 text/plain=text.desktop;
 text/x-shellscript=text.desktop;
@@ -11,3 +11,4 @@ application/rss+xml=rss.desktop
 x-scheme-handler/http=http.desktop
 x-scheme-handler/https=http.desktop
 inode/directory=ranger.desktop
+x-scheme-handler/postman=Postman.desktop
