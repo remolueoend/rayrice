@@ -63,11 +63,10 @@ function use_ocaml {
 }
 
 function eth_mount {
-    # $1: path of the drive, starting with `//`.
-    # $2: target directory (must exist)
-    # $3: ETH username
-    sudo mount $1 $2 -o username=$3
+    # $1: ETH username
+    sudo mount "//d.ethz.ch/users/all/$1" $HOME/eth/home -o username=$1
 }
+
 
 function eth_mount_software {
     # $1 eth-username
@@ -86,6 +85,9 @@ bindkey "^R" history-incremental-search-backward
 
 # ZSH options
 unsetopt correct
+
+# manual plugins
+source $HOME/src/fzf-tab/fzf-tab.plugin.zsh
 
 # source plugin manager and its plugins:
 local zplugin_entry="/usr/share/zsh/plugin-managers/zplugin/zplugin.zsh"

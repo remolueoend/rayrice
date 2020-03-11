@@ -65,13 +65,13 @@ class my_edit(Command):
 class fzf_select(Command):
     """
     :fzf_select
-    Find a file/folder in the current directory using peco.
+    Find a file/folder in the current directory using fzf.
     See: https://github.com/junegunn/fzf
     """
     def execute(self):
         import subprocess
         import os.path
-        fzf = self.fm.execute_command("ls -a " + self.fm.thisdir.path + " | peco", universal_newlines=True, stdout=subprocess.PIPE)
+        fzf = self.fm.execute_command("ls -a " + self.fm.thisdir.path + " | fzf", universal_newlines=True, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
             fzf_file = os.path.abspath(stdout.rstrip('\n'))
@@ -89,7 +89,7 @@ class fzf_select_rec(Command):
     def execute(self):
         import subprocess
         import os.path
-        fzf = self.fm.execute_command("find " + self.fm.thisdir.path + " -name *.* | peco", universal_newlines=True, stdout=subprocess.PIPE)
+        fzf = self.fm.execute_command("find " + self.fm.thisdir.path + " -name *.* | fzf", universal_newlines=True, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
             fzf_file = os.path.abspath(stdout.rstrip('\n'))

@@ -12,17 +12,17 @@ interval=once
 signal=10
 
 [pacpackages]
-label=📦
+label=📦 
 interval=once
 signal=8
 
 [cpu]
 interval=15
-label=💻
+label=💻 
 
 [memory]
 interval=30
-label=🧠
+label=🧠 
 
 [torrent]
 interval=20
@@ -36,7 +36,7 @@ signal=5
 interval=10
 
 [clock]
-label=📅
+label=📅 
 interval=1
 
 

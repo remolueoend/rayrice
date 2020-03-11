@@ -48,6 +48,7 @@ bar {
 	mode dock
 	modifier None
   workspace_min_width 25
+  strip_workspace_numbers yes
 }
 
 
@@ -130,7 +131,7 @@ bindsym $mod+slash		split vertical ;; exec $term
 bindsym $mod+Shift+slash	kill
 bindsym $mod+backslash		workspace back_and_forth
 
-set $ws1 "1"
+set $ws1 "1:🌍"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
