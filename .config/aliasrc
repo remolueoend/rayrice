@@ -29,7 +29,8 @@ alias ka="killall" \
   ec="emacsclient -c" \
   note="TERM=screen-256color emacsclient -t -e \(spacemacs/new-empty-buffer\)" \
   wiki="et $HOME/wiki/" \
-  sysrice="sudo yadm -Y /etc/sysrice"
+  sysrice="sudo yadm -Y /etc/sysrice" \
+  la="exa --long --all --header"
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 

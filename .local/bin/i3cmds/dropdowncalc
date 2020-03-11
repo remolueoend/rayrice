@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-ifinstalled bc && echo "Welcome to the Calculator." && bc -lq
+ifinstalled eva && echo "Welcome to the Calculator." && eva -r # radians

@@ -93,7 +93,7 @@ source $HOME/src/fzf-tab/fzf-tab.plugin.zsh
 local zplugin_entry="/usr/share/zsh/plugin-managers/zplugin/zplugin.zsh"
 if [ -f $zplugin_entry ]; then
     source $zplugin_entry
-    zplugin light zsh-users/zsh-autosuggestions; ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#aaaaaa"
+    # zplugin light zsh-users/zsh-autosuggestions; ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#aaaaaa"
     zplugin light Valiev/almostontop
 else
     echo "[zshrc:warning]: expected zplugin to be installed at $zplugin_entry"
@@ -110,5 +110,3 @@ PERL_MB_OPT="--install_base \"/home/remo/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/remo/perl5"; export PERL_MM_OPT;
 
 source /home/remo/.config/broot/launcher/bash/br
-
-alias E="SUDO_EDITOR=\"emacsclient\" sudo -e"

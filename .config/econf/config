@@ -12,3 +12,4 @@ alias=.config/aliasrc
 zathura=.config/zathura/zathurarc
 onedrive=.config/onedrive
 statusbar=.config/i3blocks/config
+prezto=.zpreztorc
