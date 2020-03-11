@@ -18,17 +18,17 @@ ZFUNC_FOLDER="$HOME/.zfunc"
 mkdir -p $ZFUNC_FOLDER
 fpath=( $ZFUNC_FOLDER "${fpath[@]}" )
 
-# Get current OS and try to source OS specific files
-if [[ -s "$HOME/.dot-files.env" ]]; then
-  source "$HOME/.dot-files.env"
-  source "$HOME/voidrice/$DOTFILES_OS/.zshrc"
-else
-  echo "[WARN] no .dot-files.env found in home directory. OS specific envs won't be sourced."
-fi
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Get current OS and try to source OS specific files
+if [[ -s "$HOME/.dot-files.env" ]]; then
+    source "$HOME/.dot-files.env"
+    source "$HOME/voidrice/$DOTFILES_OS/.zshrc"
+else
+    echo "[WARN] no .dot-files.env found in home directory. OS specific envs won't be sourced."
 fi
 
 ## PATH extensions
