@@ -15,7 +15,7 @@ xautolock \
     -locker lock-screen \
     -detectsleep \
     -notify 30 \
-    -notifier "notify-send -t 15000 \"xautolock\" \"Locking in 30 Seconds\"" &
+    -notifier "notify-send -t 15000 -u critical \"xautolock\" \"Locking in 30 Seconds\"" &
 
 # mpdupdate &
 
@@ -28,5 +28,4 @@ source $HOME/.local/bin/setup_keyboard.sh
 
 # load theme
 xrdb -merge $HOME/themes/normalize.xresource
-# xrdb -merge $HOME/themes/Wombat.xresource
 xrdb -merge $HOME/themes/Argonout.xresource

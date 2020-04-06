@@ -1,7 +1,15 @@
 #!/usr/bin/env sh
 
-# call `lab` to print help/usage message.
+# AUTHOR       : remolueoend
+# DESCRIPTION  : Script for managing jupyter lab servers.
+# REQUIREMENTS :
+# xdg-open
+# jupyter
+# awk
+# jq
 
+
+# call `lab` to print help/usage message.
 usage="Manage jupyter lab servers. Usage:\n
     \tstart\t\tstarts a jupyter server in the current directory or opens the UI of an already running server
     \tstop [dir]\tstops all running servers or only the one running at the provided directory path

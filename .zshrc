@@ -50,6 +50,18 @@ export PATH=$HOME/.ghcup/bin:$PATH
 # Ruby gem executables:
 export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
+function hist() {
+    # Uses fzf to list the zsh's history and inserts the seleted item ready to execute.
+    # uses print -z to push the selected item onto the editing buffer stack,
+    # allowing you to edit it before executing.
+
+    # The awk magic splits each line by ';', but makes sure to print all parts except
+    # the first one (timestamp).
+
+    # fzf is called with no-sort and reverse-order.
+    print -z $(LC_ALL=C awk '{i=index($0,";"); print(substr($0,i+1))}' $HOME/.zhistory | fzf +s --tac)
+}
+
 function use_python {
     # enables python version [$:3.5.6] for the current shell using pyenv
     eval "$(pyenv init -)"

@@ -42,7 +42,7 @@ for_window [class="Yad" title="yad-calendar"] floating enable
 
 # status bar
 bar {
-	font pango:mono 10
+	font pango:monospace 12
 	status_command i3blocks
 	position bottom
 	mode dock
@@ -199,7 +199,7 @@ bindsym $mod+Shift+Right 	move right
 
 # #-------Apps and Workspaces ----------# #
 set $mode_launcher Launch: [c]hat [m]usic [a]ppointments
-bindsym $mod+c mode "$mode_launcher"
+bindsym $mod+d mode "$mode_launcher"
 mode "$mode_launcher" {
   # Chat
   bindsym c mode default; exec --no-startup-id $HOME/.local/bin/workspaces/ws-open-chat.sh

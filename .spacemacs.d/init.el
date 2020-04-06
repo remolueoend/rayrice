@@ -75,6 +75,9 @@ values."
             c-c++-backend 'lsp-ccls
             c-c++-lsp-enable-semantic-highlight 'rainbow)
      ocaml
+     (ranger :variables
+             ranger-show-preview t)
+     org-roam
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -158,16 +161,16 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(grandshell
+   dotspacemacs-themes '(doom-one
+                         grandshell
                          wombat
-                         doom-one
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -355,6 +358,9 @@ you should place your code here."
   (keychain-refresh-environment)
   ; increase preview font size, required by latex preview mode:
   (set-default 'preview-scale-function 1.2)
+  ; ranger settings:
+  (setq ranger-show-hidden t)
+  (setq ranger-cleanup-eagerly t)
   ; include external functions files:
   (add-to-list 'load-path "~/.spacemacs.d")
   (require 'custom-functions)
