@@ -8,4 +8,7 @@ xmodmap -e 'keycode 135 = Super_R' &
 xset r rate 200 50 &	# Speed xrate up
 
 # load custom keybindings
-xkbcomp $HOME/voidrice/xkb.dump $DISPLAY
+# xkbcomp $HOME/voidrice/xkb.dump $DISPLAY
+setxkbmap -print | \
+    sed 's/\(xkb_symbols.*\)"/\1+custom_t490(umlauts)"/' | \
+    xkbcomp -I$HOME/.config/xkb -synch - $DISPLAY 2>/dev/null

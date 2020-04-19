@@ -5,6 +5,5 @@ printf "Beginning upgrade.\\n"
 yay -Syu
 pkill -RTMIN+8 i3blocks
 
-polybar-msg hook updates 1 # update available updates in polybar
 printf "\\nUpgrade complete.\\nPress <Enter> to exit window.\\n\\n"
 read -r
