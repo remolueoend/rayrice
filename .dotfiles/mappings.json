@@ -4,7 +4,6 @@
   ".gdbinit": "~/.gdbinit",
   ".nanorc": "~/.nanorc",
   ".config/econf": "~/.config/econf",
-  ".config/peco/config.json": "~/.config/peco/config.json",
   ".doingrc": "~/.doingrc",
   ".neomutt": "~/.neomutt",
   ".ackrc": "~/.ackrc",

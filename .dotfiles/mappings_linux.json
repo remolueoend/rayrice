@@ -28,7 +28,6 @@
   ".config/fontawesome": "~/.config/fontawesome",
   ".config/user-dirs": "~/.config/user-dirs",
   ".config/wall.png": "~/.config/wall.png",
-  ".config/polybar": "~/.config/polybar",
   ".config/rofi/config": "~/.config/rofi/config",
   ".config/rofi/scripts": "~/.config/rofi/scripts",
   ".fonts": "~/.fonts",
@@ -37,5 +36,6 @@
   ".config/redshift": "~/.config/redshift",
   ".inputrc": "~/.inputrc",
   ".config/systemd": "~/.config/systemd",
-  ".npmrc": "~/.npmrc"
+  ".npmrc": "~/.npmrc",
+  ".config/xkb": "~/.config/xkb"
 }

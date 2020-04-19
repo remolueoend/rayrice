@@ -1,0 +1,6 @@
+xkb_symbols "umlauts" {
+    key <AD08> {
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [               i,               I,          dead_diaeresis,          Iacute ]
+    };
+};
