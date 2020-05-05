@@ -11,6 +11,7 @@ nm-applet &		# network sys-tray
 # start automatic screen locking after 5 minutes,
 # displaying a notification 15 secs before locking the session
 xautolock \
+    -corners 0-0- \
     -time 10 \
     -locker lock-screen \
     -detectsleep \
@@ -26,6 +27,6 @@ synclient PalmDetect=1 # enable palm detection
 # setup xkb and other keybaord related configs:
 source $HOME/.local/bin/setup_keyboard.sh
 
-# load theme
+# load theme: merge normalize after actual theme:
+xrdb $HOME/themes/Argonout.xresource
 xrdb -merge $HOME/themes/normalize.xresource
-xrdb -merge $HOME/themes/Argonout.xresource

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # location=$1; [ -z "$location" ] || { location="$location+" && rm -f "$HOME/.local/share/weatherreport" ;}
-location=$(cat "$HOME/.location")
+location=$(personal address_city)
 
 getforecast() { ping -q -c 1 1.1.1.1 >/dev/null || exit 1
 curl -s "wttr.in/$location" > "$HOME/.local/share/weatherreport" || exit 1 ;}

@@ -76,7 +76,7 @@ function use_ocaml {
 
 function eth_mount {
     # $1: ETH username
-    sudo mount "//d.ethz.ch/users/all/$1" $HOME/eth/home -o username=$1
+    sudo mount "//d.ethz.ch/users/all/$1" $HOME/eth_home -o username=$1
 }
 
 

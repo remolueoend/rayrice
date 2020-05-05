@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+var_name="personal_$1"
+
+echo ${!var_name}

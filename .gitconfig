@@ -3,7 +3,7 @@
 	clean = git media clean %f
 	smudge = git media smudge %f
 [user]
-	name = Remo Zumsteg
+	name = remolueoend
 	email = remolueoend@users.noreply.github.com
 	signingkey = 62130C97
 [core]
