@@ -26,7 +26,7 @@ super + shift + w
 super + shift + g
 	gimp
 ctrl + shift + 4
-	deepin-screenshot -n -s "$HOME/screenshots/$(date)"
+  screenshot
 
 # Et cetera...
 super + grave

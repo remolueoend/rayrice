@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# why on earth does flameshot keep running in background?
+# we start it, listen for the capture event and kill it again.
+
+# for some other reason (wtf), flameshot sends 4 capture events on startup,
+# so we have to ignore them manually.
+
+# One side effect is that the clipboard gets cleared after flameshot is killed.
+# we give ourselves 20s to paste the image somewhere before killall is called.
+
+if ! pgrep -x flameshot > /dev/null; then
+    flameshot &
+fi
+flameshot gui --path $HOME/screenshots
+
+invalid_event=0
+while read -r line; do
+    ((invalid_event++))
+    if [[ "$invalid_event" -gt 4 ]]; then
+        sleep 20
+        killall flameshot
+        exit 0
+    fi
+done < <(dbus-monitor \
+             --profile \
+             "interface='org.dharkael.Flameshot',member='captureTaken'" \
+             "interface='org.dharkael.Flameshot',member='captureFailed'" 
+        )
