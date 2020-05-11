@@ -1,4 +1,4 @@
-# remolueoend's Voidrice
+# Voidrice
 
 These are my dotfiles, based on Luke's rice: https://github.com/LukeSmithxyz/voidrice:
 
