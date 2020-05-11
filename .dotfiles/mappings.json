@@ -4,6 +4,7 @@
   ".config/zsh/.zpreztorc": "~/.config/zsh/.zpreztorc",
   ".config/zsh/.zlogout": "~/.config/zsh/.zlogout",
   ".config/zsh/.zlogin": "~/.config/zsh/.zlogin",
+  ".config/zsh/.zprezto": "~/.config/zsh/.zprezto",
   ".zprofile": "~/.zprofile",
   ".gitconfig": "~/.gitconfig",
   ".config/econf": "~/.config/econf",

@@ -1,3 +1,6 @@
 [submodule ".config/mpv/scripts/mpvSockets"]
 	path = .config/mpv/scripts/mpvSockets
 	url = https://github.com/wis/mpvSockets.git
+[submodule ".config/zsh/.zprezto"]
+	path = .config/zsh/.zprezto
+	url = https://github.com/sorin-ionescu/prezto.git
