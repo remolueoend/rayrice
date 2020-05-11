@@ -1,7 +1,7 @@
 econf=.config/econf/config
 i3=.config/i3/config
 ssh=.ssh/config
-zsh=.zshrc
+zsh=.config/zsh/.zshrc
 setup=dot-files/Arch/setup.sh
 dotfiles=voidrice/.dotfiles
 ranger=.config/ranger/rc.conf

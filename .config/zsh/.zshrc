@@ -50,14 +50,12 @@ function eth_mount_software {
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
 
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc"
@@ -73,7 +71,7 @@ _comp_options+=(globdots)		# Include hidden files.
 
 # vi mode
 bindkey -v
-#bindkey "^R" history-incremental-search-backward
+bindkey "^R" history-incremental-search-backward
 #unsetopt correct
 
 # manual plugins
@@ -85,27 +83,6 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
@@ -136,7 +113,7 @@ source $HOME/src/fzf-tab/fzf-tab.plugin.zsh
 local zplugin_entry="/usr/share/zsh/plugin-managers/zplugin/zplugin.zsh"
 if [ -f $zplugin_entry ]; then
     source $zplugin_entry
-    # zplugin light zsh-users/zsh-autosuggestions; ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#aaaaaa"
+    zplugin light zsh-users/zsh-autosuggestions; ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#aaaaaa"
     zplugin light Valiev/almostontop
 else
     echo "[zshrc:warning]: expected zplugin to be installed at $zplugin_entry"

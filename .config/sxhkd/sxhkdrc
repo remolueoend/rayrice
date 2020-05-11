@@ -59,7 +59,7 @@ super + shift + x
 super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A reboot"
 super + shift + Escape
-	prompt 'Leave Xorg?' 'killall Xorg'
+	prompt 'Leave Xorg?' 'sudo -A killall Xorg'
 super + x
   lock-screen
 XF86Launch1
@@ -113,6 +113,8 @@ super + shift + m
 # Audiokeys
 XF86AudioMute
 	amixer sset Master toggle; pkill -RTMIN+10 blocks
+XF86AudioMicMute
+  amixer sset Capture toggle; pkill -RTMIN+10 blocks
 XF86Audio{Raise,Lower}Volume
 	amixer sset Master 5%{+,-}; pkill -RTMIN+10 blocks
 XF86Audio{Next,Prev}
