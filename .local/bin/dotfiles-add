@@ -8,7 +8,7 @@
 
 work_dir=$HOME                                               # base path where dotfiles are linked to
 repo_path="$HOME/voidrice"                                   # path to the dotfiles repo
-dotfiles_config="$repo_path/.dotfiles/mappings_linux.json"   # path to the dotfiles mappings file
+dotfiles_config="$repo_path/.dotfiles/mappings.json"   # path to the dotfiles mappings file
 file_path=$(realpath --relative-to="$work_dir" "$1")         # provided path relative to $work_dir
 orig_path=$(realpath $1)                                     # current path of file (replaced by symlink)
 new_path="$repo_path/$file_path"                             # new file path (in dotfiles repo)
