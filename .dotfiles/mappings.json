@@ -8,7 +8,6 @@
   ".zprofile": "~/.zprofile",
   ".gitconfig": "~/.gitconfig",
   ".config/econf": "~/.config/econf",
-  ".spacemacs.d": "~/.spacemacs.d",
   ".ssh/config": "~/.ssh/config",
   "themes": "~/themes",
   ".xprofile": "~/.xprofile",
@@ -44,11 +43,12 @@
   ".config/nvim": "~/.config/nvim",
   ".inputrc": "~/.inputrc",
   ".config/systemd": "~/.config/systemd",
-  ".npmrc": "~/.npmrc",
   ".config/xkb": "~/.config/xkb",
   ".config/alacritty/alacritty.yml": "~/.config/alacritty/alacritty.yml",
   ".config/udevmon_layers": "~/.config/udevmon_layers",
   ".config/alsa": "~/.config/alsa",
   ".config/ncmpcpp/config": "~/.config/ncmpcpp/config",
-  ".config/ncmpcpp/bindings": "~/.config/ncmpcpp/bindings"
+  ".config/ncmpcpp/bindings": "~/.config/ncmpcpp/bindings",
+  ".spacemacs.d/custom-functions.el": "~/.spacemacs.d/custom-functions.el",
+  ".spacemacs.d/init.el": "~/.spacemacs.d/init.el"
 }
