@@ -1,5 +1,3 @@
 {
-  ".config/karabiner": "~/.config/karabiner",
-  ".chunkwmrc": "~/.chunkwmrc",
-  ".skhdrc": "~/.skhdrc"
+  ".config/karabiner": "~/.config/karabiner"
 }
