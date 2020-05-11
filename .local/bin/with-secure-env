@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+#
+# Executes a command with its arguments in an environment
+# where the GNU pass entry with the command's name was sourced before.
+# The GNU pass entry is sourced - make sure you trust your credentials and export everythin you need!
+#
+# This allows eg. saving credentials as environment variables in a pass entry
+# and start the desired command via this script:
+# // ~/.password-store/my-command.gpg:
+# export MY_VAR=foo # export is important!
+#
+# // my-command:
+# echo $MY_VAR $1
+#
+# // prints 'foo bar':
+# with-secure-env my-command bar
+#
+#
+
+exec_name=$1
+
+source <(pass show $exec_name)
+exec $exec_name "${@:2}" 

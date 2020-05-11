@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+DIR=$(dirname $0)
+source $DIR/shared.sh
+
+# todo: make base path configurable
+cd $HOME
+
+if [ "$#" -eq 0 ]; then
+    $EDITOR "voidrice/.config"
+else
+    # todo: make econf config path configurable
+    CFG_FILE_PATH=$(LIB_read_env_file_like ~/.config/econf/config $1)
+    $EDITOR $(readlink -f $CFG_FILE_PATH)
+fi

@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+tmp_path="$(mktemp -d)/earth.jpg"
+file_path=~/.config/active_wallpaper
+
+echo $tmp_path
+
+wget https://cdn.star.nesdis.noaa.gov/GOES16/ABI/FD/GEOCOLOR/1808x1808.jpg -O "$tmp_path"
+magick \
+    -size 1808x1898 xc:black \
+    -fill black "$tmp_path" \
+    -geometry +0+20 \
+    -draw "rectangle 0,1777 1808,1808" \
+    -draw "rectangle 0,1500 200,1808" \
+    -composite PNG32:"$file_path"
+
+xwallpaper --focus "$file_path"

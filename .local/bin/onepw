@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+
+DIR=$(dirname $0)
+
+source $DIR/shared.sh
+
+if [ -z $OP_SESSION_my ]; then
+  eval $(op signin my)
+fi
+
+ALL_ITEMS=$(op list items)
+ALL_ITEM_NAMES=$(echo $ALL_ITEMS | jq -r ".[].overview.title")
+SELECTED_ITEM_NAME=$(echo "$ALL_ITEM_NAMES" | dmenu)
+SELECTED_ITEM_ID=$(echo $ALL_ITEMS | jq -r '.[] | select(.overview.title == "'"$SELECTED_ITEM_NAME"'") | .uuid')
+ITEM_DETAILS=$(op get item $SELECTED_ITEM_ID)
+
+# logins
+PW_details_fields_designation_password=$(echo $ITEM_DETAILS | jq -r '.details.fields[] | select(.designation == "password") | .value' 2> /dev/null || echo "")
+# documents with passwords
+PW_details_sections_fields_t_password=$(echo $ITEM_DETAILS | jq -r '.details.sections[0].fields[] | select(.t == "Password") | .v' 2> /dev/null || echo "")
+
+[ -n "$PW_details_fields_designation_password" ] && echo "$PW_details_fields_designation_password" | xclip -sel clip && exit 0
+[ -n "$PW_details_sections_fields_t_password" ] && echo "$PW_details_sections_fields_t_password" | xclip -sel clip && exit 0
+
+echo "Could not parse a password from the selected item:"
+echo $ITEM_DETAILS | jq
+
+exit 1

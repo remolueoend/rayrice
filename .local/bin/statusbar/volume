@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # Prints the current volume or 🔇 if muted. Uses PulseAudio by default,
 # uncomment the ALSA lines if you remove PulseAudio.

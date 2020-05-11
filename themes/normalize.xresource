@@ -1,0 +1,5 @@
+! remove transparency from st:
+st.alpha: 1
+
+st.font: mono:pixelsize=15:antialias=true:autohint=true
+st.font2: { Inconsolata:pixelsize=14:antialias=true:autohint=true }

@@ -1,0 +1,14 @@
+[Unit]
+Description=OneDrive Free Client for %u
+Documentation=https://github.com/abraunegg/onedrive
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/onedrive --monitor --confdir=/home/%u/.config/onedrive
+Restart=on-failure
+RestartSec=3
+RestartPreventExitStatus=3
+
+[Install]
+WantedBy=default.target

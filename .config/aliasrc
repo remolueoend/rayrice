@@ -34,10 +34,20 @@ alias \
 	xi="sudo xbps-install" \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
-	z="zathura"
+	z="zathura" \
+	open="xdg-open"
 
+# other tools
 alias \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
+	SS="sudo systemctl" \
+	ec="emacsclient -c" \
+	note="TERM=screen-256color emacsclient -t -e \(spacemacs/new-empty-buffer\)" \
+	wiki="et $HOME/wiki/" \
+	sysrice="sudo yadm -Y /etc/sysrice" \
+	la="exa --long --all --header" \
+	trello="with-secure-env trello" \
+	personal="with-secure-env personal"

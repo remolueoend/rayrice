@@ -9,10 +9,15 @@
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 
 # Default programs:
-export EDITOR="nvim"
+export EDITOR="et"
 export TERMINAL="st"
-export BROWSER="brave"
-export READER="zathura"
+export BROWSER="vivaldi-stable"
+export browser="vivaldi-stable"
+export READER="evince"
+export FILE="ranger"
+export BIB="$HOME/Documents/LaTeX/uni.bib"
+export REFER="$HOME/Documents/referbib"
+export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -29,7 +34,6 @@ export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
 #export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
 export KODI_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/kodi"
-export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"

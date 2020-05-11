@@ -1,0 +1,36 @@
+#!/usr/bin/env sh
+
+# removes a given path from the dotfiles repo.
+# removes the .dotfiles mappings entry for the given path
+# and moves the file/folder from the dotfiles repo to its
+# original location.
+# $1: path of the file/folder to remove. Must be located under the dotfiles repo.
+
+
+# todo: make repo path and config path configurable
+
+work_dir=$HOME                                               # base path where dotfiles are linked to
+repo_path="$HOME/voidrice"                                   # path to the dotfiles repo
+dotfiles_config="$repo_path/.dotfiles/mappings_linux.json"   # path to the dotfiles mappings file
+file_path=$(realpath --relative-to="$repo_path" "$1")        # provided path relative to $repo_path
+orig_path=$repo_path/$file_path                              # current path of file (in dotfiles repo)
+new_path=$work_dir/$file_path                                # new path of file (replacing symlink)
+
+# validating existing symlink pointing to current path of file:
+target=$(readlink -f $new_path)
+if [ $target != $orig_path ]; then
+    echo "ERROR: could not find a symlink at $new_path pointing to $orig_path"
+    exit 2
+fi
+
+new_mappings="$(jq "del(.[\"$file_path\"])" < $dotfiles_config)"
+
+echo "removing $file_path from mappings"
+echo "$new_mappings" > $dotfiles_config
+
+echo "removing symlink at $new_path"
+rm $new_path
+
+echo "moving $orig_path to original location at $new_path"
+mv $orig_path $new_path
+

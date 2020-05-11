@@ -1,0 +1,6 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Xonotic
+Exec=sh -c "\$HOME/games/Xonotic/xonotic-linux64-glx -basedir $HOME/games/Xonotic"
