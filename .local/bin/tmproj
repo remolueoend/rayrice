@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+set -e
+
+dir=$(mktemp -d)
+
+cd $dir
+
+code .
+$TERMINAL

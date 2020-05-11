@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# starts (stops) the teamviewer daemon before (after) opening (closing) the actual desktop app:
+sudo -A systemctl start teamviewerd.service
+teamviewer
+sudo -A systemctl stop teamviewerd.service

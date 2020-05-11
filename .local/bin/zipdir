@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+remove=0
+path=$1
+
+if [[ $1 == "-r" ]]; then
+    remove=1
+    $path=$2
+fi
+
+dirpath=$(realpath "$path")
+
+pushd "$dirpath"
+zip -r "$dirpath.zip" *
+popd
+
+if [[ remove == 1 ]]; then
+    rm -r "$path"
+fi
+
+

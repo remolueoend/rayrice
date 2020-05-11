@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 clock=$(date '+%I')
 
@@ -27,3 +27,6 @@ case $BLOCK_BUTTON in
 esac
 
 date "+%Y %b %d (%a) $icon%I:%M%p"
+
+#for europeans, use this
+# printf '%s %s%s\n' "$(date '+%a %d/%m')" "$icon" "$(date '+%I:%M%p')"

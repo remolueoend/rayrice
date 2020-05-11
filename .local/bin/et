@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+TERM=screen-256color
+emacsclient -t -c "$@"

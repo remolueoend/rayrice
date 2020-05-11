@@ -1,6 +1,6 @@
-# The Voidrice (Luke Smith <https://lukesmith.xyz>'s dotfiles)
+# remolueoend's Voidrice
 
-These are the dotfiles deployed by [LARBS](https://larbs.xyz) and as seen on [my YouTube channel](https://youtube.com/c/lukesmithxyz).
+These are my dotfiles, based on Luke's rice: https://github.com/LukeSmithxyz/voidrice:
 
 - Very useful scripts are in `~/.local/bin/`
 - Settings for:

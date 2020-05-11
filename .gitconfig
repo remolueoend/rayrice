@@ -1,0 +1,111 @@
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[user]
+	name = remolueoend
+	email = remolueoend@users.noreply.github.com
+	signingkey = 62130C97
+[core]
+	autocrlf = input
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[push]
+	default = upstream
+[color]
+	ui = auto
+[diff "pandoc"]
+    textconv=pandoc --to=markdown
+    prompt = false
+[alias]
+  reb-master = pull --rebase=interactive origin master
+  reb-master-common = !git fetch origin && git rebase -i $(git merge-base HEAD origin/master)
+  wdiff = diff --word-diff=color --unified=1
+	h = help
+  st = status
+
+  l = log --graph --pretty=format:\"%C(yellow)[%h]%Creset %C(cyan)%an:%Creset %C(white)%s%Creset%C(green)%d%Creset %C(black bold)%ar%Creset\"
+  lstat = "!cd ${GIT_PREFIX:-.} && git l --stat"
+  ldiff = log -p
+
+  dc = diff --cached
+  ds = diff --stat
+
+  ap = add -p
+  all = add -A
+  unstage = reset HEAD -p
+  discard = checkout -p
+  ci = commit -v
+  ca = commit -va
+  amend = commit -v --amend
+  reword = commit -v --amend --only
+  extend = commit -v --amend --no-edit
+  initial = commit --allow-empty -m 'Initial commit'
+
+  r = remote -v
+  rup = remote update
+  shallow = clone --depth 1
+
+  up = pull -v --progress
+  upall = pull-all
+  ff = merge --ff-only HEAD@{u}
+  rem = rebase-maybe
+  continue = rebase --continue
+  skip = rebase --skip
+  solve = mergetool
+  splice = mergetool --tool=splice
+
+  pu   = -c push.default=simple   push -v --progress
+  pua  = -c push.default=matching push -v --progress
+  poof = -c push.default=simple   push -v --progress --force-with-lease
+  pub  = "!f() { local target=$1; shift; git push . HEAD:$target $@; }; f"
+  delbranch = "!f() { git branch -d $1 && git pu github :$1; }; f"
+
+  sub = submodule
+  checkout-submodules = submodule update -q --init
+
+  sts = stash save
+  stp = stash pop
+  std = "!git stash drop && git stl"
+  stw = "!cd ${GIT_PREFIX:-.} && git --no-pager -c color.ui=always stash show"
+  stl = "!cd ${GIT_PREFIX:-.} && git --no-pager -c color.ui=always stash list"
+
+  # shell wrappers
+  sh = "!f() { [ $# -gt 0 ] && \"$@\"; }; f"
+  bash = "!f() { [ $# -gt 0 ] && bash -ic \"$@\"; }; f"
+  ag = "!ag --smart-case"
+
+  rake  = "!rake"
+  rails = "!rails"
+  guard = "!guard"
+  cap = "!cap"
+  ctags = "!f() { local dir=$( git rev-parse --git-dir); [ -d \"$dir\" ] && git ls-files | ctags -RL - --tag-relative -f \"$dir/tags\"; }; f"
+
+  mux = "!mux"
+  bun = "!bun"
+  ed = edit
+
+  # try to run a GUI, or tig on terminals
+  g = "!f() { if [ \"`uname -s`\" = 'Darwin' ]; then (gitx $@ &>/dev/null &); elif [ -n \"$DISPLAY\" ]; then (gitg $@ &>/dev/null &); else tig $@; fi; }; f"
+[fetch]
+	recurseSubmodules = false
+[commit]
+  gpgsign = false
+[gpg]
+	program = gpg
+[merge]
+	tool = kdiff3
+[mergetool "kdiff3"]
+	path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+[rebase]
+	autosquash = true
+[credential]
+	helper = cache --timeout 28800
+[diff]
+	tool = bc3
