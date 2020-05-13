@@ -1,0 +1,16 @@
+#!/bin/sh
+
+pushd "$HOME/voidrice"
+magit
+git fetch upstream master:upstream_master
+git rebase -i upstream_master
+git l
+read -p "Do you want to push [y/N]? " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    # git push force because of rebase:
+    git push origin master -f
+fi
+git-wtf
+popd
