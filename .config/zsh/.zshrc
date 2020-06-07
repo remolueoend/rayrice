@@ -22,7 +22,9 @@ export PATH=$HOME/.opam/default/bin:$PATH
 # haskell
 export PATH=$HOME/.ghcup/bin:$PATH
 # Ruby gem executables:
-export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
+export PATH=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH
+# Go
+export PATH=$PATH:$GOPATH/bin:$GOPATH/src/github.com/docker/docker-credential-helpers/bin
 
 function use_python {
     # enables python version [$:3.5.6] for the current shell using pyenv
@@ -114,7 +116,7 @@ local zplugin_entry="/usr/share/zsh/plugin-managers/zplugin/zplugin.zsh"
 if [ -f $zplugin_entry ]; then
     source $zplugin_entry
     zplugin light zsh-users/zsh-autosuggestions; ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#aaaaaa"
-    zplugin light Valiev/almostontop
+    # zplugin light Valiev/almostontop
 else
     echo "[zshrc:warning]: expected zplugin to be installed at $zplugin_entry"
 fi

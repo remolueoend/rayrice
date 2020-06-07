@@ -5,7 +5,7 @@
   ".config/zsh/.zlogout": "~/.config/zsh/.zlogout",
   ".config/zsh/.zlogin": "~/.config/zsh/.zlogin",
   ".config/zsh/.zprezto": "~/.config/zsh/.zprezto",
-  ".config/tmux/tmux.conf":"~/.config/tmux/tmux.conf",
+  ".config/tmux/tmux.conf": "~/.config/tmux/tmux.conf",
   ".zprofile": "~/.zprofile",
   ".gitconfig": "~/.gitconfig",
   ".config/econf": "~/.config/econf",
@@ -52,5 +52,7 @@
   ".config/ncmpcpp/bindings": "~/.config/ncmpcpp/bindings",
   ".spacemacs.d/custom-functions.el": "~/.spacemacs.d/custom-functions.el",
   ".spacemacs.d/init.el": "~/.spacemacs.d/init.el",
-  ".config/ideavim/ideavimrc": "~/.config/ideavim/ideavimrc"
+  ".config/ideavim/ideavimrc": "~/.config/ideavim/ideavimrc",
+  ".config/kitty": "~/.config/kitty",
+  ".emacs.d/private/snippets": "~/.emacs.d/private/snippets"
 }

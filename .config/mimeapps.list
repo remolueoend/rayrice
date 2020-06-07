@@ -19,3 +19,4 @@ x-scheme-handler/lbry=lbry.desktop
 inode/directory=file.desktop
 x-scheme-handler/http=http.desktop
 x-scheme-handler/https=http.desktop
+text/html=http.desktop

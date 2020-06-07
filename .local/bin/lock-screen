@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# exit right away if lock screen is already running:
+if pgrep -x "i3lock" > /dev/null; then
+    exit 0
+fi
+
 # locks the screen after pausing IO (audio, notifications) etc.
 # powers off the screen immediately.
 # uses a blurred screenshot as lockscreen background.
@@ -9,11 +14,13 @@ pauseallmpv                        # pause mpv
 notify-send DUNST_COMMAND_PAUSE    # pause notifications
 
 # takes a while, so do it after turning off everthing else:
-bg_path=$(mktemp -d)/lock-bg.png
-trap "rm -f $bg_path" EXIT
+# bg_path=$(mktemp -d)/lock-bg.png
+# trap "rm -f $bg_path" EXIT
 
-scrot $bg_path
-magick $bg_path -level "0%,100%,0.6" -filter Gaussian -resize 20% -define "filter:sigma=1.5" -resize 500.5% $bg_path
+# scrot $bg_path
+# magick $bg_path -level "0%,100%,0.6" -filter Gaussian -resize 20% -define "filter:sigma=1.5" -resize 500.5% $bg_path
+
+bg_path=/etc/lightdm/backgrounds/space-3.png
 
 xset dpms force off                # power off screen
 i3lock -n -e -f -i $bg_path        # start i3lock with no-fork
