@@ -27,7 +27,7 @@ super + ctrl + o
 super + u
   ddspawn tmuxdd
 super + a
-  ddspawn dropdowncalc -f mono:pixelsize=24 
+  ddspawn dropdowncalc
 super + r
 	$TERMINAL -e $FILE
 super + i

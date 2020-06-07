@@ -10,7 +10,7 @@ export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 
 # Default programs:
 export EDITOR="et"
-export TERMINAL="st"
+export TERMINAL="kitty"
 export BROWSER="vivaldi-stable"
 export browser="vivaldi-stable"
 export READER="evince"
@@ -18,6 +18,8 @@ export FILE="ranger"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/Documents/referbib"
 export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
+export SSH_ASKPASS=/usr/lib/ssh/gnome-ssh-askpass2
+export STATUSBAR=i3blocks
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"

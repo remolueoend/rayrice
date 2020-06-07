@@ -35,15 +35,15 @@ zstyle ':prezto:load' pmodule \
   'prompt' \
   'git' \
   'syntax-highlighting' \
-  'history-substring-search' \
-  'autosuggestions'
+  'history-substring-search'
+# 'autosuggestions'
 
 #
 # Autosuggestions
 #
 
 # Set the query found color.
-zstyle ':prezto:module:autosuggestions:color' found 'fg=#aaaaaa'
+# zstyle ':prezto:module:autosuggestions:color' found 'fg=#aaaaaa'
 
 #
 # Editor

@@ -30,4 +30,4 @@ esac
 #printf '%s %s%s\n' "$(date '+%Y %b %d (%a)')" "$icon" "$(date '+%I:%M%p')"
 
 #for europeans, use this
-printf ' %s %s%s\n' "$(date '+%d.%m')" "$icon " "$(date '+%H:%M')"
+printf ' %s %s%s\n' "$(date '+%d.%m')" "$icon " "$(date '+%H:%M:%S')"

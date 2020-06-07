@@ -3,7 +3,7 @@ separator_block_width=15
 markup=pango
 
 [battery]
-command=battery BAT0
+command=battery
 interval=5
 
 [volume]
@@ -62,7 +62,7 @@ signal=5
 
 [clock]
 label=📅
-interval=30
+interval=1
 
 # [help-icon]
 # interval=once

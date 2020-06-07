@@ -49,4 +49,6 @@ alias \
 	sysrice="sudo yadm -Y /etc/sysrice" \
 	la="exa --long --all --header" \
 	trello="with-secure-env trello" \
-	personal="with-secure-env personal"
+	personal="with-secure-env personal" \
+  copy="xclip -selection c" \
+  paste="xclip -selection c -o"

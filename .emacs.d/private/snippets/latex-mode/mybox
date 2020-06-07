@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: mybox tcb
+# key: mybox
+# --
+\begin{mybox}{\hypertarget{$1}{$2}}
+  $3
+\end{mybox}
