@@ -1,3 +1,4 @@
 #!/bin/sh
 
-ifinstalled eva && echo "Welcome to the Calculator." && eva -r # radians
+# ifinstalled eva && echo "Welcome to the Calculator." && eva -r # radians
+julia -i
