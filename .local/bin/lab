@@ -1,37 +1,58 @@
 #!/usr/bin/env sh
 
-# AUTHOR       : remolueoend
+# AUTHOR       : github.com/remolueoend
 # DESCRIPTION  : Script for managing jupyter lab servers.
-# REQUIREMENTS :
-# xdg-open
-# jupyter
-# awk
-# jq
+# DEPENDENCIES : xdg-open jupyter awk jq
 
 
 # call `lab` to print help/usage message.
 usage="Manage jupyter lab servers. Usage:\n
-    \tstart\t\tstarts a jupyter server in the current directory or opens the UI of an already running server
-    \tstop [dir]\tstops all running servers or only the one running at the provided directory path
+    \tstart [dir=CWD]\tstarts a jupyter server at the given directory or opens the UI of an already running server
+    \tstop  [dir]\tstops all running servers or only the one running at the provided directory path
     \tlist\t\tlists all running jupyter servers\n"
 
 ip=0.0.0.0
 cwd=$(pwd -P)
 
-# returns the URL of the jupyter server running in the current working directory.
-function get_cwd_url()
+# returns the absolute path of a given path.
+# returns the current working directory if no path was provided
+#
+# [$1] the path to resolve
+function resolve_with_def_cwd()
 {
-    jupyter notebook list | grep "$cwd" | awk -F " :: " '{ print $1 }'
+    if [ -z "$1" ]; then
+        echo $cwd
+    else
+        echo $(readlink -f "$1")
+    fi
 }
 
-# start a jupyter server in the current directory (where the command was called).
+# prints a raw list of running servers. Returns nothing if no server is running.
+function get_running_servers()
+{
+    jupyter notebook list | tail -n +2 | awk -F" :: " '{ print($2"\t"$1) }'
+}
+
+# Returns the URL of the jupyter server running in the given working directory.
+# Returns nothing if no server was found.
+#
+# $1 the working directory of the server
+function get_dir_url()
+{
+    get_running_servers | awk -v wd="$1" -F"\t" '{ if($1==wd){print $2} }'
+}
+
+# start a jupyter server in the given directory (default is current working directory).
 # if there is already a server running, the URL of the server is opened instead.
+#
+# [$1=$cwd] working directory of the server
 function start()
 {
-    url=$(get_cwd_url)
+    wd=$(resolve_with_def_cwd "$1")
+    url=$(get_dir_url $wd)
     if [ -z "$url" ]; then
-        echo "starting server at $cwd"
-        jupyter lab --ip=$ip . 1>/dev/null 2>/dev/null &
+        echo "starting server at $wd"
+        jupyter lab --ip=$ip "$wd" 1>/dev/null 2>/dev/null &
     else
         echo "found running server, opening URL"
         xdg-open $url
@@ -49,6 +70,7 @@ function stop_all()
 }
 
 # stops a jupyter server running at the given directory path.
+#
 # $1: directory path of the server
 function stop()
 {
@@ -61,9 +83,20 @@ function stop()
     fi
 }
 
+# prints a list of currently running servers
+function print_running_servers()
+{
+    list=$(get_running_servers)
+    if [ -z "$list" ]; then
+        echo "no server running"
+    else
+        echo "$list"
+    fi
+}
+
 case "$1" in
     start)
-        start
+        start "$2"
         ;;
     stop)
         if [ -z "$2" ]; then
@@ -73,7 +106,8 @@ case "$1" in
         fi
         ;;
     list)
-        jupyter notebook list "${@:2}"
+        print_running_servers
+
         ;;
     *)
         echo -e "$usage"
