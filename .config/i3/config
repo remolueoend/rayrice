@@ -199,15 +199,23 @@ bindsym $mod+Shift+Right 	move right
 bindsym $mod+Ctrl+Right		move workspace to output right
 
 # #-------Apps and Workspaces ----------# #
-set $mode_launcher Launch: [c]hat [m]usic [a]ppointments
+set $mode_launcher Launch: [w]eb [c]hat [m]usic [g]mail [a]ppointments [d]rive [p]hotos
 bindsym $mod+d mode "$mode_launcher"
 mode "$mode_launcher" {
+  # Web
+  bindsym w mode default; exec --no-startup-id $HOME/.local/bin/workspaces/ws-open-web.sh
   # Chat
   bindsym c mode default; exec --no-startup-id $HOME/.local/bin/workspaces/ws-open-chat.sh
   # Music
   bindsym m mode default; exec --no-startup-id $HOME/.local/bin/workspaces/ws-open-music.sh
   # Calendar
   bindsym a mode default; exec --no-startup-id xdg-open https://calendar.google.com
+  # Google Drive
+  bindsym d mode default; exec --no-startup-id xdg-open https://drive.google.com
+  # gmail
+  bindsym g mode default; exec --no-startup-id xdg-open https://gmail.com
+  # google photos
+  bindsym p mode default; exec --no-startup-id xdg-open https://photos.google.com
 
   bindsym Escape mode "default"
   bindsym Return mode "default"

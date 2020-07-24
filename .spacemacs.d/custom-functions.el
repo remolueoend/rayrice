@@ -20,3 +20,19 @@
 
 (provide 'custom-functions)
 
+
+(defun org-html-export-to-mhtml (async subtree visible body)
+  (interactive "foobar")
+  (cl-letf (((symbol-function 'org-html--format-image) 'format-image-inline))
+    (org-html-export-to-html nil subtree visible body)))
+
+(defun format-image-inline (source attributes info)
+  (let* ((ext (file-name-extension source))
+         (prefix (if (string= "svg" ext) "data:image/svg+xml;base64," "data:;base64,"))
+         (data (with-temp-buffer (url-insert-file-contents source) (buffer-string)))
+         (data-url (concat prefix (base64-encode-string data)))
+         (attributes (org-combine-plists `(:src ,data-url) attributes)))
+    (org-html-close-tag "img" (org-html--make-attribute-string attributes) info)))
+
+;; (org-export-define-derived-backend 'html-inline-images 'html
+;;   :menu-entry '(?h "Export to HTML" ((?m "As MHTML file an open" org-html-export-to-mhtml))))
