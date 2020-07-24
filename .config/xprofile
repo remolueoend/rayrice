@@ -19,16 +19,17 @@ dunst &			# dunst for notifications
 unclutter &		# Remove mouse when idle
 sxhkd &         # Bind keys
 nm-applet &		# network sys-tray
+dex -a -s $HOME/.config/autostart # auto start user specific apps
 
 # start automatic screen locking after 5 minutes,
 # displaying a notification 15 secs before locking the session
-xautolock \
-    -corners 0-0- \
-    -time 10 \
-    -locker lock-screen \
-    -detectsleep \
-    -notify 30 \
-    -notifier "notify-send -t 15000 -u critical \"xautolock\" \"Locking in 30 Seconds\"" &
+# xautolock \
+#     -corners 0-0- \
+#     -time 10 \
+#     -locker lock-screen \
+#     -detectsleep \
+#     -notify 30 \
+#     -notifier "notify-send -t 15000 -u critical \"xautolock\" \"Locking in 30 Seconds\"" &
 
 
 # Trackpad

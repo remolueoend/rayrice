@@ -43,3 +43,11 @@ curl -LO larbs.xyz/larbs.sh
 ```
 
 or clone the repo files directly to your home directory and install [the prerequisite programs](https://github.com/LukeSmithxyz/LARBS/blob/master/progs.csv) or [those required for the i3 setup](https://github.com/LukeSmithxyz/LARBS/blob/master/legacy.csv).
+
+## Useful tools
+
+| name  | tags                       |
+| ----- | ------                     |
+| duc   | disk space                 |
+| tlp   | energy battery performance |
+

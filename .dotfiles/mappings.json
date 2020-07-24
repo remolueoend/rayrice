@@ -54,5 +54,6 @@
   ".spacemacs.d/init.el": "~/.spacemacs.d/init.el",
   ".config/ideavim/ideavimrc": "~/.config/ideavim/ideavimrc",
   ".config/kitty": "~/.config/kitty",
-  ".emacs.d/private/snippets": "~/.emacs.d/private/snippets"
+  ".emacs.d/private/snippets": "~/.emacs.d/private/snippets",
+  ".config/wget/wgetrc": "~/.config/wget/wgetrc"
 }

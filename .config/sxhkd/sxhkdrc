@@ -40,10 +40,6 @@ super + shift + c
 	mpv --no-osc --no-input-default-bindings --input-conf=/dev/null --title='mpvfloat' /dev/video0
 super + shift + e
 	tutorialvids
-super + shift + w
-	$BROWSER
-super + shift + g
-	gimp
 ctrl + shift + 4
   screenshot
 
