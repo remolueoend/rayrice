@@ -61,7 +61,7 @@ signal=5
 # interval=10
 
 [clock]
-label=📅
+label=📅 
 interval=1
 
 # [help-icon]
