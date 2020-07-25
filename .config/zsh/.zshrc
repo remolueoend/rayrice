@@ -100,7 +100,7 @@ bindkey -s '^o' 'lfcd\n'
 
 bindkey -s '^a' 'bc -l\n'
 
-bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
+# bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
 bindkey '^[[P' delete-char
 
@@ -109,13 +109,14 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # source plugins
-source $HOME/src/fzf-tab/fzf-tab.plugin.zsh
+# source $HOME/src/fzf-tab/fzf-tab.plugin.zsh
 
 # source plugin manager and its plugins:
 local zplugin_entry="/usr/share/zsh/plugin-managers/zplugin/zplugin.zsh"
 if [ -f $zplugin_entry ]; then
     source $zplugin_entry
     zplugin light zsh-users/zsh-autosuggestions; ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#aaaaaa"
+    bindkey "^F" forward-word
     # zplugin light Valiev/almostontop
 else
     echo "[zshrc:warning]: expected zplugin to be installed at $zplugin_entry"

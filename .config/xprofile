@@ -37,5 +37,5 @@ dex -a -s $HOME/.config/autostart # auto start user specific apps
 synclient PalmDetect=1 # enable palm detection
 
 # load theme: merge normalize after actual theme:
-xrdb $HOME/themes/Argonout.xresource
-xrdb -merge $HOME/themes/normalize.xresource
+xrdb $HOME/.config/themes/Argonout.xresource
+xrdb -merge $HOME/.config/themes/normalize.xresource
