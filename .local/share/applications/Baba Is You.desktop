@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Baba Is You
-Comment=Play this game on Steam
-Exec=steam steam://rungameid/736260
-Icon=steam_icon_736260
-Terminal=false
-Type=Application
-Categories=Game;
