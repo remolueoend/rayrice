@@ -5,6 +5,8 @@
   ".config/zsh/.zlogout": "~/.config/zsh/.zlogout",
   ".config/zsh/.zlogin": "~/.config/zsh/.zlogin",
   ".config/zsh/.zprezto": "~/.config/zsh/.zprezto",
+  ".config/files": "~/.config/files",
+  ".config/directories": "~/.config/directories",
   ".config/tmux/tmux.conf": "~/.config/tmux/tmux.conf",
   ".zprofile": "~/.zprofile",
   ".config/git/config": "~/.config/git/config",

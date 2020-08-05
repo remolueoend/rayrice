@@ -51,4 +51,5 @@ alias \
 	trello="with-secure-env trello" \
 	personal="with-secure-env personal" \
   copy="xclip -selection c" \
-  paste="xclip -selection c -o"
+  paste="xclip -selection c -o" \
+  ssh="TERM=xterm-color ssh"

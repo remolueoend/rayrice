@@ -17,7 +17,6 @@ export READER="evince"
 export FILE="ranger"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/Documents/referbib"
-export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 export SSH_ASKPASS=/usr/lib/seahorse/ssh-askpass
 export STATUSBAR=i3blocks
 

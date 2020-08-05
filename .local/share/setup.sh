@@ -205,3 +205,8 @@ registerGpgSshKeys
 configureUserTools
 linkDotFiles
 
+# updates:
+# make sure to enable all required services (lightdm, etc)
+# disable unwanted services (teamviewer, vpn, etc)
+# sync ssh/gpg keys
+# 

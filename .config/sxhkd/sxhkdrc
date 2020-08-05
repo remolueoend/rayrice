@@ -20,8 +20,10 @@ super + ctrl + i
 	rofi -show fb -modi fb:~/.config/rofi/scripts/file-browser.sh
 super + ctrl + u
   rofi-google-search
+super + ctrl + p
+  rofi-1password
 super + ctrl + o
-	$HOME/dev/remolueoend/dyna-bookmarks/packages/cli/open-bookmark
+	with-secure-env $HOME/dev/remolueoend/dyna-bookmarks/packages/cli/open-bookmark
 
 # tools
 super + u
