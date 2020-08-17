@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# decreases/increases the screen back-light when (un-)plug the AC adapter.
+
+bl_dev=/sys/class/backlight/intel_backlight
+
+case "$2" in
+    AC*|ACAD*|ADP0*)
+        case "$4" in
+            00000000)
+                printf "%.0f\n" $(($(< $bl_dev/max_brightness) * 4 / 10)) >$bl_dev/brightness
+                ;;
+            00000001)
+                printf "%.0f\n" $(($(< $bl_dev/max_brightness) * 1)) >$bl_dev/brightness
+                ;;
+        esac
+        ;;
+    *)
+        logger "ACPI action undefined: $2"
+        ;;
+esac
