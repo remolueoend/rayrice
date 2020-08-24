@@ -34,7 +34,8 @@ dex -a -s $HOME/.config/autostart # auto start user specific apps
 
 # Trackpad
 # synclient TapButton1=1 # enable tap to click
-synclient PalmDetect=1 # enable palm detection
+# should already be configured in 70-synaptics.conf
+# synclient PalmDetect=1 # enable palm detection
 
 # load theme: merge normalize after actual theme:
 xrdb $HOME/.config/themes/Argonout.xresource

@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+get_running_entries() {
+    curl -s -u $API_TOKEN:api_token \
+         -X GET https://www.toggl.com/api/v8/time_entries/current | jq '.data'
+}
+
+stop_entry() {
+   curl -s -u $API_TOKEN:api_token \
+	      -H "Content-Type: application/json" \
+	      -X PUT https://www.toggl.com/api/v8/time_entries/"$1"/stop 
+}
+
+if [[ $1 == "stop" ]]; then
+    running_id=$(get_running_entries | jq '.id')
+    if [[ $running_id != "null" ]]; then
+        stop_entry $running_id || exit 1
+    fi
+fi

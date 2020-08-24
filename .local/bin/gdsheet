@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# desktop script for opening google drive sheets using xdg
+
+url=$(cat "$1" | jq -r '.url')
+
+xdg-open "$url"

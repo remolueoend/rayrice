@@ -12,6 +12,7 @@ fi
 spotify-ctrl Pause                 # pause spotify
 pauseallmpv                        # pause mpv
 notify-send DUNST_COMMAND_PAUSE    # pause notifications
+with-secure-env toggl-cmd stop     # stop running toggl entries
 
 # takes a while, so do it after turning off everthing else:
 # bg_path=$(mktemp -d)/lock-bg.png
