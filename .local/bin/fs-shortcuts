@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+set -e
+
+shortcuts=$(cat ~/.config/fs-shortcuts)
+selected_index=$(echo "$shortcuts" | awk -F' :: ' '{print($1)}' | rofi -dmenu -i -format d)
+selected_path=$(echo "$shortcuts" | sed "${selected_index}q;d" | awk -F' :: ' '{print($2)}')
+
+xdg-open "${selected_path/#\~/$HOME}" 2> /dev/null

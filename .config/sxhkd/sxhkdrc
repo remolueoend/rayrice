@@ -17,7 +17,8 @@ super + shift + Return
 super + space
 	rofi -combi-modi window,drun,run -show combi -modi combi -line-padding 4 -columns 2 -width 40 -padding 30 -hide-scrollbar -show-icons
 super + ctrl + i
-	rofi -show fb -modi fb:~/.config/rofi/scripts/file-browser.sh
+  fs-shortcuts
+# rofi -show fb -modi fb:~/.config/rofi/scripts/file-browser.sh
 super + ctrl + u
   rofi-google-search
 super + ctrl + p

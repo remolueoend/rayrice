@@ -52,5 +52,6 @@
   ".config/kitty": "~/.config/kitty",
   ".emacs.d/private/snippets": "~/.emacs.d/private/snippets",
   ".config/wget/wgetrc": "~/.config/wget/wgetrc",
-  ".config/npm": "~/.config/npm"
+  ".config/npm": "~/.config/npm",
+  ".config/fs-shortcuts": "~/.config/fs-shortcuts"
 }

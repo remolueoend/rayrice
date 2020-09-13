@@ -5,7 +5,7 @@
 [user]
 	name = remolueoend
 	email = remolueoend@users.noreply.github.com
-	signingkey = 62130C97
+	signingkey = 482D2FAA 
 [core]
 	autocrlf = input
 [filter "hawser"]
