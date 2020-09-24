@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: html image size
+# key: image-size
+# --
+#+ATTR_HTML: :width ${size}%

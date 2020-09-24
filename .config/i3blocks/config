@@ -4,7 +4,7 @@ markup=pango
 
 [battery]
 command=battery
-interval=5
+interval=10
 
 [volume]
 interval=once

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: latex snippet
+# key: latex
+# --
+#+begin_src latex :results drawer :exports results
+${}
+#+end_src
+

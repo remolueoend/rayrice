@@ -106,6 +106,6 @@
 [rebase]
 	autosquash = true
 [credential]
-	helper = cache --timeout 28800
+	helper = cache
 [diff]
 	tool = bc3

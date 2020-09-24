@@ -22,17 +22,27 @@
 
 
 (defun org-html-export-to-mhtml (async subtree visible body)
-  (interactive "foobar")
+  "Org html export handler which inlines images using data-urls.
+  Available using , e e -> h m"
+
   (cl-letf (((symbol-function 'org-html--format-image) 'format-image-inline))
     (org-html-export-to-html nil subtree visible body)))
 
 (defun format-image-inline (source attributes info)
   (let* ((ext (file-name-extension source))
          (prefix (if (string= "svg" ext) "data:image/svg+xml;base64," "data:;base64,"))
-         (data (with-temp-buffer (url-insert-file-contents source) (buffer-string)))
+         ;; (data (with-temp-buffer (url-insert-file-contents source) (buffer-string)))
+         (data (with-temp-buffer (insert-file-contents source) (buffer-string)))
          (data-url (concat prefix (base64-encode-string data)))
          (attributes (org-combine-plists `(:src ,data-url) attributes)))
     (org-html-close-tag "img" (org-html--make-attribute-string attributes) info)))
+(org-export-define-derived-backend 'html-inline-images 'html
+  :menu-entry '(?h "Export to HTML" ((?m "As MHTML file an open" org-html-export-to-mhtml))))
 
-;; (org-export-define-derived-backend 'html-inline-images 'html
-;;   :menu-entry '(?h "Export to HTML" ((?m "As MHTML file an open" org-html-export-to-mhtml))))
+(defun org-insert-clipboard-image ()
+  "inserts an image from clipboard"
+  (interactive)
+  (let* ((file (concat "./images/" (number-to-string (float-time)) ".png")))
+       (shell-command (concat "xclip -selection clipboard -t image/png -o > " file))
+       (insert (concat "[[" file "]]"))
+       (org-display-inline-images)))

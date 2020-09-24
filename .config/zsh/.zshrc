@@ -25,6 +25,9 @@ export PATH=$HOME/.ghcup/bin:$PATH
 export PATH=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH
 # Go
 export PATH=$PATH:$GOPATH/bin:$GOPATH/src/github.com/docker/docker-credential-helpers/bin
+# custom built executables:
+export PATH=$HOME/src/build:$PATH
+
 
 function use_python {
     # enables python version [$:3.5.6] for the current shell using pyenv
