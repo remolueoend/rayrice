@@ -1,0 +1,29 @@
+#!/bin/sh
+
+USERNAME=remo
+USERID=1000
+
+export XAUTHORITY=/home/$USERNAME/.Xauthority
+export DISPLAY=:0
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$USERID/bus
+
+send() {
+    # X11 magic
+    sudo -u $USERNAME XAUTHORITY=/home/$USERNAME/.Xauthority DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$USERID/bus /usr/bin/notify-send.py "$@"
+}
+
+file=/tmp/mute_notifications
+if [ -f $file ]; then
+    # unpause popup notifications
+    # send a --hint boolean:deadd-notification-center:true string:type:unpausePopups
+    send "Notifications resumed"
+    send DUNST_COMMAND_RESUME
+    rm $file
+else
+    # unpause popup notifications
+    # send a --hint boolean:deadd-notification-center:true string:type:pausePopups
+    # avoid displaying pause-notification again after resuming:
+    send "Notifications paused" -t 1500 && sleep 2
+    send DUNST_COMMAND_PAUSE
+    touch $file
+fi
