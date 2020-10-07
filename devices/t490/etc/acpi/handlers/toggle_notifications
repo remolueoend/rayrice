@@ -16,7 +16,7 @@ file=/tmp/mute_notifications
 if [ -f $file ]; then
     # unpause popup notifications
     # send a --hint boolean:deadd-notification-center:true string:type:unpausePopups
-    send "Notifications resumed"
+    send "Notifications resumed" -t 1500
     send DUNST_COMMAND_RESUME
     rm $file
 else

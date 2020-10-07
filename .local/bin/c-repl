@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+dir=$(mktemp -d)
+pushd $dir
+echo -e "#include <stdio.h>\n\nint main() {\n\treturn 0;\n}" >> main.c
+
+$TERMINAL sh -c "cd $dir && echo main.c | entr -c sh -c 'gcc -g main.c -o main && ./main'" &
+
+et $dir
+popd
