@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# Simple script used as $TERMINAL.
+# spawns a new terminal with custom args additionally to all given arguments:
+
+kitty --single-instance $@

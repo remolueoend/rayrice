@@ -10,7 +10,7 @@ export PATH="$PATH:$(du -L "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 
 # Default programs:
 export EDITOR="et"
-export TERMINAL="kitty"
+export TERMINAL="start-terminal"
 export BROWSER="vivaldi-stable"
 export browser="vivaldi-stable"
 export READER="evince"

@@ -52,4 +52,7 @@ alias \
 	personal="with-secure-env personal" \
   copy="xclip -selection c" \
   paste="xclip -selection c -o" \
-  ssh="TERM=xterm-color ssh"
+  ssh="TERM=xterm-color ssh" \
+  kitty="kitty --single-instance" \
+  theme="kitty-theme --config ~/.config/kittythemechanger.py" \
+  toggle-theme="theme -t && theme -L"
