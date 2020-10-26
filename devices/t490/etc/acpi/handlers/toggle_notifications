@@ -17,6 +17,7 @@ if [ -f $file ]; then
     # unpause popup notifications
     # send a --hint boolean:deadd-notification-center:true string:type:unpausePopups
     send "Notifications resumed" -t 1500
+    # todo: use dunstclt set-paused false
     send DUNST_COMMAND_RESUME
     rm $file
 else
@@ -24,6 +25,7 @@ else
     # send a --hint boolean:deadd-notification-center:true string:type:pausePopups
     # avoid displaying pause-notification again after resuming:
     send "Notifications paused" -t 1500 && sleep 2
+    # todo: use dunstclt set-paused true
     send DUNST_COMMAND_PAUSE
     touch $file
 fi

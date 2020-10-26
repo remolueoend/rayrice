@@ -9,9 +9,12 @@ fi
 # powers off the screen immediately.
 # uses a blurred screenshot as lockscreen background.
 
+# store current state of notifications:
+notifications_paused=$(dunstctl is-paused)
+
 spotify-ctrl Pause                 # pause spotify
 pauseallmpv                        # pause mpv
-notify-send DUNST_COMMAND_PAUSE    # pause notifications
+dunstctl set-paused true           # pause notifications
 with-secure-env toggl-cmd stop     # stop running toggl entries
 
 # takes a while, so do it after turning off everthing else:
@@ -27,4 +30,8 @@ xset dpms force off                # power off screen
 i3lock -n -e -f -i $bg_path        # start i3lock with no-fork
 
 # after unlock:
-notify-send DUNST_COMMAND_RESUME   # resume notification service
+# resume notifications if enabled previously:
+if [[ $notifications_paused == "false" ]]; then
+    dunstctl set-paused false
+fi
+

@@ -6,10 +6,7 @@ ping -q -c 1 example.org > /dev/null || exit
 
 notify-send "📦 Repository Sync" "Checking for package updates..."
 
-sudo pacman -Syyuw --noconfirm || notify-send "Error downloading updates.
-
-Check your internet connection, if pacman is already running, or run update manually to see errors."
-pkill -RTMIN+8 "${STATUSBAR:-dwmblocks}"
+sudo pacman -Syyuw --noconfirm || notify-send "Error downloading updates." "Check your internet connection, if pacman is already running, or run update manually to see errors."
 
 if pacman -Qu | grep -v "\[ignored\]"
 then
@@ -17,3 +14,5 @@ then
 else
 	notify-send "📦 Repository Sync"  "Sync complete. No new packages for update."
 fi
+
+pkill -RTMIN+8 "${STATUSBAR:-dwmblocks}"
