@@ -51,6 +51,7 @@ bar {
 	modifier None
   workspace_min_width 25
   strip_workspace_numbers yes
+  tray_output primary
 }
 
 

@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+# shows a list of available arandr configs located at ~/.config/arandr
+# and applies it.
+
+set -e
+set -o pipefail
+
+conf_dir=$HOME/.config/arandr/
+files=$(find $conf_dir -type f ! -name "select-config.sh" | sort)
+selected=$(echo "$files" | xargs -n1 basename  | rofi -dmenu -format d)
+source $(echo "$files" | sed -n "${selected}p")
+
+# background will probably be messed up, set it again:
+setbg

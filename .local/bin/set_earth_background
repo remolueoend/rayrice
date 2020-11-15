@@ -1,9 +1,7 @@
 #!/usr/bin/env sh
 
 tmp_path="$(mktemp -d)/earth.jpg"
-file_path=~/.config/active_wallpaper
-
-echo $tmp_path
+file_path=~/.local/share/earth_wallpaper
 
 wget https://cdn.star.nesdis.noaa.gov/GOES16/ABI/FD/GEOCOLOR/1808x1808.jpg -O "$tmp_path"
 magick \
@@ -14,4 +12,4 @@ magick \
     -draw "rectangle 0,1500 200,1808" \
     -composite PNG32:"$file_path"
 
-xwallpaper --focus "$file_path"
+~/.local/bin/setbg

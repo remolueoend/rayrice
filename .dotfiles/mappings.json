@@ -55,5 +55,6 @@
   ".config/npm": "~/.config/npm",
   ".config/fs-shortcuts": "~/.config/fs-shortcuts",
   ".gdbinit": "~/.gdbinit",
-  ".config/kittythemechanger.py": "~/.config/kittythemechanger.py"
+  ".config/kittythemechanger.py": "~/.config/kittythemechanger.py",
+  ".Xresources": "~/.Xresources"
 }

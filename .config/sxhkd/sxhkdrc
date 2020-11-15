@@ -153,9 +153,12 @@ super + shift + F1
 super + F1
 	groff -mom ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/readme.mom -Tpdf | zathura -
 # F2 restarts either dwm or i3 and is bound in each.
-# Change display
-super + F3
+# Change display manually
+super + shift + F3
 	displayselect
+# select display pre-config:
+super + F3
+  select-arandr-config
 # Hibernate
 super + F4
 	prompt 'Hibernate computer?' 'sudo -A zzz -Z'
