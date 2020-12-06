@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Http Browser
-Exec=/usr/bin/vivaldi-stable %U
+Exec=/usr/bin/firefox %U

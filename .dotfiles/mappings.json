@@ -56,5 +56,9 @@
   ".config/fs-shortcuts": "~/.config/fs-shortcuts",
   ".gdbinit": "~/.gdbinit",
   ".config/kittythemechanger.py": "~/.config/kittythemechanger.py",
-  ".Xresources": "~/.Xresources"
+  ".Xresources": "~/.Xresources",
+  ".config/arandr": "~/.config/arandr",
+  ".config/gtk-2.0/gtkrc-2.0": "~/.config/gtk-2.0/gtkrc-2.0",
+  ".config/gtk-3.0/settings.ini": "~/.config/gtk-3.0/settings.ini",
+  "srcbin/setup.sh": "~/srcbin/setup.sh"
 }

@@ -6,3 +6,9 @@
 # auto-generated files of IntelliJ:
 .local/bin/idea
 .local/share/applications/jetbrains-idea.desktop
+
+# editor files
+.ccls-cache
+
+# browser apps
+.local/share/applications/vivaldi-*

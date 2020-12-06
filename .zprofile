@@ -11,8 +11,8 @@ export PATH="$PATH:$(du -L "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 # Default programs:
 export EDITOR="et"
 export TERMINAL="start-terminal"
-export BROWSER="vivaldi-stable"
-export browser="vivaldi-stable"
+export BROWSER="firefox"
+export browser="firefox"
 export READER="evince"
 export FILE="ranger"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
@@ -40,7 +40,6 @@ export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
 export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
-export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"
@@ -60,10 +59,13 @@ export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
 export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
 export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 
-#npm
+# npm
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/config
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 export NPM_CONFIG_TMP=$XDG_RUNTIME_DIR/npm
+
+# global directories
+export SRCBIN_DIR="$HOME/srcbin"
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\

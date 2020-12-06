@@ -1,37 +1,62 @@
 #!/usr/bin/env bash
 
+# locks the screen after pausing IO (audio, notifications) etc.
+# and powers off the screen immediately.
+# IO is resumed after screen is unlocked.
+
+
+# returns a unique string of the currently active output port (speaker/headphone/..)
+get_current_audio_port() {
+    echo $(pactl list sinks | grep 'Active Port:' | xargs)
+}
+
+
 # exit right away if lock screen is already running:
 if pgrep -x "i3lock" > /dev/null; then
     exit 0
 fi
 
-# locks the screen after pausing IO (audio, notifications) etc.
-# powers off the screen immediately.
-# uses a blurred screenshot as lockscreen background.
-
-# store current state of notifications:
+# store current state of notifications, audio, etc.
 notifications_paused=$(dunstctl is-paused)
+spotify_playing=$(spotify-ctrl IsPlaying)
+audio_muted=$(pamixer --get-mute)
+audio_port=$(get_current_audio_port)
 
 spotify-ctrl Pause                 # pause spotify
 pauseallmpv                        # pause mpv
 dunstctl set-paused true           # pause notifications
+amixer sset Master mute            # mute audio
 with-secure-env toggl-cmd stop     # stop running toggl entries
 
+# current screen as blurred lockscreen background looks ulgy, disabled it:
 # takes a while, so do it after turning off everthing else:
 # bg_path=$(mktemp -d)/lock-bg.png
 # trap "rm -f $bg_path" EXIT
-
 # scrot $bg_path
 # magick $bg_path -level "0%,100%,0.6" -filter Gaussian -resize 20% -define "filter:sigma=1.5" -resize 500.5% $bg_path
 
 bg_path=/etc/lightdm/backgrounds/space-3.png
 
 xset dpms force off                # power off screen
-i3lock -n -e -f -i $bg_path        # start i3lock with no-fork
+i3lock -n -e -f -i $bg_path        # start i3lock with no-fork => script will block here until unlock
 
-# after unlock:
+
+### AFTER UNLOCK ###
+
 # resume notifications if enabled previously:
 if [[ $notifications_paused == "false" ]]; then
     dunstctl set-paused false
 fi
 
+# we do only revert audio related settings if the output port (headphone/speaker/..)
+# is still the same:
+if [[ $audio_port == $(get_current_audio_port) ]]; then
+    # unmute auto if unmuted before:
+    if [[ $audio_muted == "false" ]]; then
+        amixer sset Master unmute
+    fi
+    # restart spotify player if it was playing before and we're using headphones
+    if [[ $spotify_playing == "true" ]] && [[ $(get_current_audio_port) == *"headphones"* ]]; then
+        spotify-ctrl Play
+    fi
+fi

@@ -102,10 +102,10 @@ super + {_,shift +} bracketleft
 	mpc seek -{10,120}
 # Increase volume
 super + {equal,plus}
-	amixer sset Master {5,15}%+; pkill -RTMIN+10 blocks
+	pactl set-sink-volume @DEFAULT_SINK@ +{5,15}%; pkill -RTMIN+10 blocks
 # Decrease volume
 super {_,shift +} + minus
-	amixer sset Master {5,15}%-; pkill -RTMIN+10 blocks
+	pactl set-sink-volume @DEFAULT_SINK@ -{5,15}%; pkill -RTMIN+10 blocks
 super + shift + m
 	amixer sset Master toggle; pkill -RTMIN+10 blocks
 
@@ -115,7 +115,7 @@ XF86AudioMute
 XF86AudioMicMute
   amixer sset Capture toggle; pkill -RTMIN+10 blocks
 XF86Audio{Raise,Lower}Volume
-	amixer sset Master 5%{+,-}; pkill -RTMIN+10 blocks
+	pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%; pkill -RTMIN+10 blocks
 XF86Audio{Next,Prev}
 	mpc {next,prev}
 XF86Audio{Pause,Play,Stop}

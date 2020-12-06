@@ -11,14 +11,14 @@
 # Add this when you include flatpak in your system
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
-# mpd &			# music player daemon-you might prefer it as a service though
-remaps &		# run the remaps script, switching caps/esc and more; check it for more info
+# mpd &			                # music player daemon-you might prefer it as a service though
+setup_keyboard.sh		        # run the remaps script, switching caps/esc and more; check it for more info
 set_earth_background &			# set the background with the `setbg` script
-xcompmgr &		# xcompmgr for transparency
-dunst &			# dunst for notifications
-unclutter &		# Remove mouse when idle
-sxhkd &         # Bind keys
-nm-applet &		# network sys-tray
+xcompmgr &		              # xcompmgr for transparency
+dunst &			                # dunst for notifications
+unclutter &		              # Remove mouse when idle
+sxhkd &                     # Bind keys
+nm-applet &		              # network sys-tray
 dex -a -s $HOME/.config/autostart # auto start user specific apps
 
 # start automatic screen locking after 5 minutes,
@@ -38,5 +38,5 @@ dex -a -s $HOME/.config/autostart # auto start user specific apps
 # synclient PalmDetect=1 # enable palm detection
 
 # load theme: merge normalize after actual theme:
-xrdb $HOME/.config/themes/Argonout.xresource
-xrdb -merge $HOME/.config/themes/normalize.xresource
+xrdb $HOME/.config/themes/normalize.xresource
+xrdb -merge $HOME/.config/themes/Argonout.xresource

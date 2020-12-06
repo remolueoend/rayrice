@@ -10,8 +10,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 ## PATH extensions
-# NPM global packages:
-export PATH=$HOME/.npm/bin:$PATH
+# NPM/yarn global packages:
+export PATH=$HOME/.npm/bin:$HOME/.yarn/bin:$PATH
 # rust binaries
 export PATH=$HOME/.cargo/bin:$PATH
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
@@ -26,7 +26,10 @@ export PATH=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH
 # Go
 export PATH=$PATH:$GOPATH/bin:$GOPATH/src/github.com/docker/docker-credential-helpers/bin
 # custom built executables:
-export PATH=$HOME/src/build:$PATH
+export PATH=$SRCBIN_DIR/build:$PATH
+
+# temp extension for TA corrections:
+export PATH=$HOME/GoogleDrive/Documents/Schule/ETH/Courses/Eprog_TA/scripts:$PATH
 
 
 function use_python {
@@ -58,9 +61,10 @@ autoload -U colors && colors	# Load colors
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 
-# History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
+# History settings:
+HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
 
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc"
@@ -112,7 +116,7 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # source plugins
-# source $HOME/src/fzf-tab/fzf-tab.plugin.zsh
+source $SRCBIN_DIR/fzf-tab/fzf-tab.plugin.zsh
 
 # source plugin manager and its plugins:
 local zplugin_entry="/usr/share/zsh/plugin-managers/zplugin/zplugin.zsh"

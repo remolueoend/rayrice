@@ -1,6 +1,31 @@
 #!/usr/bin/env bash
 
+# Small script to control spotify via DBus methods & properties
+# Call this script without args for usage info.
+
+if [[ $# -eq 0 ]]; then
+    echo "usage: spotify-ctrl Pause|Play|IsPlaying"
+    exit 1;
+fi
+
 method=$1
+
+# special handing for IsPlaying: we need to call a method from a freedesktop interface:
+if [[ $method == "IsPlaying" ]]; then
+    # using gdbus here just because the response is easier to parse
+    bus_resp=$(gdbus call \
+    --session \
+    --dest=org.mpris.MediaPlayer2.spotify \
+    --object-path /org/mpris/MediaPlayer2 \
+    --method "org.freedesktop.DBus.Properties.Get" org.mpris.MediaPlayer2.Player PlaybackStatus 2> /dev/null)
+
+    if [[ $bus_resp == "(<'Playing'>,)" ]]; then
+        echo "true"
+    else
+        echo "false"
+    fi
+    exit 0
+fi
 
 dbus-send \
 --session \
