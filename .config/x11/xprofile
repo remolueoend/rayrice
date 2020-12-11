@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# This file runs when a DM logs you into a graphical session.
+# If you use startx/xinit like a Chad, this file will also be sourced.
+
+# This file's true location is in ~/.config/xprofile and a link exists to it in
+# ~/.xprofile. If you do not use a DM, you may remove the link to it to have a
+# cleaner home.
+
+# Fix Gnome Apps Slow  Start due to failing services
+# Add this when you include flatpak in your system
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+
+# mpd &			                # music player daemon-you might prefer it as a service though
+setup_keyboard.sh		        # run the remaps script, switching caps/esc and more; check it for more info
+set_earth_background &			# set the background with the `setbg` script
+xcompmgr &		              # xcompmgr for transparency
+dunst &			                # dunst for notifications
+unclutter &		              # Remove mouse when idle
+sxhkd &                     # Bind keys
+nm-applet &		              # network sys-tray
+dex -a -s $HOME/.config/autostart # auto start user specific apps
+
+# start automatic screen locking after 5 minutes,
+# displaying a notification 15 secs before locking the session
+# xautolock \
+#     -corners 0-0- \
+#     -time 10 \
+#     -locker lock-screen \
+#     -detectsleep \
+#     -notify 30 \
+#     -notifier "notify-send -t 15000 -u critical \"xautolock\" \"Locking in 30 Seconds\"" &
+
+
+# Trackpad
+# synclient TapButton1=1 # enable tap to click
+# should already be configured in 70-synaptics.conf
+# synclient PalmDetect=1 # enable palm detection
+
+# load theme: merge normalize after actual theme:
+xrdb $HOME/.config/themes/normalize.xresource
+xrdb -merge $HOME/.config/themes/Argonout.xresource

@@ -12,3 +12,5 @@
 
 # browser apps
 .local/share/applications/vivaldi-*
+.local/share/applications/chrome-*
+.local/share/applications/.cache-*
