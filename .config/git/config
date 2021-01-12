@@ -109,3 +109,6 @@
 	helper = cache
 [diff]
 	tool = bc3
+[cinnabar]
+	version-check = 1608031299
+	helper = /home/remo/.mozbuild/git-cinnabar/git-cinnabar-helper

@@ -15,12 +15,11 @@ super + shift + Return
 
 # rofi dropdowns
 super + space
-	rofi -combi-modi window,drun,run -show combi -modi combi -line-padding 4 -columns 2 -width 40 -padding 30 -hide-scrollbar -show-icons
+	rofi -combi-modi window,drun,run -show combi -modi combi -line-padding 4 -columns 1 -width 40 -padding 30 -hide-scrollbar -show-icons
 super + ctrl + i
   fs-shortcuts
-# rofi -show fb -modi fb:~/.config/rofi/scripts/file-browser.sh
 super + ctrl + u
-  rofi-google-search
+  powermenu
 super + ctrl + p
   rofi-1password
 super + ctrl + o
@@ -48,7 +47,7 @@ ctrl + shift + 4
 
 # Et cetera...
 super + grave
-	dmenuunicode
+	rofimoji
 super + Scroll_Lock
 	killall screenkey || screenkey
 super + Insert

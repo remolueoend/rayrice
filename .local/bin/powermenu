@@ -1,0 +1,40 @@
+#!/usr/bin/env sh
+
+uptime=$(uptime -p | sed -e 's/up //g')
+
+lock="lock"
+logout="logout"
+hibernate="hibernate"
+suspend="suspend"
+reboot="reboot"
+shutdown="shutdown"
+
+options="$lock\n$logout\n$hibernate\n$suspend\n$reboot\n$shutdown"
+choice=$(echo -e "$options" | rofi -p "Uptime: $uptime" -dmenu -selected-row 2)
+
+case $choice in
+    $shutdown)
+        systemctl shutdown
+        exit 0
+        ;;
+    $reboot)
+        systemctl reboot
+        exit 0
+        ;;
+    $lock)
+        lock-screen &
+        exit 0
+        ;;
+    $logout)
+        i3-msg exit
+        exit 0
+        ;;
+    $hibernate)
+        systemctl hibernate
+        exit 0
+        ;;
+    $suspend)
+        systemctl suspend
+        exit 0
+        ;;
+esac

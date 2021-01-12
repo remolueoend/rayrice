@@ -9,20 +9,26 @@
 focus_on_window_activation focus # switch ws to window requesting focus
 
 # #---Basic Definitions---# #
-set $inner_gaps 15
-set $outer_gaps 15
+set $inner_gaps 10
+set $outer_gaps -0
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 
 for_window [class="^.*"] border pixel 3
 # colors (see: https://thomashunter.name/i3-configurator/)
 # class                 border  bground text    indicator child_border
-client.focused          #FF0000 #285577 #FFFFFF #2E9EF4   #FF0000
+client.focused          #FFFFFF #285577 #FFFFFF #2E9EF4   #FFFFFF
 client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
 client.unfocused        #333333 #222222 #888888 #292D2E   #222222
 client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 client.background       #FFFFFF
+
+# gaps
+gaps inner $inner_gaps
+gaps outer $outer_gaps
+smart_gaps on
+smart_borders on
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -200,7 +206,7 @@ bindsym $mod+Shift+Right 	move right
 bindsym $mod+Ctrl+Right		move workspace to output right
 
 # #-------Apps and Workspaces ----------# #
-set $mode_launcher Launch: [w]eb [c]hat [m]usic [g]mail [a]ppointments [d]rive [p]hotos
+set $mode_launcher Launch: [w]eb [c]hat [m]usic [g]mail [a]ppointments [d]rive [p]hotos [n]eomutt
 bindsym $mod+d mode "$mode_launcher"
 mode "$mode_launcher" {
   # Web
@@ -217,6 +223,8 @@ mode "$mode_launcher" {
   bindsym g mode default; exec --no-startup-id xdg-open https://gmail.com
   # google photos
   bindsym p mode default; exec --no-startup-id xdg-open https://photos.google.com
+  # neomutt (terminal e-mail)
+  bindsym n mode default; exec --no-startup-id ddspawn neomutt
 
   bindsym Escape mode "default"
   bindsym Return mode "default"

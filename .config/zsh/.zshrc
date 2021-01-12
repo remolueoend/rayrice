@@ -9,11 +9,14 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+export DOTFILES_ROOT="$HOME/voidrice"
+
 ## PATH extensions
 # NPM/yarn global packages:
 export PATH=$HOME/.npm/bin:$HOME/.yarn/bin:$PATH
 # rust binaries
 export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.local/share/cargo/bin:$PATH
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 # dotnet
 export PATH=$HOME/.dotnet/tools:$PATH
@@ -27,6 +30,8 @@ export PATH=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH
 export PATH=$PATH:$GOPATH/bin:$GOPATH/src/github.com/docker/docker-credential-helpers/bin
 # custom built executables:
 export PATH=$SRCBIN_DIR/build:$PATH
+
+export PATH="/home/remo/.mozbuild/git-cinnabar:$PATH"
 
 # temp extension for TA corrections:
 export PATH=$HOME/GoogleDrive/Documents/Schule/ETH/Courses/Eprog_TA/scripts:$PATH

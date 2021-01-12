@@ -31,11 +31,10 @@
   ".config/mpv": "~/.config/mpv",
   ".config/newsboat": "~/.config/newsboat",
   ".config/sxiv": "~/.config/sxiv",
-  ".config/aliasrc": "~/.config/aliasrc",
+  ".config/shell/aliasrc": "~/.config/shell/aliasrc",
   ".config/bmdirs": "~/.config/bmdirs",
   ".config/bmfiles": "~/.config/bmfiles",
   ".config/user-dirs": "~/.config/user-dirs",
-  ".config/rofi/config": "~/.config/rofi/config",
   ".config/rofi/scripts": "~/.config/rofi/scripts",
   ".fonts": "~/.fonts",
   ".config/nvim": "~/.config/nvim",
@@ -60,5 +59,7 @@
   ".config/arandr": "~/.config/arandr",
   ".config/gtk-2.0/gtkrc-2.0": "~/.config/gtk-2.0/gtkrc-2.0",
   ".config/gtk-3.0/settings.ini": "~/.config/gtk-3.0/settings.ini",
-  "srcbin/setup.sh": "~/srcbin/setup.sh"
+  "srcbin/setup.sh": "~/srcbin/setup.sh",
+  ".config/rofi/config.rasi": "~/.config/rofi/config.rasi",
+  ".config/picom.conf": "~/.config/picom.conf"
 }

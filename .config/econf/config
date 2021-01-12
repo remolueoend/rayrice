@@ -12,3 +12,5 @@ statusbar=.config/i3blocks/config
 prezto=.zpreztorc
 rice=voidrice
 fs-shortcuts=.config/fs-shortcuts
+rofi=.config/rofi/config.rasi
+picom=.config/picom.conf
