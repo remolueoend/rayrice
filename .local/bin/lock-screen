@@ -21,6 +21,7 @@ notifications_paused=$(dunstctl is-paused)
 spotify_playing=$(spotify-ctrl IsPlaying)
 audio_muted=$(pamixer --get-mute)
 audio_port=$(get_current_audio_port)
+toggl_timer=$(with-secure-env toggl-cmd running)
 
 spotify-ctrl Pause                 # pause spotify
 pauseallmpv                        # pause mpv
@@ -41,12 +42,21 @@ xset dpms force off                # power off screen
 i3lock -n -e -f -i $bg_path        # start i3lock with no-fork => script will block here until unlock
 
 
-### AFTER UNLOCK ###
+
+######################################################
+##              ⬇⬇⬇  AFTER UNLOCK  ⬇⬇⬇              ##
+######################################################
 
 # resume notifications if enabled previously:
 if [[ $notifications_paused == "false" ]]; then
     dunstctl set-paused false
 fi
+
+# continue paused Toggl timer:
+if [[ $toggl_timer ]]; then
+    with-secure-env toggl-cmd continue $(echo "$toggl_timer" | jq '.id')
+fi
+
 
 # we do only revert audio related settings if the output port (headphone/speaker/..)
 # is still the same:

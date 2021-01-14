@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# all calls to 'with-secure-env' need to be done using 'sudo -i -u $USER'
+# to load the current user's environment, including gpg-agent and env vars
+duration=$(sudo -i -u $USER with-secure-env toggl-cmd duration)
+
+case $BLOCK_BUTTON in
+	1) TogglDesktop & ;;
+	2) sudo -i -u $USER with-secure-env toggl-cmd stop > /dev/null; echo "" ;;
+	3) notify-send "⏳ Toggl: Running Timer" \
+"left-click:   open Toggl
+middle-click: stop timer" ;;
+esac
+
+if [[ $duration ]]; then
+    echo "⏳ $duration"
+fi

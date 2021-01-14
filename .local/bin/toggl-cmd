@@ -1,19 +1,107 @@
 #!/usr/bin/env sh
 
-get_running_entries() {
+help="
+Manage Toggl time entries via CLI. Author: github.com/remolueoend
+
+Usage: toggl-cmd <command> [--cmd-args]
+
+Required (environment) variables:
+API_TOKEN    A Toggl API token
+
+Available commands:
+stop             Stop the currently running timer. Does nothing if no timer is running.
+
+running          Returns a JSON-representation of the currently running entry.
+                 Prints nothing if no timer is running.
+
+duration         Returns a string representing the duration of the currently running timer.
+                 Prints nothing if no timer is running.
+
+continue <id>    Continues by starting a new timer with the properties of the timer
+                 with the given ID. Same as pressing 'play' on a timer in the Toggl app.
+                 Exits with code 1 if a timer is already running.
+"
+
+# returns a JSON string of the currently running timer
+get_running_entry() {
     curl -s -u $API_TOKEN:api_token \
-         -X GET https://www.toggl.com/api/v8/time_entries/current | jq '.data'
+         -X GET https://www.toggl.com/api/v8/time_entries/current | jq -r '.data'
 }
 
+# returns a JSON string with details of the timer with the given id as $1
+get_timer_details() {
+    curl -s -u $API_TOKEN:api_token \
+         -X GET https://www.toggl.com/api/v8/time_entries/"$1" | jq -r '.data'
+}
+
+# stops the timer with the given ID as $1
 stop_entry() {
    curl -s -u $API_TOKEN:api_token \
 	      -H "Content-Type: application/json" \
-	      -X PUT https://www.toggl.com/api/v8/time_entries/"$1"/stop 
+	      -X PUT https://www.toggl.com/api/v8/time_entries/"$1"/stop
 }
 
-if [[ $1 == "stop" ]]; then
-    running_id=$(get_running_entries | jq '.id')
+stop_entry_cmd() {
+    running_id=$(get_running_entry | jq '.id')
     if [[ $running_id != "null" ]]; then
         stop_entry $running_id || exit 1
     fi
-fi
+}
+
+running_entry_cmd() {
+    running=$(get_running_entry)
+    if [[ $running != "null" ]]; then
+        echo $running
+    fi
+}
+
+duration_cmd() {
+    running=$(get_running_entry)
+    if [[ $running != "null" ]]; then
+        started=$(date -d "$(get_running_entry | jq -r '.start')" '+%s')
+        now=$(date '+%s')
+        diff=$(($now - $started))
+        h=$(($diff/3600))
+        m=$((($diff/60)%60))
+        s=$(($diff%60))
+        printf "%02d:%02d:%02d\n" $h $m $s
+    fi
+}
+
+continue_cmd() {
+    running=$(get_running_entry)
+    if [[ $running != "null" ]]; then
+        exit 1
+    fi
+
+    timer=$(get_timer_details "$1")
+    desc=$(echo "$timer" | jq '.description')
+    pid=$(echo "$timer" | jq '.pid')
+    wid=$(echo "$timer" | jq '.wid')
+
+    payload=$(echo '{"time_entry": {"created_with": "toggle-cmd"}}' | \
+                  jq --argjson pid $pid \
+                     --argjson desc $desc \
+                     --argjson wid $wid \
+                     '.time_entry += {"pid": $pid, "wid": $wid}')
+
+    curl -s -u $API_TOKEN:api_token \
+	       -H "Content-Type: application/json" \
+         -d "$payload" \
+	       -X POST https://www.toggl.com/api/v8/time_entries/start
+
+    echo $payload
+}
+
+case "$1" in
+    -h|--help)
+        printf "$help\n" ;;
+    stop)
+        stop_entry_cmd ;;
+    running)
+        running_entry_cmd ;;
+    duration)
+        duration_cmd ;;
+    "continue")
+        continue_cmd "$2";;
+esac

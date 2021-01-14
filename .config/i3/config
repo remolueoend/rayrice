@@ -50,6 +50,7 @@ for_window [class="Yad" title="yad-calendar"] floating enable
 
 # status bar
 bar {
+  id bar_0
 	font pango:monospace 12
 	status_command i3blocks
 	position bottom
