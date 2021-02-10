@@ -25,6 +25,15 @@ if [[ $method == "IsPlaying" ]]; then
         echo "false"
     fi
     exit 0
+elif [[ $method == "OpenUri" ]]; then
+    dbus-send \
+    --session \
+    --type=method_call \
+    --print-reply \
+    --dest=org.mpris.MediaPlayer2.spotify \
+    /org/mpris/MediaPlayer2 \
+    org.mpris.MediaPlayer2.Player.OpenUri "string:$2" > /dev/null || exit 0 # ignore failed attempts
+    exit 0
 fi
 
 dbus-send \

@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Spotify Link Handler
+Exec=sh -c 'spotify-ctrl OpenUri "%U" && ws-open-music.sh'
