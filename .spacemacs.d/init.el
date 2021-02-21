@@ -86,7 +86,6 @@ values."
      ocaml
      (ranger :variables
              ranger-show-preview t)
-     org-roam
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these

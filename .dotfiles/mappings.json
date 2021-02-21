@@ -22,7 +22,7 @@
   ".config/ranger": "~/.config/ranger",
   ".config/sxhkd": "~/.config/sxhkd",
   ".config/i3": "~/.config/i3",
-  ".local/bin": "~/.local/bin",
+  ".local/ricebin": "~/.local/ricebin",
   ".local/share/applications": "~/.local/share/applications",
   ".local/share/larbs": "~/.local/share/larbs",
   ".config/dunst/dunstrc": "~/.config/dunst/dunstrc",

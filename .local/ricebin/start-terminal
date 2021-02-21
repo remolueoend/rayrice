@@ -4,3 +4,4 @@
 # spawns a new terminal with custom args additionally to all given arguments:
 
 kitty --single-instance "$@"
+# alacritty "$@"

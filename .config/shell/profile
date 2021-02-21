@@ -5,8 +5,9 @@
 # If you don't plan on reverting to bash, you can remove the link in ~/.profile
 # to clean up.
 
-# Adds `~/.local/bin` to $PATH
-export PATH="$PATH:$(du -L "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
+# Adds `~/.local/srcbin`/.local/bin and all its subfolders to $PATH:
+export PATH="$PATH:$(du -L "$HOME/.local/ricebin" | cut -f2 | paste -sd ':')"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Default programs:
 export EDITOR="et"

@@ -18,5 +18,6 @@ setxkbmap -print | \
     xkbcomp -I$HOME/.config/xkb -synch - $DISPLAY 2>/dev/null
 
 # load udevmon_layer config:
-$HOME/src/udevmon-layers/packages/udevmon_layers_ts/scripts/load_config \
-    $HOME/.config/udevmon_layers/laptop.json
+# currently not required, an initial config is loaded based on the keyboard identifier
+# $HOME/dev/remolueoend/udevmon-layers/packages/udevmon_layers_ts/scripts/load_config \
+#     $HOME/.config/udevmon_layers/laptop.json

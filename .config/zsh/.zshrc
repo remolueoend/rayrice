@@ -23,19 +23,13 @@ export PATH=$HOME/.dotnet/tools:$PATH
 # ocaml
 export PATH=$HOME/.opam/default/bin:$PATH
 # haskell
-export PATH=$HOME/.ghcup/bin:$PATH
+export GHCUP_USE_XDG_DIRS=1 # use XDG dirs, see: https://gitlab.haskell.org/haskell/ghcup-hs/#xdg-support
 # Ruby gem executables:
 export PATH=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH
 # Go
 export PATH=$PATH:$GOPATH/bin:$GOPATH/src/github.com/docker/docker-credential-helpers/bin
 # custom built executables:
 export PATH=$SRCBIN_DIR/build:$PATH
-
-export PATH="/home/remo/.mozbuild/git-cinnabar:$PATH"
-
-# temp extension for TA corrections:
-export PATH=$HOME/GoogleDrive/Documents/Schule/ETH/Courses/Eprog_TA/scripts:$PATH
-
 
 function use_python {
     # enables python version [$:3.5.6] for the current shell using pyenv
@@ -125,7 +119,7 @@ bindkey '^e' edit-command-line
 source $SRCBIN_DIR/fzf-tab/fzf-tab.plugin.zsh
 
 # source plugin manager and its plugins:
-local zplugin_entry="/usr/share/zsh/plugin-managers/zplugin/zplugin.zsh"
+local zplugin_entry="$SRCBIN_DIR/zplugin/zplugin.zsh"
 if [ -f $zplugin_entry ]; then
     source $zplugin_entry
     zplugin light zsh-users/zsh-autosuggestions; ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#aaaaaa"
@@ -142,7 +136,11 @@ eval "$(direnv hook zsh)"
 # we could also let it register keys by itself,
 # but we want to do it manually using `ssh-add`
 # using passwords provided by 1password
-eval $(keychain --eval --quiet --noask id_github id_gitlab)
+# eval $(keychain --eval --quiet --noask id_github id_gitlab)
+if [ -n "$DESKTOP_SESSION" ]; then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
 
 # PERL stuff
 PATH="/home/remo/perl5/bin${PATH:+:${PATH}}"; export PATH;

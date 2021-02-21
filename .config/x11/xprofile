@@ -11,15 +11,16 @@
 # Add this when you include flatpak in your system
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
-# mpd &			                # music player daemon-you might prefer it as a service though
-setup_keyboard.sh		        # run the remaps script, switching caps/esc and more; check it for more info
-set_earth_background &			# set the background with the `setbg` script
-picom &                     # xcompmgr for transparency
-dunst &			                # dunst for notifications
-unclutter &		              # Remove mouse when idle
-sxhkd &                     # Bind keys
-nm-applet &		              # network sys-tray
-dex -a -s $HOME/.config/autostart # auto start user specific apps
+autorandr -c                        # load first detected xrandr profile
+# mpd &			                    # music player daemon-you might prefer it as a service though
+setup_keyboard.sh		            # run the remaps script, switching caps/esc and more; check it for more info
+set_earth_background &		        # set the background with the `setbg` script
+picom &                             # xcompmgr for transparency
+dunst &			                    # dunst for notifications
+unclutter &		                    # Remove mouse when idle
+sxhkd &                             # Bind keys
+nm-applet &		                    # network sys-tray
+dex -a -s $HOME/.config/autostart   # auto start user specific apps
 kdeconnect-indicator &
 
 # start automatic screen locking after 5 minutes,

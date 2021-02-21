@@ -7,14 +7,14 @@ logout="logout"
 hibernate="hibernate"
 suspend="suspend"
 reboot="reboot"
-shutdown="shutdown"
+poweroff="poweroff"
 
-options="$lock\n$logout\n$hibernate\n$suspend\n$reboot\n$shutdown"
+options="$lock\n$logout\n$hibernate\n$suspend\n$reboot\n$poweroff"
 choice=$(echo -e "$options" | rofi -p "Uptime: $uptime" -dmenu -selected-row 2)
 
 case $choice in
-    $shutdown)
-        systemctl shutdown
+    $poweroff)
+        systemctl poweroff
         exit 0
         ;;
     $reboot)

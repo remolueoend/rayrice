@@ -12,4 +12,4 @@ magick \
     -draw "rectangle 0,1500 200,1808" \
     -composite PNG32:"$file_path"
 
-~/.local/bin/setbg
+setbg
