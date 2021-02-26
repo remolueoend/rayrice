@@ -3,10 +3,9 @@ torrents :: ~/torrents
 dev :: ~/dev
 ETH :: ~/GoogleDrive/Documents/Schule/ETH
 ETH/Courses :: ~/GoogleDrive/Documents/Schule/ETH/Courses
-ETH/TA/Students :: ~/dev/eth/TA_eprog_students
+ETH/WahrStat/Script :: ~/GoogleDrive/Documents/Schule/ETH/Courses/WahrStat/Script.pdf
+ETH/CompNets/Book :: ~/GoogleDrive/Documents/Schule/ETH/Courses/CompNets/Literature/James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf
 ETH/Polybox :: ~/Polybox
-ETH/TInf/Book :: ~/GoogleDrive/Documents/Schule/ETH/Courses/Theoretische Informatik/Literatur/Juraj Hromkovič (auth.) - Theoretische Informatik_ Formale Sprachen, Berechenbarkeit, Komplexitätstheorie, Algorithmik, Kommunikation und Kryptographie-Vieweg+Teubner Verlag (2014).pdf
 ETH/NCSE/Lecture :: ~/Polybox/Shared/NCSE20/NumCSE_Lecture_Document.pdf
 ETH/NCSE/Problems :: ~/Polybox/Shared/NCSE20/NCSE20_Problems.pdf
-ETH/Analysis 2/Script :: ~/GoogleDrive/Documents/Schule/ETH/Courses/Analysis 2/Literatur/script.pdf
 OrgMode/Cheatsheet :: ~/GoogleDrive/Documents/Manuals/org-cheatsheet.pdf
