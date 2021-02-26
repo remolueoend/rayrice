@@ -78,12 +78,14 @@ values."
      dap
      xclipboard
      latex
+     sql
      (c-c++ :variables
             c-c++-backend 'lsp-ccls
             c++-enable-organize-includes-on-save t
             c-c++-enable-clang-format-on-save t
             c-c++-lsp-enable-semantic-highlight 'rainbow)
-     ocaml
+     (haskell :variables
+              haskell-completion-backend 'lsp)
      (ranger :variables
              ranger-show-preview t)
      )

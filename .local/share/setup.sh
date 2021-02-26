@@ -32,7 +32,7 @@ log_success() {
 
 
 export GPG_TTY=$(tty)
-GLOBAL_OP_EXEC="$HOME/voidrice/.local/bin/op"
+GLOBAL_OP_EXEC="$HOME/voidrice/.local/ricebin/op"
 DIR=$(dirname $0)
 
 prepare_fs() {

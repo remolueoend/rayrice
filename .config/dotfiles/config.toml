@@ -23,7 +23,7 @@ mappings = [
   ".config/ranger",
   ".config/sxhkd",
   ".config/i3",
-  ".local/bin",
+  ".local/ricebin",
   ".local/share/applications",
   ".local/share/larbs",
   ".config/dunst/dunstrc",

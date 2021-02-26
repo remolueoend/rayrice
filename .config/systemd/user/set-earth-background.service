@@ -3,5 +3,5 @@ Description=Live Earth Wallpaper
 
 [Service]
 Type=simple
-ExecStart=/home/remo/.local/bin/set_earth_background
+ExecStart=/home/remo/.local/ricebin/set_earth_background
 Nice=19

@@ -2,7 +2,7 @@
 
 These are my dotfiles, based on Luke's rice: https://github.com/LukeSmithxyz/voidrice:
 
-- Very useful scripts are in `~/.local/bin/`
+- Very useful scripts are in `~/.local/ricebin/`
 - Settings for:
 	- vim/nvim (text editor)
 	- zsh (shell)
@@ -17,7 +17,7 @@ These are my dotfiles, based on Luke's rice: https://github.com/LukeSmithxyz/voi
 - I try to minimize what's directly in `~` so:
 	- All configs that can be in `~/.config/` are.
 	- Some environmental variables have been set in `~/.zprofile` to move configs into `~/.config/`
-- Bookmarks in text files used by various scripts (like `~/.local/bin/shortcuts`)
+- Bookmarks in text files used by various scripts (like `~/.local/ricebin/shortcuts`)
 	- File bookmarks in `~/.config/files`
 	- Directory bookmarks in `~/.config/directories`
 
