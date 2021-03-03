@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+dir=$(mktemp -d)
+pushd $dir
+echo -e "" >> main.hs
+
+$TERMINAL sh -c "cd $dir && ghci main.hs" &
+
+code $dir
+popd

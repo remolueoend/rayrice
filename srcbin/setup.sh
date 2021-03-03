@@ -48,9 +48,9 @@ install_zplugin() {
     git clone https://github.com/zdharma/zplugin.git $src_dir
 }
 
-install_fzf_tab
-install_kitty_themes
+# install_fzf_tab
+# install_kitty_themes
 install_zplugin
-install_orgmk
-install_lldb_mi
+# install_orgmk
+# install_lldb_mi
 
