@@ -4,5 +4,5 @@ Description=Runs checkup, which syncs the package database witout installing any
 [Service]
 Type=simple
 Environment="STATUSBAR=i3blocks"
-ExecStart=/home/remo/.local/bin/cron/checkup
+ExecStart=/home/remo/.local/ricebin/cron/checkup
 # Nice=19
