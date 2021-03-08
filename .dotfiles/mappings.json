@@ -61,5 +61,6 @@
   ".config/gtk-3.0/settings.ini": "~/.config/gtk-3.0/settings.ini",
   "srcbin/setup.sh": "~/srcbin/setup.sh",
   ".config/rofi/config.rasi": "~/.config/rofi/config.rasi",
-  ".config/picom.conf": "~/.config/picom.conf"
+  ".config/picom.conf": "~/.config/picom.conf",
+  ".config/alacritty": "~/.config/alacritty"
 }

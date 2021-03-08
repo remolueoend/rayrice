@@ -31,6 +31,10 @@ export PATH=$PATH:$GOPATH/bin:$GOPATH/src/github.com/docker/docker-credential-he
 # custom built executables:
 export PATH=$SRCBIN_DIR/build:$PATH
 
+# binaries installed via snap:
+export PATH=/var/lib/snapd/snap/bin:$PATH
+
+
 function use_python {
     # enables python version [$:3.5.6] for the current shell using pyenv
     eval "$(pyenv init -)"
@@ -151,3 +155,5 @@ PERL_MM_OPT="INSTALL_BASE=/home/remo/perl5"; export PERL_MM_OPT;
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+# disable cursor highlighting to avoid issues with alacritty:
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern line root)

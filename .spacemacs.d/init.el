@@ -37,11 +37,6 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(rust
-     go
-     ruby
-     vimscript
-     ;; multiple-cursors
-     csv
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -69,25 +64,17 @@ values."
                      spell-checking-enable-by-default nil)
      syntax-checking
      version-control
-     javascript
      yaml
-     typescript
-     html
      themes-megapack
      lsp
      dap
      xclipboard
      latex
-     sql
      (c-c++ :variables
             c-c++-backend 'lsp-ccls
             c++-enable-organize-includes-on-save t
             c-c++-enable-clang-format-on-save t
             c-c++-lsp-enable-semantic-highlight 'rainbow)
-     (haskell :variables
-              haskell-completion-backend 'lsp)
-     (ranger :variables
-             ranger-show-preview t)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -358,7 +345,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-hook 'org-mode-hook' (lambda()
                               (turn-on-visual-line-mode)
                               (flyspell-mode)
-                              (flyspell-prog-mode)))
+                              (flyspell-prog-mode)
+                              ;; register new export menu entry which is defined in '~/.spacemacs.d/custom-functions.el':
+                              (org-export-define-derived-backend 'html-inline-images 'html
+                                :menu-entry '(?h "Export to HTML" ((?m "As MHTML file an open" org-html-export-to-mhtml))))))
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 )
 
@@ -381,8 +371,9 @@ you should place your code here."
   (setq ranger-show-hidden t)
   (setq ranger-cleanup-eagerly t)
   ; include external functions files:
-  (add-to-list 'load-path "~/.spacemacs.d")
-  (require 'custom-functions)
+  ;; (add-to-list 'load-path "~/.spacemacs.d")
+  ;; (require 'custom-functions)
+  (load-file "~/.spacemacs.d/custom-functions.el")
   (progn (exec-path-from-shell-initialize))
   (org-babel-do-load-languages
    'org-babel-load-languages

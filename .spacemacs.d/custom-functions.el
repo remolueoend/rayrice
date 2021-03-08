@@ -1,28 +1,8 @@
-(defun er-sudo-edit (&optional arg)
-  "Edit currently visited file as root
-
-  With a prefix ARG promp for a fiile to visit.
-  Will also promop for a file to visit if current
-  buffer is not visiting a file."
-
-  (interactive "p")
-  (if (or arg (not buffer-file-name))
-      (find-file (concat "/sudo:root@localhost:"
-                         (ido-read-file-name "Find file (as root): ")))
-    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
-
-(defun reverse-region (beg end)
-  "Reverse characters between BEG and END."
-  (interactive "r")
-  (let ((region (buffer-substring beg end)))
-    (delete-region beg end)
-    (insert (nreverse region))))
-
 (provide 'custom-functions)
-
 
 (defun org-html-export-to-mhtml (async subtree visible body)
   "Org html export handler which inlines images using data-urls.
+  Is automatically registered via org-mode-hook.
   Available using , e e -> h m"
 
   (cl-letf (((symbol-function 'org-html--format-image) 'format-image-inline))
@@ -36,11 +16,10 @@
          (data-url (concat prefix (base64-encode-string data)))
          (attributes (org-combine-plists `(:src ,data-url) attributes)))
     (org-html-close-tag "img" (org-html--make-attribute-string attributes) info)))
-(org-export-define-derived-backend 'html-inline-images 'html
-  :menu-entry '(?h "Export to HTML" ((?m "As MHTML file an open" org-html-export-to-mhtml))))
 
 (defun org-insert-clipboard-image ()
-  "inserts an image from clipboard"
+  "inserts an image from clipboard by writing it to a folder named images in the same directory
+  and adding a reference to the current cursor position."
   (interactive)
   (let* ((file (concat "./images/" (number-to-string (float-time)) ".png")))
        (shell-command (concat "xclip -selection clipboard -t image/png -o > " file))
