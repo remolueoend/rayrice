@@ -62,5 +62,6 @@
   "srcbin/setup.sh": "~/srcbin/setup.sh",
   ".config/rofi/config.rasi": "~/.config/rofi/config.rasi",
   ".config/picom.conf": "~/.config/picom.conf",
-  ".config/alacritty": "~/.config/alacritty"
+  ".direnvrc": "~/.direnvrc",
+  ".config/alacritty/alacritty.yml": "~/.config/alacritty/alacritty.yml"
 }

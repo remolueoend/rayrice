@@ -1,0 +1,5 @@
+use_nvm() {
+	NODE_VERSION="$1"
+  source /usr/share/nvm/init-nvm.sh
+	nvm use "$NODE_VERSION"
+}
