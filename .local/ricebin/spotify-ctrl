@@ -2,22 +2,23 @@
 
 # Small script to control spotify via DBus methods & properties
 # Call this script without args for usage info.
+#
+# Dependencies:
+# gdbus, dbus-send
 
 if [[ $# -eq 0 ]]; then
-    echo "usage: spotify-ctrl Pause|Play|IsPlaying"
+    echo "usage: spotify-ctrl Pause | Play | IsPlaying | OpenUri <URL>"
     exit 1;
 fi
 
-method=$1
-
-# special handing for IsPlaying: we need to call a method from a freedesktop interface:
-if [[ $method == "IsPlaying" ]]; then
+# Returns either 'true' or 'false' based on if the player is currently playing or paused. Takes no arguments.
+getIsPlaying() {
     # using gdbus here just because the response is easier to parse
     bus_resp=$(gdbus call \
-    --session \
-    --dest=org.mpris.MediaPlayer2.spotify \
-    --object-path /org/mpris/MediaPlayer2 \
-    --method "org.freedesktop.DBus.Properties.Get" org.mpris.MediaPlayer2.Player PlaybackStatus 2> /dev/null)
+                     --session \
+                     --dest=org.mpris.MediaPlayer2.spotify \
+                     --object-path /org/mpris/MediaPlayer2 \
+                     --method "org.freedesktop.DBus.Properties.Get" org.mpris.MediaPlayer2.Player PlaybackStatus 2> /dev/null)
 
     if [[ $bus_resp == "(<'Playing'>,)" ]]; then
         echo "true"
@@ -25,21 +26,41 @@ if [[ $method == "IsPlaying" ]]; then
         echo "false"
     fi
     exit 0
-elif [[ $method == "OpenUri" ]]; then
-    dbus-send \
-    --session \
-    --type=method_call \
-    --print-reply \
-    --dest=org.mpris.MediaPlayer2.spotify \
-    /org/mpris/MediaPlayer2 \
-    org.mpris.MediaPlayer2.Player.OpenUri "string:$2" > /dev/null || exit 0 # ignore failed attempts
-    exit 0
-fi
+}
 
-dbus-send \
---session \
---type=method_call \
---print-reply \
---dest=org.mpris.MediaPlayer2.spotify \
-/org/mpris/MediaPlayer2 \
-"org.mpris.MediaPlayer2.Player.$method" > /dev/null || exit 0 # ignore failed attempts
+# Opens a given spotify URL in the player. Expects the URL as first argument.
+openUri() {
+    dbus-send \
+        --session \
+        --type=method_call \
+        --print-reply \
+        --dest=org.mpris.MediaPlayer2.spotify \
+        /org/mpris/MediaPlayer2 \
+        org.mpris.MediaPlayer2.Player.OpenUri "string:$1" > /dev/null || exit 0 # ignore failed attempts
+    exit 0
+}
+
+# Forwards a given method call to the spotify player. Expects the method as first argument.
+# Does not yet support forwarding method arguments.
+forwardToSpotify() {
+    dbus-send \
+        --session \
+        --type=method_call \
+        --print-reply \
+        --dest=org.mpris.MediaPlayer2.spotify \
+        /org/mpris/MediaPlayer2 \
+        "org.mpris.MediaPlayer2.Player.$1" > /dev/null || exit 0 # ignore failed attempts
+}
+
+method=$1
+case $method in
+     IsPlaying)
+        getIsPlaying
+        ;;
+    OpenUri)
+        openUri $2
+        ;;
+    *)
+        forwardToSpotify $method
+        ;;
+esac

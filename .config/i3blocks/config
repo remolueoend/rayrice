@@ -2,8 +2,8 @@ command=~/.local/ricebin/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-[toggl]
-interval=60
+# [toggl]
+# interval=60
 
 [battery]
 command=battery

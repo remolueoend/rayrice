@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+dir=$(mktemp -d)
+pushd $dir
+echo -e "" >> main.ts
+
+if ! command -v ts-node-dev &> /dev/null; then
+    rofi -e "missing executable 'ts-node-dev' in PATH. Install it with 'yarn global add ts-node-dev'."
+    exit 1
+fi
+if ! command -v tsc &> /dev/null; then
+    rofi -e "missing executable 'tsc' in PATH. Install it with 'yarn global add typescript'."
+    exit 1
+fi
+
+$TERMINAL sh -c "cd $dir && ts-node-dev --quiet --respawn main.ts" &
+
+code $dir/main.ts
+popd

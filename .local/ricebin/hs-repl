@@ -6,5 +6,5 @@ echo -e "" >> main.hs
 
 $TERMINAL sh -c "cd $dir && ghci main.hs" &
 
-code $dir
+code -n $dir/main.hs
 popd
