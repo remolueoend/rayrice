@@ -63,5 +63,6 @@
   ".config/rofi/config.rasi": "~/.config/rofi/config.rasi",
   ".config/picom.conf": "~/.config/picom.conf",
   ".direnvrc": "~/.direnvrc",
-  ".config/alacritty/alacritty.yml": "~/.config/alacritty/alacritty.yml"
+  ".config/alacritty/alacritty.yml": "~/.config/alacritty/alacritty.yml",
+  ".config/flameshot/flameshot.ini": "~/.config/flameshot/flameshot.ini"
 }

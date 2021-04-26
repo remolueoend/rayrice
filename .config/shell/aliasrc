@@ -56,6 +56,6 @@ alias \
   kitty="kitty --single-instance" \
   theme="kitty-theme --config ~/.config/kittythemechanger.py" \
   toggle-theme="theme -t && theme -L" \
-  dark="alacritty-themes Argonaut" \
-  light="alacritty-themes Iceberg.light"
+  dark="alacritty-themes Ayu-Dark" \
+  light="alacritty-themes Iceberg-Light"
 
