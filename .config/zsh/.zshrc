@@ -43,6 +43,10 @@ function use_python {
     pyenv shell $VERSION && echo "Now using $(python --version)"
 }
 
+function load_nvm() {
+    source /usr/share/nvm/init-nvm.sh
+}
+
 function use_ocaml {
     eval $(opam env)
 }

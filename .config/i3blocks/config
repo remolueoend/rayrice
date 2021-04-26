@@ -2,8 +2,8 @@ command=~/.local/ricebin/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-[toggl]
-interval=60
+# [toggl]
+# interval=60
 
 [battery]
 command=battery
@@ -13,9 +13,9 @@ interval=10
 interval=once
 signal=10
 
-[mailbox]
-interval=180
-signal=12
+# [mailbox]
+# interval=180
+# signal=12
 
 # [record]
 # command=cat /tmp/recordingicon
