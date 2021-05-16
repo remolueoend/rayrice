@@ -9,10 +9,17 @@ suspend="suspend"
 reboot="reboot"
 poweroff="poweroff"
 
-options="$lock\n$logout\n$hibernate\n$suspend\n$reboot\n$poweroff"
-choice=$(echo -e "$options" | rofi -p "Uptime: $uptime" -dmenu -selected-row 2)
+options="\
+🔒 $lock
+👋 $logout
+🐻 $hibernate
+😴 $suspend
+🔃 $reboot
+🚪 $poweroff"
 
-case $choice in
+choice=$(echo -e "$options" | rofi -width 22 -columns 6 -lines 1 -p "Uptime: $uptime" -dmenu -selected-row 2)
+
+case $(echo "$choice" | cut -d' ' -f2-) in
     $poweroff)
         systemctl poweroff
         exit 0

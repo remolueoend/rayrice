@@ -25,7 +25,6 @@ zstyle ':prezto:*:*' color 'yes'
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'environment' \
-  'terminal' \
   'editor' \
   'history' \
   'directory' \
@@ -33,7 +32,6 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'prompt' \
-  'git' \
   'syntax-highlighting' \
   'history-substring-search'
 # 'autosuggestions'
@@ -150,22 +148,6 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 # Set syntax pattern styles.
  zstyle ':prezto:module:syntax-highlighting' pattern \
    'rm*-rf*' 'fg=white,bold,bg=red'
-
-#
-# Terminal
-#
-
-# Auto set the tab and window titles.
-zstyle ':prezto:module:terminal' auto-title 'yes'
-
-# Set the window title format.
-zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
-
-# Set the tab title format.
-zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
-
-# Set the terminal multiplexer title format.
-# zstyle ':prezto:module:terminal:multiplexer-title' format '%s'
 
 #
 # Tmux

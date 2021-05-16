@@ -34,6 +34,9 @@ export PATH=$SRCBIN_DIR/build:$PATH
 # binaries installed via snap:
 export PATH=/var/lib/snapd/snap/bin:$PATH
 
+function killport {
+    sudo kill -9 $(sudo lsof -t -i:"$1")
+}
 
 function use_python {
     # enables python version [$:3.5.6] for the current shell using pyenv

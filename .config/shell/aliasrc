@@ -37,6 +37,11 @@ alias \
 	z="zathura" \
 	open="xdg-open"
 
+# GIT related shortcuts
+alias \
+    gp="git push" \
+    gc="git commit"
+
 # other tools
 alias \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
