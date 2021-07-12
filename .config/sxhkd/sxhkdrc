@@ -85,11 +85,11 @@ super + Delete
 	dmenurecord kill
 
 # Pause audio
-super + {_,shift +} p
-	spotify-ctrl {PlayPause,Pause}
+super + p
+	playerctl play-pause
 # Changes to next/previous tracks
 super + {comma,period}
-	spotify-ctrl {Previous,Next}
+	playerctl {previous,next}
 # Restart track
 super + shift + less
 	mpc seek 0%

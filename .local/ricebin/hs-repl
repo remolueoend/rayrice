@@ -4,7 +4,7 @@ dir=$(mktemp -d)
 pushd $dir
 echo -e "" >> main.hs
 
-$TERMINAL sh -c "cd $dir && ghci main.hs" &
+start-terminal -e sh -c "cd $dir && ghci main.hs" &
 
 code -n $dir/main.hs
 popd

@@ -14,3 +14,4 @@ rice=voidrice
 fs-shortcuts=.config/fs-shortcuts
 rofi=.config/rofi/config.rasi
 picom=.config/picom.conf
+xprofile=.xprofile

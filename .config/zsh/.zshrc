@@ -35,7 +35,9 @@ export PATH=$SRCBIN_DIR/build:$PATH
 export PATH=/var/lib/snapd/snap/bin:$PATH
 
 function killport {
-    sudo kill -9 $(sudo lsof -t -i:"$1")
+    # kill the process listening on the given port
+    # $1: port where the process is listening on
+    sudo kill $(sudo lsof -t -i:"$1")
 }
 
 function use_python {
@@ -47,6 +49,7 @@ function use_python {
 }
 
 function load_nvm() {
+    # load NVM in the current shell, pretty slow
     source /usr/share/nvm/init-nvm.sh
 }
 
@@ -55,15 +58,24 @@ function use_ocaml {
 }
 
 function eth_mount {
+    # Mounts the ETH user shared drive to ~/eth_home
     # $1: ETH username
     sudo mount "//d.ethz.ch/users/all/$1" $HOME/eth_home -o username=$1
 }
 
 function eth_mount_software {
+    # Mounts the ETH software drive to /mnt/eth-software
     # $1 eth-username
     local mnt_point="/mnt/eth-software"
     sudo mkdir -p $mnt_point
     sudo mount //software.ethz.ch/$1$ $mnt_point -t cifs -o username=$1,vers=2.1
+}
+
+function mkd {
+    # creates a folder (and its parents) and navigates to it
+    # $1: relative or absolute path to folder
+    mkdir -pv $1
+    cd $1
 }
 
 # Enable colors and change prompt:
@@ -104,17 +116,22 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# Use lf to switch directories and bind it to ctrl-o
-lfcd () {
+rangercd() {
+    # Use ranger to switch directories and bind it to ctrl-o
+    # When starting ranger, <Enter> is mapped to writing the selected
+    # directory to a temp file, quitting ranger and then navigating to it in the current shell.
     tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
+    ranger \
+        --show-only-dirs \
+        --cmd="map <Enter> chain shell echo %d > \"$tmp\"; quit"
+
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp" >/dev/null
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-bindkey -s '^o' 'lfcd\n'
+bindkey -s '^o' 'rangercd\n'
 
 bindkey -s '^a' 'bc -lq\n'
 

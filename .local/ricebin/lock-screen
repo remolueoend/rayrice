@@ -18,12 +18,12 @@ fi
 
 # store current state of notifications, audio, etc.
 notifications_paused=$(dunstctl is-paused)
-spotify_playing=$(spotify-ctrl IsPlaying)
+player_status=$(playerctl status)
 audio_muted=$(pamixer --get-mute)
 audio_port=$(get_current_audio_port)
 toggl_timer=$(with-secure-env toggl-cmd running)
 
-spotify-ctrl Pause                 # pause spotify
+playerctl pause                    # pause media player
 pauseallmpv                        # pause mpv
 dunstctl set-paused true           # pause notifications
 amixer sset Master mute            # mute audio
@@ -65,8 +65,8 @@ if [[ $audio_port == $(get_current_audio_port) ]]; then
     if [[ $audio_muted == "false" ]]; then
         amixer sset Master unmute
     fi
-    # restart spotify player if it was playing before and we're using headphones
-    if [[ $spotify_playing == "true" ]] && [[ $(get_current_audio_port) == *"headphones"* ]]; then
-        spotify-ctrl Play
+    # restart media player if it was playing before and we're using headphones
+    if [[ $player_status == "Playing" ]] && [[ $(get_current_audio_port) == *"headphones"* ]]; then
+        playerctl play
     fi
 fi

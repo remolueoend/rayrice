@@ -32,6 +32,8 @@
   ".config/newsboat": "~/.config/newsboat",
   ".config/sxiv": "~/.config/sxiv",
   ".config/shell/aliasrc": "~/.config/shell/aliasrc",
+  ".config/shell/bm-dirs": "~/.config/shell/bm-dirs",
+  ".config/shell/bm-files": "~/.config/shell/bm-files",
   ".config/bmdirs": "~/.config/bmdirs",
   ".config/bmfiles": "~/.config/bmfiles",
   ".config/user-dirs": "~/.config/user-dirs",
@@ -64,5 +66,6 @@
   ".config/picom.conf": "~/.config/picom.conf",
   ".direnvrc": "~/.direnvrc",
   ".config/alacritty/alacritty.yml": "~/.config/alacritty/alacritty.yml",
-  ".config/flameshot/flameshot.ini": "~/.config/flameshot/flameshot.ini"
+  ".config/flameshot/flameshot.ini": "~/.config/flameshot/flameshot.ini",
+  ".config/nu/config.toml": "~/.config/nu/config.toml"
 }
