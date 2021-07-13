@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 help_text='
 This script pulls the description of the current merge request (based on the current branch),
 stores it in a temporary file and opens it in $EDITOR.
@@ -14,63 +16,64 @@ as a single string, e.g.: mygroup/myproject or myusername/myproject
 Author: remolueoend
 
 Dependencies:
-* graphqul: https://github.com/hasura/graphqurl
+* git
+* graphqurl: https://github.com/hasura/graphqurl
 * jq
 * pandoc (for converting descriptions to ORG)
 
 Variables:
-EDITOR: The editor to be used. Needs to block until closed (e.g. "emacs", "vim", ...)
-GRAPHQL_TOKEN: your personal access token. Can be generated via profile page on gitlab.com
-DEBUG: when set, xtrace is activated.
+DEBUG [=unset]  : when set, xtrace is activated.
+EDITMR_ENDPOINT [=https://gitlab.com/api/graphql]: The graphql endpoint of your Gitlab instance.
+EDITMR_PROJECT  : The Gitlab project path, e.g: mygroup/project or myusername/project
+EDITMR_TOKEN    : your personal Gitlab access token. Can be generated via the profile page on your Gitlab instance
+EDITOR [=vim]   : The editor to be used. Needs to block until closed (e.g. "emacs", "vim", ...)
 
 Usage:
-GRAPHQL_TOKEN=<your_token> [DEBUG=1] editmr
+EDITMR_TOKEN=<your_token> EDITMR_PROJECT=<project_path> [EDITMR_ENDPOINT=<endpoint>] [DEBUG=1] editmr
+
+Comments:
+1. Why does this script make use of environment variables instead of accepting values as arguments?
+   This approach allows storing the project dependent parameters in a local .envrc file, without requiring
+   any other configuration files. .envrc files or similar are often already part of a project.
+2. How should I manage my personal token?
+   Best case: Store it in a password vault (such as GNU pass) and pass it into editmr by e.g. defining an
+   alias: `EDITMR_TOKEN=$(pass show editmr-token) editmr`.
+   Not-so best case: store it somewhere in your config directory and source it whenever required or put
+   it into a local .env file as long as it is git-ignored.
+   In any case, just make sure not to push it to remote :)
 '
 
-if [[ "$1" == "--help" || "$1" == "-h" ]]; then
-   echo "$help_text"
-   exit 1
-fi
+# default values for optional variables:
+EDITMR_ENDPOINT=${EDITMR_ENDPOINT:-"https://gitlab.com/api/graphql"}
+EDITOR=${EDITOR:-"vim"}
 
-set -e
+if [[ "$1" == "--help" || "$1" == "-h" ]]; then
+	echo "$help_text"
+	exit 1
+fi
 
 if [ -n "${DEBUG}" ]; then
-    set -o xtrace
+	set -o xtrace
 fi
 
-if [ ! -n "${GRAPHQL_TOKEN}" ]; then
-    echo "missing GRAPHQL_TOKEN. Create an access token in your gitlab profile."
-    exit 1
+# check if all required variables have been provided:
+if [ ! -n "${EDITMR_TOKEN}" ]; then
+	echo "missing EDITMR_TOKEN. Create an access token in your gitlab profile."
+	exit 1
 fi
-
-
-function get_rc_path() {
-    # Searches for a 'editmrrc' file in the current folder
-    # and upwards. Returns the absolute path of the file when found.
-    local rc_path="$(pwd)/editmrrc"
-    if [[ ! -f "$rc_path" ]]; then
-        local rc_path=$(pwd)
-        while [ "$rc_path" != "/" ] ; do
-            local rc_path=`dirname "$rc_path"`
-            if [ $(find "$rc_path" -maxdepth 1 -name editmrrc) ]; then
-                echo "$rc_path/editmrrc"
-                return
-            fi
-
-        done
-    else
-        echo "$rc_path"
-    fi
-}
+if [ ! -n "${EDITMR_PROJECT}" ]; then
+	echo "missing EDITMR_PROJECT. See editmr --help for more info"
+	exit 1
+fi
 
 function get_MR() {
-    # Returns a JSON string describing the merge request of the given project
-    # and with the given ID.
-    #
-    # $1: project path
-    # $2 branch name of merge request
+	# Returns a JSON string describing the merge request of the given project
+	# and with the given ID.
+	#
+	# $1: project path
+	# $2 branch name of merge request
 
-    local query='query getCurrentMR($project_path: ID!, $branch_name: String!) {
+	local query='query getCurrentMR($project_path: ID!, $branch_name: String!) {
       project(fullPath: $project_path) {
         id
         mergeRequests(sourceBranches: [$branch_name]) {
@@ -82,26 +85,22 @@ function get_MR() {
       }
     }'
 
-    gq "https://gitlab.com/api/graphql" \
-       -H "Authorization: Bearer $GRAPHQL_TOKEN" \
-       -H "Content-Type: application/json" \
-       -q "$query" \
-       -v "project_path=$1" \
-       -v "branch_name=$2"
+	gq "$EDITMR_ENDPOINT" \
+		-H "Authorization: Bearer $EDITMR_TOKEN" \
+		-H "Content-Type: application/json" \
+		-q "$query" \
+		-v "project_path=$1" \
+		-v "branch_name=$2"
 }
 
-
-
-
-
 function update_MR() {
-    # Updates the description of an MR in the given project and with the given ID.
-    #
-    # $1 project_path
-    # $2 MR IID
-    # #3 new description
+	# Updates the description of an MR in the given project and with the given ID.
+	#
+	# $1 project_path
+	# $2 MR IID
+	# #3 new description
 
-    local mutation='mutation upate_mr($project_path: ID!, $iid: String!, $desc: String) {
+	local mutation='mutation upate_mr($project_path: ID!, $iid: String!, $desc: String) {
       mergeRequestUpdate(input: {
         projectPath: $project_path,
         description: $desc,
@@ -113,41 +112,62 @@ function update_MR() {
       }
     }'
 
-    gq "https://gitlab.com/api/graphql" \
-            -H "Authorization: Bearer $GRAPHQL_TOKEN" \
-            -H "Content-Type: application/json" \
-            -q "$mutation" \
-            -v "project_path=$1" \
-            -v "iid=\"$2\"" \
-            -v "desc=$3"
+	gq "https://gitlab.com/api/graphql" \
+		-H "Authorization: Bearer $EDITMR_TOKEN" \
+		-H "Content-Type: application/json" \
+		-q "$mutation" \
+		-v "project_path=$1" \
+		-v "iid=\"$2\"" \
+		-v "desc=$3"
 }
 
-
-
-
+# get all required information about the current merge request:
 curr_branch=$(git branch --show-current)
-rc_path=$(get_rc_path)
-curr_proj_path="$(cat $rc_path)"
+curr_mr=$(get_MR "$EDITMR_PROJECT" "$curr_branch")
+mr_iid=$(echo "$curr_mr" | jq -r '.data.project.mergeRequests.nodes[0].iid')
 
-curr_mr=$(get_MR "$curr_proj_path" "$curr_branch")
-mr_iid=$(echo $curr_mr | jq -r '.data.project.mergeRequests.nodes[0].iid')
-mr_desc=$(echo $curr_mr | jq -r '.data.project.mergeRequests.nodes[0].description')
-org_desc=$(echo "$mr_desc" | pandoc -f markdown -t org)
-target_dir="/tmp/editmr/$curr_proj_path"
-target_file="$target_dir/$(basename $mr_iid).org"
-mkdir -p $target_dir
-echo "$org_desc" >| $target_file
-
-$EDITOR $target_file
-
-new_org_desc="$(cat $target_file)"
-if [[ "$new_org_desc" != "$org_desc" ]]; then
-    new_md_desc=$(echo "$new_org_desc" | pandoc -f org -t markdown)
-    echo $(update_MR "$curr_proj_path" "$mr_iid" "$new_md_desc")
-else
-    echo "no changes detected"
+if [[ "$1" == "o" ]]; then
+	# Open the current merge request in a browser. Only gitlab.com supported for now.
+	xdg-open "https://gitlab.com/$EDITMR_PROJECT/merge_requests/$mr_iid"
+	exit 0
 fi
 
+# main part of this script.
+mr_desc=$(echo "$curr_mr" | jq -r '.data.project.mergeRequests.nodes[0].description')
 
+if [[ "$mr_iid" == "null" ]]; then
+	echo "[ERROR]: Could not find the requested merge request."
+	printf "Response from endpoint: %s\n" "$curr_mr"
+	exit 1
+fi
 
+# convert the description to ORG and store it in a temp file
+org_desc=$(echo "$mr_desc" | pandoc -f markdown -t org)
+target_dir="/tmp/editmr/$EDITMR_PROJECT"
+target_file="$target_dir/$(basename $mr_iid).org"
+mkdir -p $target_dir
+echo "$org_desc" >|$target_file
 
+# open the temp file in an editor and wait for it to return:
+$EDITOR $target_file
+
+# if the content of the temp file has been changed,
+# convert the content back to markdown and update the MR description:
+new_org_desc="$(cat $target_file)"
+if [[ "$new_org_desc" == "$org_desc" ]]; then
+	echo "no changes detected"
+	exit 0
+fi
+
+new_md_desc=$(echo "$new_org_desc" | pandoc -f org -t markdown)
+update_resp=$(update_MR "$EDITMR_PROJECT" "$mr_iid" "$new_md_desc")
+
+# check if the updates were applied by validating the update response:
+actual=$(echo "$update_resp" | jq -r '.data.mergeRequestUpdate.mergeRequest.description')
+if [[ "$actual" != "$new_md_desc" ]]; then
+	echo "[ERROR]: Is seems that the update has not been applied correctly."
+	echo "Expected:"
+	echo "$new_md_desc"
+	echo "Actual:"
+	echo "$actual"
+fi
