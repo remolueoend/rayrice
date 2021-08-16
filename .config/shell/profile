@@ -5,8 +5,10 @@
 # If you don't plan on reverting to bash, you can remove the link in ~/.profile
 # to clean up.
 
-# Adds `~/.local/srcbin`/.local/bin and all its subfolders to $PATH:
-export PATH="$PATH:$(du -L "$HOME/.local/ricebin" | cut -f2 | paste -sd ':')"
+# needs to be here instead of zshrc, xprofile requires this when running on logon:
+# Also make sure everything under .local/ricebin gets prepended to allow overwriting
+# installed binaries
+export PATH="$(du -L "$HOME/.local/ricebin" | cut -f2 | paste -sd ':'):$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 
 # Default programs:

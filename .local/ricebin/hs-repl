@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
-dir=$(mktemp -d)
+mkdir -p /tmp/hs-repl
+dir=$(mktemp -d -p /tmp/hs-repl/)
 pushd $dir
 echo -e "" >> main.hs
 

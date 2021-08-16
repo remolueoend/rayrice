@@ -52,8 +52,9 @@ alias \
 	wiki="et $HOME/wiki/" \
 	sysrice="sudo yadm -Y /etc/sysrice" \
 	la="exa --long --all --header" \
-	trello="with-secure-env trello" \
-	personal="with-secure-env personal" \
+	trello="with-secret-env trello" \
+	personal="with-secret-env personal" \
+	editmr="with-secret-env editmr" \
   copy="xclip -selection c" \
   paste="xclip -selection c -o" \
   ssh="TERM=xterm-color ssh" \

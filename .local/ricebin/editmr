@@ -124,16 +124,8 @@ function update_MR() {
 # get all required information about the current merge request:
 curr_branch=$(git branch --show-current)
 curr_mr=$(get_MR "$EDITMR_PROJECT" "$curr_branch")
-mr_iid=$(echo "$curr_mr" | jq -r '.data.project.mergeRequests.nodes[0].iid')
-
-if [[ "$1" == "o" ]]; then
-	# Open the current merge request in a browser. Only gitlab.com supported for now.
-	xdg-open "https://gitlab.com/$EDITMR_PROJECT/merge_requests/$mr_iid"
-	exit 0
-fi
-
-# main part of this script.
 mr_desc=$(echo "$curr_mr" | jq -r '.data.project.mergeRequests.nodes[0].description')
+mr_iid=$(echo "$curr_mr" | jq -r '.data.project.mergeRequests.nodes[0].iid')
 
 if [[ "$mr_iid" == "null" ]]; then
 	echo "[ERROR]: Could not find the requested merge request."
@@ -141,6 +133,14 @@ if [[ "$mr_iid" == "null" ]]; then
 	exit 1
 fi
 
+# Hidden feature when providing 'o' as single argument:
+# open the current merge request in a browser. Only gitlab.com supported for now.
+if [[ "$1" == "o" ]]; then
+	xdg-open "https://gitlab.com/$EDITMR_PROJECT/merge_requests/$mr_iid"
+	exit 0
+fi
+
+# main part of this script:
 # convert the description to ORG and store it in a temp file
 org_desc=$(echo "$mr_desc" | pandoc -f markdown -t org)
 target_dir="/tmp/editmr/$EDITMR_PROJECT"
