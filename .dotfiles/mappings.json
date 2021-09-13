@@ -68,5 +68,6 @@
   ".config/alacritty/alacritty.yml": "~/.config/alacritty/alacritty.yml",
   ".config/flameshot/flameshot.ini": "~/.config/flameshot/flameshot.ini",
   ".config/nu/config.toml": "~/.config/nu/config.toml",
-  ".config/locale.conf": "~/.config/locale.conf"
+  ".config/locale.conf": "~/.config/locale.conf",
+  ".config/xfce4": "~/.config/xfce4"
 }
