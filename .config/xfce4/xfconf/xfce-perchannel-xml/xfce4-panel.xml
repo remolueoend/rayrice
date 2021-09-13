@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <property name="dark-mode" type="bool" value="true"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=6;x=1280;y=14"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="icon-size" type="uint" value="0"/>
+      <property name="size" type="uint" value="26"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="17"/>
+        <value type="int" value="16"/>
+        <value type="int" value="2"/>
+        <value type="int" value="3"/>
+        <value type="int" value="9"/>
+        <value type="int" value="5"/>
+        <value type="int" value="10"/>
+        <value type="int" value="15"/>
+        <value type="int" value="12"/>
+        <value type="int" value="13"/>
+        <value type="int" value="6"/>
+        <value type="int" value="11"/>
+      </property>
+      <property name="background-style" type="uint" value="0"/>
+      <property name="background-image" type="string" value="/home/remo/GoogleDrive/Pictures/Screenshots/2021-05-20_12-36.png"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-3" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-6" type="string" value="systray">
+      <property name="square-icons" type="bool" value="true"/>
+      <property name="known-items" type="array">
+        <value type="string" value="hp-systray"/>
+        <value type="string" value="zoom"/>
+        <value type="string" value="discord1"/>
+        <value type="string" value="steam"/>
+        <value type="string" value="flameshot"/>
+        <value type="string" value="redshift"/>
+        <value type="string" value="KDE Connect Indicator"/>
+        <value type="string" value="Insync"/>
+        <value type="string" value="com.github.whatsapp-for-linux.tray"/>
+        <value type="string" value="whatsapp-nativefier-d402111"/>
+        <value type="string" value="1Password1"/>
+        <value type="string" value="blueman"/>
+      </property>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="deluge"/>
+        <value type="string" value="yad"/>
+        <value type="string" value="toggl desktop"/>
+        <value type="string" value="bluetooth enabled"/>
+        <value type="string" value="redshift-gtk"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="optimus manager qt"/>
+        <value type="string" value="flameshot"/>
+      </property>
+    </property>
+    <property name="plugin-9" type="string" value="power-manager-plugin"/>
+    <property name="plugin-10" type="string" value="notification-plugin"/>
+    <property name="plugin-11" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-12" type="string" value="clock">
+      <property name="mode" type="uint" value="2"/>
+      <property name="fuzziness" type="uint" value="0"/>
+      <property name="tooltip-format" type="string" value="%x"/>
+      <property name="digital-format" type="string" value="%d.%m %T"/>
+    </property>
+    <property name="plugin-13" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-2" type="string" value="windowmenu"/>
+    <property name="plugin-5" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="chromium.instance5056;chromium.instance926538;dragonplayer;firefox.instance1026066;firefox.instance106044;firefox.instance1085603;firefox.instance1100823;firefox.instance1166161;firefox.instance1172109;firefox.instance1200142;firefox.instance1218072;firefox.instance1246023;firefox.instance13244;firefox.instance140428;firefox.instance1469;firefox.instance1534;firefox.instance15482;firefox.instance1606;firefox.instance1657;firefox.instance1719;firefox.instance177292;firefox.instance194826;firefox.instance218397;firefox.instance2449;firefox.instance267240;firefox.instance287715;firefox.instance323519;firefox.instance38638;firefox.instance405067;firefox.instance415364;firefox.instance424741;firefox.instance437230;firefox.instance440759;firefox.instance446322;firefox.instance458596;firefox.instance476521;firefox.instance49562;firefox.instance501700;firefox.instance52967;firefox.instance587872;firefox.instance59316;firefox.instance666693;firefox.instance762440;firefox.instance803211;firefox.instance847242;firefox.instance905850;firefox.instance96627;mpv;mpv.instance44225;mpv.instance835710;playerctld;spotify"/>
+    </property>
+    <property name="plugin-15" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-16" type="string" value="i3-workspaces"/>
+    <property name="plugin-17" type="string" value="whiskermenu"/>
+  </property>
+</channel>
