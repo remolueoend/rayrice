@@ -54,13 +54,15 @@ alias \
 	la="exa --long --all --header" \
 	trello="with-secret-env trello" \
 	personal="with-secret-env personal" \
-	editmr="with-secret-env editmr" \
+	editmr="with-secret-env forge edit-mr -o" \
+	openmr="with-secret-env forge open-mr" \
+	createissue="with-secret-env forge create-issue -o" \
   copy="xclip -selection c" \
   paste="xclip -selection c -o" \
   ssh="TERM=xterm-color ssh" \
   kitty="kitty --single-instance" \
   theme="kitty-theme --config ~/.config/kittythemechanger.py" \
   toggle-theme="theme -t && theme -L" \
-  dark="alacritty-themes Ayu-Mirage" \
-  light="alacritty-themes Iceberg-Light"
+  dark="change-theme dark" \
+  light="change-theme light"
 

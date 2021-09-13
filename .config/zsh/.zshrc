@@ -2,11 +2,11 @@
 
 ZFUNC_FOLDER="$HOME/.zfunc"
 mkdir -p $ZFUNC_FOLDER
-fpath=( $ZFUNC_FOLDER "${fpath[@]}" )
+fpath=($ZFUNC_FOLDER "${fpath[@]}")
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 export DOTFILES_ROOT="$HOME/voidrice"
@@ -79,9 +79,9 @@ function mkd {
 }
 
 # Enable colors and change prompt:
-autoload -U colors && colors	# Load colors
-setopt autocd		# Automatically cd into typed directory.
-stty stop undef		# Disable ctrl-s to freeze terminal.
+autoload -U colors && colors # Load colors
+setopt autocd                # Automatically cd into typed directory.
+stty stop undef              # Disable ctrl-s to freeze terminal.
 setopt interactive_comments
 
 # History settings:
@@ -99,7 +99,7 @@ autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots)		# Include hidden files.
+_comp_options+=(globdots) # Include hidden files.
 
 # vi mode
 bindkey -v
@@ -140,7 +140,8 @@ bindkey -s '^a' 'bc -lq\n'
 bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
+autoload edit-command-line
+zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # source plugins
@@ -150,7 +151,8 @@ source $SRCBIN_DIR/fzf-tab/fzf-tab.plugin.zsh
 local zplugin_entry="$SRCBIN_DIR/zplugin/zplugin.zsh"
 if [ -f $zplugin_entry ]; then
     source $zplugin_entry
-    zplugin light zsh-users/zsh-autosuggestions; ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#aaaaaa"
+    zplugin light zsh-users/zsh-autosuggestions
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#aaaaaa"
     bindkey "^F" forward-word
     # zplugin light Valiev/almostontop
 else
@@ -165,17 +167,20 @@ eval "$(direnv hook zsh)"
 # but we want to do it manually using `ssh-add`
 # using passwords provided by 1password
 # eval $(keychain --eval --quiet --noask id_github id_gitlab)
-if [ -n "$DESKTOP_SESSION" ]; then
-    eval $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK
-fi
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
 
 # PERL stuff
-PATH="/home/remo/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/remo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/remo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/remo/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/remo/perl5"; export PERL_MM_OPT;
+PATH="/home/remo/perl5/bin${PATH:+:${PATH}}"
+export PATH
+PERL5LIB="/home/remo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+export PERL5LIB
+PERL_LOCAL_LIB_ROOT="/home/remo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+export PERL_LOCAL_LIB_ROOT
+PERL_MB_OPT="--install_base \"/home/remo/perl5\""
+export PERL_MB_OPT
+PERL_MM_OPT="INSTALL_BASE=/home/remo/perl5"
+export PERL_MM_OPT
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null

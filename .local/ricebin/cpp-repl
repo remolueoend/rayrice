@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+mkdir -p /tmp/cpp-repl
+dir=$(mktemp -d -p /tmp/cpp-repl/)
+pushd $dir
+echo -e "#include <iostream>\nusing namespace std;\n\nint main() {\n\treturn 0;\n}" >> main.cpp
+start-terminal -e sh -c "cd $dir && echo main.cpp | entr -c sh -c 'g++ -g main.cpp -o main && ./main'" &
+code -n $dir
+popd

@@ -1,0 +1,45 @@
+#!/usr/bin/env sh
+
+function vscode_theme() {
+    local theme="Ayu Mirage"
+    if [[ "$1" == "light" ]]; then
+        theme="Atom One Light"
+    fi
+    sed -i "s/\"workbench.colorTheme\": \".*\"/\"workbench.colorTheme\": \"$theme\"/g" "$HOME/.config/Code/User/settings.json"
+}
+
+function alacritty_theme() {
+    local theme="Ayu-Mirage"
+    if [[ "$1" == "light" ]]; then
+        theme="Brewer.light"
+    fi
+    alacritty-themes "$theme"
+}
+
+function gtk_theme() {
+    local theme="Ant-Nebula"
+    if [[ "$1" == "light" ]]; then
+        theme="High-Contrast"
+    fi
+    xfconf-query -c xsettings -p /Net/ThemeName -s "$theme"
+}
+
+function emacsclient_theme() {
+    local theme="doom-one"
+    if [[ "$1" == "light" ]]; then
+        theme="spacemacs-light"
+    fi
+    emacsclient -e "(load-theme \`$theme\` 1)"
+}
+
+if [[ "$1" -ne "light" || "$1" -ne "dark" ]]; then
+    echo "invalid value for mode. Usage: change-theme <light|dark>"
+    exit 1
+fi
+
+
+alacritty_theme "$1"
+vscode_theme "$1"
+gtk_theme "$1"
+emacsclient_theme "$1"
+

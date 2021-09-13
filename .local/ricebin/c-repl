@@ -1,10 +1,9 @@
 #!/usr/bin/env sh
 
-dir=$(mktemp -d)
+mkdir -p /tmp/c-repl
+dir=$(mktemp -d -p /tmp/c-repl/)
 pushd $dir
 echo -e "#include <stdio.h>\n\nint main() {\n\treturn 0;\n}" >> main.c
-
-$TERMINAL sh -c "cd $dir && echo main.c | entr -c sh -c 'gcc -g main.c -o main && ./main'" &
-
-et $dir
+start-terminal -e sh -c "cd $dir && echo main.c | entr -c sh -c 'gcc -g main.c -o main && ./main'" &
+code -n $dir/main.c
 popd

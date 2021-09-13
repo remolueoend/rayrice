@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+mkdir -p /tmp/rust-repl
+dir=$(mktemp -d -p /tmp/rust-repl/)
+pushd $dir
+cargo init --name tmp
+start-terminal -e sh -c "cargo watch -x run" &
+code -n $dir
+popd

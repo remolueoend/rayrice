@@ -108,9 +108,9 @@ super {_,shift +} + minus
 super + shift + m
 	amixer sset Master toggle; pkill -RTMIN+10 blocks
 
-# Audiokeys
+# Audiokeys - MuteKey should mute speakers, but not e.g. headphones
 XF86AudioMute
-	amixer sset Master toggle; pkill -RTMIN+10 blocks
+	pactl set-sink-mute $(pactl list short sinks | grep alsa | awk '\{print $2\}') toggle; pkill -RTMIN+10 blocks
 XF86AudioMicMute
   amixer sset Capture toggle; pkill -RTMIN+10 blocks
 XF86Audio{Raise,Lower}Volume

@@ -9,17 +9,20 @@ After the editor exists, the content of the file is uploaded as the new descript
 of the merge request.
 Currently, the markdown description is converted to ORG before editing and converted back
 before it is uploaded to Gitlab.
-The script looks for a file "editmrrc" in the current directory and all parent directories
-up to the root directory. It must exist and contain the gitlab path of the current project
-as a single string, e.g.: mygroup/myproject or myusername/myproject
+The script accepts further optional commands described below.
 
-Author: remolueoend
+Authors:
+remolueoend
 
 Dependencies:
-* git
-* graphqurl: https://github.com/hasura/graphqurl
-* jq
-* pandoc (for converting descriptions to ORG)
+* git        for getting the name of the currently checked out branch
+* graphqurl  [https://github.com/hasura/graphqurl] to send GraphQL requests
+* jq         for parsing the JSON response of the Gitlab API
+* pandoc     for converting descriptions to ORG
+* xdg-open   for opening the current merge request in the default browser
+
+Usage:
+<VARIABLES> editmr [command]
 
 Variables:
 DEBUG [=unset]  : when set, xtrace is activated.
@@ -28,14 +31,14 @@ EDITMR_PROJECT  : The Gitlab project path, e.g: mygroup/project or myusername/pr
 EDITMR_TOKEN    : your personal Gitlab access token. Can be generated via the profile page on your Gitlab instance
 EDITOR [=vim]   : The editor to be used. Needs to block until closed (e.g. "emacs", "vim", ...)
 
-Usage:
-EDITMR_TOKEN=<your_token> EDITMR_PROJECT=<project_path> [EDITMR_ENDPOINT=<endpoint>] [DEBUG=1] editmr
+Commands:
+o       Opens the merge request of the currently checked out branch in the system`s default browser. 
 
 Comments:
 1. Why does this script make use of environment variables instead of accepting values as arguments?
    This approach allows storing the project dependent parameters in a local .envrc file, without requiring
-   any other configuration files. .envrc files or similar are often already part of a project.
-2. How should I manage my personal token?
+   any other configuration files. .envrc or similar files are often already part of a project.
+2. Where should I store my personal token?
    Best case: Store it in a password vault (such as GNU pass) and pass it into editmr by e.g. defining an
    alias: `EDITMR_TOKEN=$(pass show editmr-token) editmr`.
    Not-so best case: store it somewhere in your config directory and source it whenever required or put
@@ -67,8 +70,7 @@ if [ ! -n "${EDITMR_PROJECT}" ]; then
 fi
 
 function get_MR() {
-	# Returns a JSON string describing the merge request of the given project
-	# and with the given ID.
+	# Returns a JSON string describing the merge request of the given project and branch name.
 	#
 	# $1: project path
 	# $2 branch name of merge request
@@ -94,7 +96,7 @@ function get_MR() {
 }
 
 function update_MR() {
-	# Updates the description of an MR in the given project and with the given ID.
+	# Updates the description of the MR with the given ID in the given project.
 	#
 	# $1 project_path
 	# $2 MR IID

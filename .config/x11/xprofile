@@ -12,16 +12,27 @@
 # dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
 autorandr -c                        # load first detected xrandr profile
-playerctld daemon			        # run playerclt daemon in background to track last recently used media player
-setup_keyboard.sh		            # run the remaps script, switching caps/esc and more; check it for more info
-set_earth_background &		        # set the background with the `setbg` script
+playerctld daemon			              # run playerclt daemon in background to track last recently used media player
+setup_keyboard.sh		                # run the remaps script, switching caps/esc and more; check it for more info
+set_earth_background &		          # set the background with the `setbg` script
 picom &                             # xcompmgr for transparency
-dunst &			                    # dunst for notifications
-unclutter &		                    # Remove mouse when idle
+dunst &			                        # dunst for notifications
+unclutter &		                      # Remove mouse when idle
 sxhkd &                             # Bind keys
-# nm-applet &		                    # network sys-tray
+nm-applet &		                    # network sys-tray
+blueman-applet &		                    # network sys-tray
 dex -a -s $HOME/.config/autostart   # auto start user specific apps
+
+# Start background tools not configured as systemd services:
+/usr/bin/xfsettingsd &
+/usr/bin/xfce4-panel &
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & # required for authentication requests such as 1password
+xfce4-power-manager &
 kdeconnect-indicator &
+
+eval $(/usr/bin/gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
 
 # start automatic screen locking after 5 minutes,
 # displaying a notification 15 secs before locking the session
