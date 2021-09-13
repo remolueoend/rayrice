@@ -29,7 +29,8 @@ alias \
 	f="$FILE" \
 	e="$EDITOR" \
 	v="$EDITOR" \
-	p="sudo pacman" \
+	p="pacman-pkg-install" \
+	yay="yay-pkg-install" \
 	xi="sudo xbps-install" \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+sudo pacman "$@"
+PKG_INSTALL_TAG="" $SCRIPT_DIR/pkg-install.sh "$@"
