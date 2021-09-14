@@ -94,12 +94,21 @@ SAVEHIST=$HISTSIZE
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
 
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots) # Include hidden files.
+
+# Custom completions for some scrips:
+compdef pacman-pkg-install='pacman'
+compdef p='pacman'
+setopt complete_aliases
+compdef yay-pkg-install='yay'
+setopt complete_aliases
+
 
 # vi mode
 bindkey -v
