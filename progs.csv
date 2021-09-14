@@ -1,0 +1,211 @@
+TAG,NAME,PURPOSE
+A,1password,Password manager and secure wallet
+A,1password-cli,1Password command line tool
+,adobe-source-han-sans-otc-fonts,Adobe Source Han Sans - Pan-CJK OpenType/CFF Collection fonts
+,alacritty,"A cross-platform, GPU-accelerated terminal emulator"
+,alsa-utils,Advanced Linux Sound Architecture - Utilities
+,android-file-transfer,Android MTP client with minimalistic UI
+,anki,Helps you remember facts (like words/phrases in a foreign language) efficiently
+A,ant-gtk-theme,A flat and light theme with a modern look
+,arandr,is a UI for screen adjustment.
+,arc-gtk-theme,"A flat theme with transparent elements for GTK 3, GTK 2 and Gnome-Shell"
+,arc-icon-theme,Arc icon theme. Official releases only.
+,aspell-de,German dictionary for aspell
+,aspell-en,English dictionary for aspell
+,atool,A script for managing file archives of various types
+,aws-cli,Universal Command Line Interface for Amazon Web Services
+A,balena-etcher,"Flash OS images to SD cards & USB drives, safely and easily"
+,bash,The GNU Bourne Again shell
+,bat,Cat clone with syntax highlighting and git integration
+,bbswitch,Kernel module allowing to switch dedicated graphics card on Optimus laptops
+,blueman,GTK+ Bluetooth Manager
+,ccls,"C/C++/ObjC language server supporting cross references, hierarchies, completion and semantic highlighting"
+,chromium,"A web browser built for speed, simplicity, and security"
+,clang,C language family frontend for LLVM
+,cmake,A cross-platform open-source make system
+,d-feet,D-Bus debugger for GNOME
+,dbeaver,Free universal SQL Client for developers and database administrators (community edition)
+,dbeaver-plugin-sshj,DBeaver plugin for SSHv2 tunnels with Bouncy Castle algorithm
+,dbeaver-plugin-sshj-lib,SSHv2 library for Java for DBeaver plugin for SSHv2 tunnels
+,deluge-gtk,GTK UI for Deluge
+,dex,Program to generate and execute DesktopEntry files of type Application
+,dialog,A tool to display dialog boxes from shell scripts
+A,direnv,a shell extension that manages your environment
+,discord,All-in-one voice and text chat for gamers that's free and secure.
+,docker,"Pack, ship and run any application as a lightweight container"
+,docker-compose,"Fast, isolated development environments using Docker"
+,docx2txt,"Recovers text from DOCX files, with good formatting."
+A,dragon-drag-and-drop,Simple drag-and-drop source/sink for X
+A,duc,A library and suite of tools for inspecting disk usage.
+,emacs,"The extensible, customizable, self-documenting real-time display editor"
+,entr,Run arbitrary commands when files change
+A,evince-no-gnome,"GTK3 document viewer, complete features, no gnome dependencies"
+,evtest,Input device event monitor and query tool
+,exa,ls replacement
+A,expressvpn,Proprietary VPN client for Linux
+,fd,"Simple, fast and user-friendly alternative to find"
+,ffmpeg,"Complete solution to record, convert and stream audio and video"
+,flameshot,Powerful yet simple to use screenshot software
+,fprintd,D-Bus service to access fingerprint readers
+,fzf,is a fuzzy finder tool.
+,gcc,The GNU Compiler Collection - C and C++ frontends
+,gdb,The GNU Debugger
+A,ghcup-hs-bin,an installer for the general purpose language Haskell
+,git,the fast distributed version control system
+,gnome-keyring,Stores passwords and encryption keys
+,highlight,Fast and flexible source code highlighter (CLI version)
+,hplip,"Drivers for HP DeskJet, OfficeJet, Photosmart, Business Inkjet and some LaserJet"
+A,htop-vim-git,Interactive text-mode process viewer. Patched for vim keybindings
+,i3-gaps,"A fork of i3wm tiling window manager with more features, including gaps"
+,i3lock,Improved screenlocker based upon XCB and PAM
+,imagemagick,An image viewing/manipulation program
+A,insync,"An unofficial Google Drive and OneDrive client that runs on Linux, with support for various desktops"
+,interception-tools,A minimal composable infrastructure on top of libudev and libevdev
+,jq,Command-line JSON processor
+,julia,"High-level, high-performance, dynamic programming language"
+,jupyterlab,JupyterLab computational environment
+,kdeconnect,Adds communication between KDE and your smartphone
+,lib32-nvidia-utils,NVIDIA drivers utilities (32-bit)
+,libreoffice-fresh,LibreOffice branch which contains new features and program enhancements
+,lightdm,A lightweight display manager
+,lightdm-gtk-greeter,GTK+ greeter for LightDM
+A,lightdm-settings,A configuration tool for the LightDM display manager
+A,lightdm-slick-greeter,A slick-looking LightDM greeter
+,lldb,"Next generation, high-performance debugger"
+,llvm,Collection of modular and reusable compiler and toolchain technologies
+A,lsdesktopf,List available *.desktop files and search in their content.
+,lxappearance-gtk3,Feature-rich GTK+ theme switcher of the LXDE Desktop (GTK+ 3 version)
+,lynx,A text browser for the World Wide Web
+,magic-wormhole,Securely transfer data between computers
+,mediainfo,Supplies technical and tag information about a video or audio file (CLI interface)
+,miller,Name-indexed data processing tool
+,mpc,Minimalist command line interface to MPD
+,mpd,"Flexible, powerful, server-side application for playing music"
+,mpv,"a free, open source, and cross-platform media player"
+,mupdf,Lightweight PDF and XPS viewer
+,mupdf-tools,Tools for Lightweight PDF and XPS viewer
+,nasm,80x86 assembler designed for portability and modularity
+,ncdu,Disk usage analyzer with an ncurses interface
+,ncmpcpp,Almost exact clone of ncmpc with some new features
+,nemo,Cinnamon file manager (Nautilus fork)
+,nemo-preview,Quick file previewer for Nemo
+,nemo-seahorse,PGP encryption and signing extension for Nemo
+,nemo-share,Samba extension for Nemo
+,neofetch,A CLI system information tool written in BASH that supports displaying images.
+,neovim,a tidier vim with some useful features
+,network-manager-applet,Applet for managing network connections
+,networkmanager,Network connection manager and user applications
+,networkmanager-openconnect,NetworkManager VPN plugin for OpenConnect
+,networkmanager-vpnc,NetworkManager VPN plugin for VPNC
+,newsboat,is a terminal RSS client.
+,nitrogen,Background browser and setter for X windows
+,node-gyp,Node.js native addon build tool
+A,noto-fonts-emoji-apple,"Google Noto emoji fonts replaced with apple branded emoji, modified form a magisk module"
+,npm,A package manager for javascript
+,nvidia,NVIDIA drivers for linux
+A,nvm,Node Version Manager - Simple bash script to manage multiple active node.js versions
+,odt2txt,extracts the text out of OpenDocument Texts
+,opam,OCaml package manager
+A,optimus-manager,Management utility to handle GPU switching for Optimus laptops
+A,optimus-manager-qt,A Qt interface for Optimus Manager that allows to configure and switch GPUs on Optimus laptops using the tray menu
+A,otf-hasklig,"A font with symbol ligatures, intended for Haskell code"
+A,otf-inconsolata-powerline-git,Inconsolata for Powerline
+,owncloud-client,ownCloud client based on mirall
+,p7zip,Command-line file archiver with high compression ratio
+,pamixer,is a command-line audio interface.
+A,pandoc-bin,"Pandoc - executable only, without 750MB Haskell depends/makedepends"
+,papirus-icon-theme,Papirus icon theme
+,pass,"Stores, retrieves, generates, and synchronizes passwords securely"
+,pavucontrol,PulseAudio Volume Control
+A,pdfsam,A free open source tool to split and merge pdf documents
+,perf,Linux kernel performance auditing tool
+,perl,"A highly capable, feature-rich programming language"
+,picom,X compositor that may fix tearing issues
+A,pinta,Drawing/editing program modeled after Paint.NET. It's goal is to provide a simplified alternative to GIMP for casual users
+,pipewire-pulse,Low-latency audio/video router and processor - PulseAudio replacement
+,playerctl,"mpris media player controller and lib for spotify, vlc, audacious, bmp, xmms2, and others."
+A,pmount,mount removable devices as normal user
+,polkit-gnome,Legacy polkit authentication agent for GNOME
+,poppler,PDF rendering library based on xpdf 3.0
+A,postman-bin,"Build, test, and document your APIs faster"
+,powertop,A tool to diagnose issues with power consumption and power management
+,pulseaudio-alsa,ALSA Configuration for PulseAudio
+,pulsemixer,is an audio controller.
+,pyenv,Easily switch between multiple versions of Python
+,python,Next generation of the python high-level scripting language
+,qemu,A generic and open source machine emulator and virtualizer
+,ranger,"Simple, vim-like file manager"
+,ripgrep,A search tool that combines the usability of ag with the raw speed of grep
+,rofi,"A window switcher, application launcher and dmenu replacement"
+,rofimoji,Character picker for rofi
+,ruby,An object-oriented language for quick and easy programming
+,rustup,The Rust toolchain installer
+,s-tui,Terminal UI stress test and monitoring tool
+A,sc-im,is an Excel-like terminal spreadsheet manager.
+,seahorse,GNOME application for managing PGP keys.
+,simple-scan,Simple scanning utility
+A,sni-qt,Qt4 plugin which turns all QSystemTrayIcon into StatusNotifierItems (appindicators)
+A,spotify,A proprietary music streaming service
+,sqlitebrowser,"SQLite Database browser is a light GUI editor for SQLite databases, built on top of Qt"
+,sshfs,FUSE client based on the SSH File Transfer Protocol
+,steam,Valve's digital software delivery system
+,steam-native-runtime,Native replacement for the Steam runtime using system libraries
+,sxhkd,Simple X hotkey daemon
+,sxiv,is a minimalist image viewer.
+,system-config-printer,A CUPS printer configuration tool and status applet
+A,teamviewer,All-In-One Software for Remote Support and Online Meetings
+,the_silver_searcher,"Code searching tool similar to Ack, but faster"
+,tldr,"Command line client for tldr, a collection of simplified and community-driven man pages."
+,tlp,Linux Advanced Power Management
+A,tlpui-git,A GTK user interface for TLP written in Python
+,tmux,A terminal multiplexer
+A,toggldesktop-bin,Toggl time tracking software
+,trash-cli,Command line trashcan (recycle bin) interface
+,ttf-bitstream-vera,Bitstream Vera fonts.
+,ttf-inconsolata,Monospace font for pretty code listings and for the terminal
+,ttf-joypixels,Emoji as a Service (formerly EmojiOne)
+,ttf-linux-libertine,provides the sans and serif fonts for LARBS.
+,ttf-opensans,Sans-serif typeface commissioned by Google
+A,ttf-symbola,Font for symbol blocks of the Unicode Standard (TTF)
+,unclutter,hides an inactive mouse.
+,unrar,The RAR uncompression program
+,unzip,For extracting and viewing files in .zip archives
+,urlscan,Mutt and terminal url selector
+,virtualbox,Powerful x86 virtualization for enterprise as well as home use
+A,visual-studio-code-bin,Visual Studio Code (vscode): Editor for building and debugging modern web and cloud applications (official binary version)
+,w3m,Text-based Web browser as well as pager
+,wireless_tools,Tools allowing to manipulate the Wireless Extensions
+,wireshark-qt,Network traffic and protocol analyzer/sniffer - Qt GUI
+,wmctrl,Control your EWMH compliant window manager from command line
+,wpa_supplicant,A utility providing key negotiation for WPA wireless networks
+,xbindkeys,Launch shell commands with your keyboard or your mouse under X
+,xcape,gives the special escape/super mappings of LARBS.
+,xclip,Command line interface to the X11 clipboard
+A,xcursor-breeze,Breeze cursor theme (KDE Plasma 5). This package is for usage in non-KDE Plasma desktops.
+,xf86-input-synaptics,Synaptics driver for notebook touchpads
+A,xfce4-i3-workspaces-plugin-git,A workspace switcher plugin for xfce4-panel which can be used for the i3 window manager
+,xfce4-pulseaudio-plugin,Pulseaudio plugin for Xfce4 panel
+,xfce4-whiskermenu-plugin,Menu for Xfce4
+,xorg-server,Xorg X server
+,xorg-server-xvfb,Virtual framebuffer X server
+,xorg-xbacklight,enables changing screen brightness levels.
+,xorg-xdpyinfo,Display information utility for X
+,xorg-xev,Print contents of X events
+,xorg-xinit,starts the graphical server.
+,xorg-xinput,Small commandline tool to configure devices
+,xorg-xlsfonts,List available X fonts
+,xorg-xprop,Property displayer for X
+,xorg-xwininfo,Command-line utility to print information about windows on an X server
+,xsel,XSel is a command-line program for getting and setting the contents of the X selection
+,xterm,X Terminal Emulator
+,xwallpaper,sets the wallpaper.
+,yarn,"Fast, reliable, and secure dependency management"
+A,yay,Yet another yogurt. Pacman wrapper and AUR helper written in go.
+,youtube-dl,A command-line program to download videos from YouTube.com and a few more sites
+,zathura,Minimalistic document viewer
+,zathura-djvu,DjVu support for Zathura
+,zathura-pdf-mupdf,"PDF support for Zathura (MuPDF backend) (Supports PDF, ePub, and OpenXPS)"
+,zip,Compressor/archiver for creating and modifying zipfiles
+A,zoom,Video Conferencing and Web Conferencing Service
+,zsh,A very advanced and programmable command interpreter (shell) for UNIX
+A,zsh-zplugin-git,"Flexible Zsh plugin manager with clean fpath, reports, completion management, turbo mode"
