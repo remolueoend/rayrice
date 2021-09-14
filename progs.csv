@@ -69,7 +69,7 @@ A,insync,"An unofficial Google Drive and OneDrive client that runs on Linux, wit
 ,libreoffice-fresh,LibreOffice branch which contains new features and program enhancements
 ,lightdm,A lightweight display manager
 ,lightdm-gtk-greeter,GTK+ greeter for LightDM
-A,lightdm-settings,A configuration tool for the LightDM display manager
+,lightdm-gtk-greeter-settings,Settings editor for the LightDM GTK+ Greeter
 A,lightdm-slick-greeter,A slick-looking LightDM greeter
 ,lldb,"Next generation, high-performance debugger"
 ,llvm,Collection of modular and reusable compiler and toolchain technologies
