@@ -116,3 +116,5 @@
 [cinnabar]
 	version-check = 1608031299
 	helper = /home/remo/.mozbuild/git-cinnabar/git-cinnabar-helper
+[init]
+	defaultBranch = main

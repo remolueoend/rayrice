@@ -59,8 +59,6 @@
   ".config/kittythemechanger.py": "~/.config/kittythemechanger.py",
   ".Xresources": "~/.Xresources",
   ".config/arandr": "~/.config/arandr",
-  ".config/gtk-2.0/gtkrc-2.0": "~/.config/gtk-2.0/gtkrc-2.0",
-  ".config/gtk-3.0/settings.ini": "~/.config/gtk-3.0/settings.ini",
   "srcbin/setup.sh": "~/srcbin/setup.sh",
   ".config/rofi/config.rasi": "~/.config/rofi/config.rasi",
   ".config/picom.conf": "~/.config/picom.conf",
@@ -69,5 +67,9 @@
   ".config/flameshot/flameshot.ini": "~/.config/flameshot/flameshot.ini",
   ".config/nu/config.toml": "~/.config/nu/config.toml",
   ".config/locale.conf": "~/.config/locale.conf",
-  ".config/xfce4": "~/.config/xfce4"
+  ".config/xfce4": "~/.config/xfce4",
+  ".config/gtk-2.0": "~/.config/gtk-2.0",
+  ".config/gtk-3.0": "~/.config/gtk-3.0",
+  ".config/gtk-4.0": "~/.config/gtk-4.0",
+  ".gnupg/gpg.conf": "~/.gnupg/gpg.conf"
 }
