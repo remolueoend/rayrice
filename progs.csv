@@ -45,6 +45,7 @@ A,evince-no-gnome,"GTK3 document viewer, complete features, no gnome dependencie
 A,expressvpn,Proprietary VPN client for Linux
 ,fd,"Simple, fast and user-friendly alternative to find"
 ,ffmpeg,"Complete solution to record, convert and stream audio and video"
+,firefox,Standalone web browser from mozilla.org
 ,flameshot,Powerful yet simple to use screenshot software
 ,fprintd,D-Bus service to access fingerprint readers
 ,fzf,is a fuzzy finder tool.
@@ -183,6 +184,8 @@ A,visual-studio-code-bin,Visual Studio Code (vscode): Editor for building and de
 ,xclip,Command line interface to the X11 clipboard
 A,xcursor-breeze,Breeze cursor theme (KDE Plasma 5). This package is for usage in non-KDE Plasma desktops.
 ,xf86-input-synaptics,Synaptics driver for notebook touchpads
+,xfce4,
+,xfce4-goodies,
 A,xfce4-i3-workspaces-plugin-git,A workspace switcher plugin for xfce4-panel which can be used for the i3 window manager
 ,xfce4-pulseaudio-plugin,Pulseaudio plugin for Xfce4 panel
 ,xfce4-whiskermenu-plugin,Menu for Xfce4
