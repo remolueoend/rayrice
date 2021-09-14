@@ -14,7 +14,8 @@
 autorandr -c                        # load first detected xrandr profile
 playerctld daemon			              # run playerclt daemon in background to track last recently used media player
 setup_keyboard.sh		                # run the remaps script, switching caps/esc and more; check it for more info
-set_earth_background &		          # set the background with the `setbg` script
+# set_earth_background &		          # set the background with the `setbg` script
+nitrogen --restore
 picom &                             # xcompmgr for transparency
 dunst &			                        # dunst for notifications
 unclutter &		                      # Remove mouse when idle
