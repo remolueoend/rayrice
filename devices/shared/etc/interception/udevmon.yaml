@@ -1,6 +1,6 @@
-- JOB: "intercept -g $DEVNODE | node /home/remo/dev/remolueoend/udevmon-layers/packages/udevmon_layers_ts/dist/index.js kb-paradise | uinput -d $DEVNODE"
+- JOB: "intercept -g $DEVNODE | node /home/remo/srcbin/udevmon-layers/packages/udevmon_layers_ts/dist/index.js kb-paradise | uinput -d $DEVNODE"
   DEVICE:
     LINK: /dev/input/by-path/platform-i8042-serio-0-event-kbd
-- JOB: "intercept -g $DEVNODE | node /home/remo/dev/remolueoend/udevmon-layers/packages/udevmon_layers_ts/dist/index.js t490 | uinput -d $DEVNODE"
+- JOB: "intercept -g $DEVNODE | node /home/remo/srcbin/udevmon-layers/packages/udevmon_layers_ts/dist/index.js t490 | uinput -d $DEVNODE"
   DEVICE:
     LINK: /dev/input/by-id/usb-04d9_USB-HID_Keyboard-event-kbd

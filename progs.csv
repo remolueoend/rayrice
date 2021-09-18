@@ -3,6 +3,7 @@ A,1password,Password manager and secure wallet
 A,1password-cli,1Password command line tool
 ,adobe-source-han-sans-otc-fonts,Adobe Source Han Sans - Pan-CJK OpenType/CFF Collection fonts
 ,alacritty,"A cross-platform, GPU-accelerated terminal emulator"
+A,alacritty-themes,A cross-platform GPU-accelerated Terminal emulator.
 ,alsa-utils,Advanced Linux Sound Architecture - Utilities
 ,android-file-transfer,Android MTP client with minimalistic UI
 ,anki,Helps you remember facts (like words/phrases in a foreign language) efficiently
@@ -32,6 +33,7 @@ A,balena-etcher,"Flash OS images to SD cards & USB drives, safely and easily"
 ,dialog,A tool to display dialog boxes from shell scripts
 A,direnv,a shell extension that manages your environment
 ,discord,All-in-one voice and text chat for gamers that's free and secure.
+,dmenu,"Generic menu for X"
 ,docker,"Pack, ship and run any application as a lightweight container"
 ,docker-compose,"Fast, isolated development environments using Docker"
 ,docx2txt,"Recovers text from DOCX files, with good formatting."
@@ -78,6 +80,7 @@ A,lsdesktopf,List available *.desktop files and search in their content.
 ,lxappearance-gtk3,Feature-rich GTK+ theme switcher of the LXDE Desktop (GTK+ 3 version)
 ,lynx,A text browser for the World Wide Web
 ,magic-wormhole,Securely transfer data between computers
+,man-db,A utility for reading man pages
 ,mediainfo,Supplies technical and tag information about a video or audio file (CLI interface)
 ,miller,Name-indexed data processing tool
 ,mpc,Minimalist command line interface to MPD

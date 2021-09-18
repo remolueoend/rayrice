@@ -23,7 +23,7 @@ super + ctrl + u
 super + ctrl + p
   rofi-1password
 super + ctrl + o
-	with-secure-env $HOME/dev/remolueoend/dyna-bookmarks/packages/cli/open-bookmark
+	with-secure-env $SRCBIN_DIR/dyna-bookmarks/packages/cli/open-bookmark
 
 # tools
 super + u
