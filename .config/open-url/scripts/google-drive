@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# This script resolves the meta data of a GoogleDrive file ID parsed from a GoogleDrive
+# URL and tries to lookup the directory or file in the local sync folder.
+# When found, the folder/file is opened with the default tool.
+# To improve performance, the file meta data are cached locally (needs to be cleaned when files/folders
+# are moved on GoogleDrive)
+# The URL of a folder/file can be accessed by right-click -> Get Link on GoogleDrive.
+# Everything after the folder/file-ID should be removed.
+#
+# This script requires `gdrive` to be available on your system, which needs to be set up first.
+
+CACHE_DIR="$HOME/.cache/open-url/google-drive"
+mkdir -p "$CACHE_DIR"
+
+# match the pattern in $2 against the URL in $1. The pattern contains multiple groups, where as the second
+# group contains the folder/file ID (see the pattern in the config example above).
+# The group is accessed using BASH_REMATCH:
+[[ "$1" =~ $2 ]]
+file_id="${BASH_REMATCH[2]}"
+
+if [ -f "$CACHE_DIR/$file_id" ]; then
+    echo "found file in cache"
+    file_meta=$(cat "$CACHE_DIR/$file_id")
+else
+    file_meta=$(gdrive info "$file_id")
+    echo -e "$file_meta" > "$CACHE_DIR/$file_id"
+fi
+relative_path=$(echo -e "$file_meta" | grep "Path" | awk -F":" '{print($2)}' | xargs)
+
+
+local_path="$HOME/GoogleDrive/$relative_path"
+
+if [ -f "$local_path" ] || [ -d "$local_path" ]; then
+    echo "$local_path exists"
+    # we can safely use xdg-open here as long as url-open is not registered for folder/file URLs:
+    xdg-open "$local_path"
+    exit 0
+else
+    echo "$local_path does not exist"
+    exit 1
+fi
+
+

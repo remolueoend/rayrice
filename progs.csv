@@ -16,9 +16,11 @@ A,ant-gtk-theme,A flat and light theme with a modern look
 ,atool,A script for managing file archives of various types
 ,aws-cli,Universal Command Line Interface for Amazon Web Services
 A,balena-etcher,"Flash OS images to SD cards & USB drives, safely and easily"
+,base-devel,
 ,bash,The GNU Bourne Again shell
 ,bat,Cat clone with syntax highlighting and git integration
 ,bbswitch,Kernel module allowing to switch dedicated graphics card on Optimus laptops
+,binutils,
 ,blueman,GTK+ Bluetooth Manager
 ,ccls,"C/C++/ObjC language server supporting cross references, hierarchies, completion and semantic highlighting"
 ,chromium,"A web browser built for speed, simplicity, and security"
@@ -33,7 +35,7 @@ A,balena-etcher,"Flash OS images to SD cards & USB drives, safely and easily"
 ,dialog,A tool to display dialog boxes from shell scripts
 A,direnv,a shell extension that manages your environment
 ,discord,All-in-one voice and text chat for gamers that's free and secure.
-,dmenu,"Generic menu for X"
+,dmenu,Generic menu for X
 ,docker,"Pack, ship and run any application as a lightweight container"
 ,docker-compose,"Fast, isolated development environments using Docker"
 ,docx2txt,"Recovers text from DOCX files, with good formatting."
@@ -53,6 +55,7 @@ A,expressvpn,Proprietary VPN client for Linux
 ,fzf,is a fuzzy finder tool.
 ,gcc,The GNU Compiler Collection - C and C++ frontends
 ,gdb,The GNU Debugger
+A,gdrive,Google Drive CLI Client
 A,ghcup-hs-bin,an installer for the general purpose language Haskell
 ,git,the fast distributed version control system
 ,gnome-keyring,Stores passwords and encryption keys

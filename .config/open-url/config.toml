@@ -1,0 +1,11 @@
+[[handlers]]
+pattern = "https://polybox.ethz.ch/remote.php/webdav/(.*)"
+script  = "polybox-file"
+
+[[handlers]]
+pattern = "https://polybox.ethz.ch/index.php/apps/files\\?dir=/(.*)"
+script  = "polybox-dir"
+
+[[handlers]]
+pattern = "https://drive.google.com/(drive/folders|file/d)/(.*)"
+script  = "google-drive"

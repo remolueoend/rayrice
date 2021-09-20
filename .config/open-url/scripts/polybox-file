@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+function urldecode() { : "${*//+/ }"; echo -e "${_//%/\\x}"; }
+
+[[ "$1" =~ $2 ]]
+
+file_path="${BASH_REMATCH[1]}"
+local_path=$(urldecode "$HOME/Polybox/$file_path")
+
+if [ -f "$local_path" ]; then
+    echo "$local_path exists"
+    xdg-open "$local_path"
+    exit 0
+else
+    echo "$local_path does not exist"
+    exit 1
+fi
+
+

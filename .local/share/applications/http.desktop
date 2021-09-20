@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Http Browser
-Exec=/usr/bin/firefox %U
+Exec=/home/remo/.local/ricebin/open-url %U
