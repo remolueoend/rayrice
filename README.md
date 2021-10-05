@@ -4,14 +4,16 @@ These are my dotfiles, based on Luke's rice: https://github.com/LukeSmithxyz/voi
 
 - Very useful scripts are in `~/.local/ricebin/`
 - Settings for:
+	- i3 (window manager)
+	- XFCE (desktop environment components)
 	- vim/nvim (text editor)
+	- spacemacs (another text editor)
 	- zsh (shell)
 	- sxhkd (general key binder)
-	- lf (file manager)
+	- ranger (file manager)
 	- mpd/ncmpcpp (music)
 	- sxiv (image/gif viewer)
 	- mpv (video player)
-	- calcurse (calendar program)
 	- tmux
 	- other stuff like xdg default programs, inputrc and more, etc.
 - I try to minimize what's directly in `~` so:
@@ -23,12 +25,6 @@ These are my dotfiles, based on Luke's rice: https://github.com/LukeSmithxyz/voi
 
 ## Usage
 
-These dotfiles are intended to go with numerous suckless programs I use:
-
-- [dwm](https://github.com/lukesmithxyz/dwm) (window manager)
-- [dwmblocks](https://github.com/lukesmithxyz/dwmblocks) (statusbar)
-- [st](https://github.com/lukesmithxyz/st) (terminal emulator)
-
 I also recommend trying out
 [mutt-wizard](https://github.com/lukesmithxyz/mutt-wizard), which additionally
 works with this setup. It gives you an easy-to-install terminal-based email
@@ -37,14 +33,14 @@ as well.
 
 ## Install these dotfiles and all dependencies
 
-Use [LARBS](https://larbs.xyz) to autoinstall everything:
+Use [LARBS](https://github.com/remolueoend/LARBS) to autoinstall everything:
 
 ```
-curl -LO larbs.xyz/larbs.sh
+curl -LO https://raw.githubusercontent.com/remolueoend/LARBS/master/larbs.sh
 ```
 
 or clone the repo files directly to your home directory and install the
-[dependencies](https://github.com/LukeSmithxyz/LARBS/blob/master/progs.csv).
+[dependencies](https://raw.githubusercontent.com/remolueoend/LARBS/master/progs.csv).
 
 ## Useful tools
 
