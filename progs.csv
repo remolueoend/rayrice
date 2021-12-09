@@ -14,6 +14,7 @@ A,ant-gtk-theme,A flat and light theme with a modern look
 ,aspell-de,German dictionary for aspell
 ,aspell-en,English dictionary for aspell
 ,atool,A script for managing file archives of various types
+,audacity,A program that lets you manipulate digital audio waveforms
 ,aws-cli,Universal Command Line Interface for Amazon Web Services
 A,balena-etcher,"Flash OS images to SD cards & USB drives, safely and easily"
 ,base-devel,
@@ -65,12 +66,14 @@ A,htop-vim-git,Interactive text-mode process viewer. Patched for vim keybindings
 ,i3-gaps,"A fork of i3wm tiling window manager with more features, including gaps"
 ,i3lock,Improved screenlocker based upon XCB and PAM
 ,imagemagick,An image viewing/manipulation program
+,inetutils,A collection of common network programs
 A,insync,"An unofficial Google Drive and OneDrive client that runs on Linux, with support for various desktops"
 ,interception-tools,A minimal composable infrastructure on top of libudev and libevdev
 ,jq,Command-line JSON processor
 ,julia,"High-level, high-performance, dynamic programming language"
 ,jupyterlab,JupyterLab computational environment
 ,kdeconnect,Adds communication between KDE and your smartphone
+A,kmonad,An advanced keyboard manager - static binary version
 ,lib32-nvidia-utils,NVIDIA drivers utilities (32-bit)
 ,libreoffice-fresh,LibreOffice branch which contains new features and program enhancements
 ,lightdm,A lightweight display manager
@@ -78,6 +81,7 @@ A,insync,"An unofficial Google Drive and OneDrive client that runs on Linux, wit
 ,lightdm-gtk-greeter-settings,Settings editor for the LightDM GTK+ Greeter
 A,lightdm-slick-greeter,A slick-looking LightDM greeter
 ,lldb,"Next generation, high-performance debugger"
+A,lldb-mi,LLDB's machine interface driver
 ,llvm,Collection of modular and reusable compiler and toolchain technologies
 A,lsdesktopf,List available *.desktop files and search in their content.
 ,lxappearance-gtk3,Feature-rich GTK+ theme switcher of the LXDE Desktop (GTK+ 3 version)
@@ -107,6 +111,7 @@ A,lsdesktopf,List available *.desktop files and search in their content.
 ,newsboat,is a terminal RSS client.
 ,nitrogen,Background browser and setter for X windows
 ,node-gyp,Node.js native addon build tool
+,noto-fonts,
 A,noto-fonts-emoji-apple,"Google Noto emoji fonts replaced with apple branded emoji, modified form a magisk module"
 ,npm,A package manager for javascript
 ,nvidia,NVIDIA drivers for linux
@@ -140,6 +145,7 @@ A,postman-bin,"Build, test, and document your APIs faster"
 ,pulsemixer,is an audio controller.
 ,pyenv,Easily switch between multiple versions of Python
 ,python,Next generation of the python high-level scripting language
+,python-pip,
 ,qemu,A generic and open source machine emulator and virtualizer
 ,ranger,"Simple, vim-like file manager"
 ,ripgrep,A search tool that combines the usability of ag with the raw speed of grep
@@ -161,6 +167,8 @@ A,spotify,A proprietary music streaming service
 ,sxiv,is a minimalist image viewer.
 ,system-config-printer,A CUPS printer configuration tool and status applet
 A,teamviewer,All-In-One Software for Remote Support and Online Meetings
+,texlive-lang,Group containing most TeX Live packages
+,texlive-most,Group containing packages providing character sets and features for languages with non-Latin characters
 ,the_silver_searcher,"Code searching tool similar to Ack, but faster"
 ,tldr,"Command line client for tldr, a collection of simplified and community-driven man pages."
 ,tlp,Linux Advanced Power Management
@@ -179,8 +187,10 @@ A,ttf-symbola,Font for symbol blocks of the Unicode Standard (TTF)
 ,unzip,For extracting and viewing files in .zip archives
 ,urlscan,Mutt and terminal url selector
 ,virtualbox,Powerful x86 virtualization for enterprise as well as home use
+,virtualbox-host-modules-arch,
 A,visual-studio-code-bin,Visual Studio Code (vscode): Editor for building and debugging modern web and cloud applications (official binary version)
 ,w3m,Text-based Web browser as well as pager
+,wget,
 ,wireless_tools,Tools allowing to manipulate the Wireless Extensions
 ,wireshark-qt,Network traffic and protocol analyzer/sniffer - Qt GUI
 ,wmctrl,Control your EWMH compliant window manager from command line
@@ -218,3 +228,4 @@ A,yay,Yet another yogurt. Pacman wrapper and AUR helper written in go.
 A,zoom,Video Conferencing and Web Conferencing Service
 ,zsh,A very advanced and programmable command interpreter (shell) for UNIX
 A,zsh-zplugin-git,"Flexible Zsh plugin manager with clean fpath, reports, completion management, turbo mode"
+,dnsutils,"A complete, highly portable implementation of the DNS protocol"

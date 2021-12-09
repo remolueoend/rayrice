@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [[ "$#" -eq 0 ]]; then
+    mkdir -p /tmp/py-repl
+    dir=$(mktemp -d -p /tmp/py-repl/)
+else
+    dir="$1"
+fi
+
+pushd $dir
+if [[ ! -f main.py ]]; then
+    echo -e "" >> main.py
+fi
+
+start-terminal -e sh -c "cd $dir && echo main.py | entr -c sh -c 'python main.py'" &
+code -n $dir/main.py
+popd

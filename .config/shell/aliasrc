@@ -39,11 +39,18 @@ alias \
 
 # GIT related shortcuts
 alias \
-    gp="git push" \
-    gc="git commit"
+	gf="git fetch" \
+	gp="git push" \
+	gu="git pull" \
+	gc="git commit"
+
+# common typos
+alias \
+	exti=exit
 
 # other tools
 alias \
+	c="code ." \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
@@ -58,12 +65,11 @@ alias \
 	editmr="with-secret-env forge edit-mr -o" \
 	openmr="with-secret-env forge open-mr" \
 	createissue="with-secret-env forge create-issue -o" \
-  copy="xclip -selection c" \
-  paste="xclip -selection c -o" \
-  ssh="TERM=xterm-color ssh" \
-  kitty="kitty --single-instance" \
-  theme="kitty-theme --config ~/.config/kittythemechanger.py" \
-  toggle-theme="theme -t && theme -L" \
-  dark="change-theme dark" \
-  light="change-theme light"
-
+	copy="xclip -selection c" \
+	paste="xclip -selection c -o" \
+	ssh="TERM=xterm-color ssh" \
+	kitty="kitty --single-instance" \
+	theme="kitty-theme --config ~/.config/kittythemechanger.py" \
+	toggle-theme="theme -t && theme -L" \
+	dark="change-theme dark" \
+	light="change-theme light"

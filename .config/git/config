@@ -5,7 +5,7 @@
 [user]
 	name = remolueoend
 	email = remolueoend@users.noreply.github.com
-	signingkey = 482D2FAA 
+	signingkey = EB906E4565F2F93A720650FB3998512762130C97
 [core]
 	autocrlf = input
 [filter "hawser"]
@@ -100,7 +100,7 @@
 [fetch]
 	recurseSubmodules = false
 [commit]
-  gpgsign = false
+	gpgsign = true
 [gpg]
 	program = gpg
 [merge]
@@ -118,3 +118,5 @@
 	helper = /home/remo/.mozbuild/git-cinnabar/git-cinnabar-helper
 [init]
 	defaultBranch = main
+[pull]
+	rebase = true

@@ -56,6 +56,7 @@ values."
      better-defaults
      emacs-lisp
      git
+     (ocaml :variables ocaml-format-on-save t)
      markdown
      (org :variables
           org-enable-bootstrap-support t)
@@ -163,9 +164,11 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(doom-one
+   dotspacemacs-themes '(
+                         twilight-bright
+                         twilight-anti-bright
+                         doom-one
                          doom-snazzy
-                         grandshell
                          wombat
                          spacemacs-dark
                          spacemacs-light)
@@ -374,6 +377,9 @@ you should place your code here."
   ; ranger settings:
   (setq ranger-show-hidden t)
   (setq ranger-cleanup-eagerly t)
+  ; set terminal command for opening a new terminal
+  ;; (push (cons 'start-terminal (list "start-terminal")) terminal-here-terminal-command-table)
+  ;; (validate-setq terminal-here-linux-terminal-command 'alacritty)
   ; include external functions files:
   ;; (add-to-list 'load-path "~/.spacemacs.d")
   ;; (require 'custom-functions)
@@ -453,7 +459,13 @@ This function is called at the very end of Spacemacs initialization."
  '(rustic-ansi-faces
    ["#282c34" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
  '(safe-local-variable-values
-   '((org-latex-pdf-process "pdflatex --shell-escape %f")
+   '((eval setq flycheck-clang-include-path
+           (list
+            (expand-file-name "~/dev/eth/embedded-systems/lab2/libraries/")))
+     (eval setq flycheck-clang-include-path
+           (list
+            (expand-file-name "~/remo/dev/eth/embedded-systems/lab2/")))
+     (org-latex-pdf-process "pdflatex --shell-escape %f")
      (org-latex-pdf-process . "pdflatex --shell-escape %f")
      (c-c++lsp-enable-semantic-highlight . rainbow)
      (eval setq flycheck-clang-include-path
@@ -494,5 +506,5 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
+ )
 )

@@ -1,4 +1,4 @@
 configuration {
-	theme: "/usr/share/rofi/themes/android_notification";
   icon-theme: "Papirus";
 }
+@theme "/usr/share/rofi/themes/android_notification"

@@ -1,9 +1,17 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-mkdir -p /tmp/c-repl
-dir=$(mktemp -d -p /tmp/c-repl/)
+if [[ "$#" -eq 0 ]]; then
+    mkdir -p /tmp/c-repl
+    dir=$(mktemp -d -p /tmp/c-repl/)
+else
+    dir="$1"
+fi
+
 pushd $dir
-echo -e "#include <stdio.h>\n\nint main() {\n\treturn 0;\n}" >> main.c
-start-terminal -e sh -c "cd $dir && echo main.c | entr -c sh -c 'gcc -g main.c -o main && ./main'" &
+if [[ ! -f main.c ]]; then
+    echo -e "#include <stdio.h>\n\nint main() {\n\treturn 0;\n}" >> main.c
+fi
+
+start-terminal -e sh -c "cd $dir && echo main.c | entr -c sh -c 'gcc -g main.c -o main.out && ./main.out'" &
 code -n $dir/main.c
 popd

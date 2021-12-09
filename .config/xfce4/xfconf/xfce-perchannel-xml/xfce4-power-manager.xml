@@ -22,5 +22,6 @@
     <property name="dpms-on-ac-off" type="uint" value="32"/>
     <property name="show-panel-label" type="int" value="3"/>
     <property name="show-presentation-indicator" type="bool" value="true"/>
+    <property name="lid-action-on-ac" type="uint" value="1"/>
   </property>
 </channel>
