@@ -60,6 +60,7 @@ A,expressvpn,Proprietary VPN client for Linux
 A,gdrive,Google Drive CLI Client
 A,ghcup-hs-bin,an installer for the general purpose language Haskell
 ,git,the fast distributed version control system
+,git-lfs,Git extension for versioning large files
 ,gnome-keyring,Stores passwords and encryption keys
 ,highlight,Fast and flexible source code highlighter (CLI version)
 ,hplip,"Drivers for HP DeskJet, OfficeJet, Photosmart, Business Inkjet and some LaserJet"
