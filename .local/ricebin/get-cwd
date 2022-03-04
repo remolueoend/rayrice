@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Writes out the CWD of the process running in the currently focused window.
+# This can be useful to spawn a new shell from a current shell, starting off
+# at the same CWD.
+
+# final result:
+cwd=''
+
+# Get window ID and PID of the currently focused window (usually terminal):
+window_id=$(xdpyinfo | grep focus | cut -f4 -d " ")
+window_pid=$(xprop -id $window_id | grep -m 1 PID | cut -d " " -f 3)
+
+# Get the child process of the window (shell, vim, tmux, etc):
+# we only care about the first one:
+pid=$(pgrep -P $window_pid | head -n1)
+
+# get the name of the child executable and, depending on the executable,
+# search further for the PID we're interested in:
+exe=$(readlink "/proc/$pid/exe")
+case "$exe" in
+*tmux*)
+	# TODO: does not work on split panels:
+	# To get the pid of the actual process we:
+	# - find the pts of the tmux process found above
+	pts=$(ps -ef | grep $pid | grep -v grep | awk '{print $6}')
+	# - find the tmux session that's attached to the pts
+	tmux_session=$(tmux lsc -t /dev/${pts} -F "#{client_session}")
+	# - find the pane_pid of the session
+	pid=$(tmux list-panes -st $tmux_session -F '#{pane_pid}')
+	;;
+esac
+
+# read the CWD of the final PID from /proc:
+if [ -e "/proc/$pid/cwd" ]; then
+	cwd=$(readlink /proc/$pid/cwd)
+fi
+
+echo $cwd

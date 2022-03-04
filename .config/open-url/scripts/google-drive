@@ -11,6 +11,8 @@
 # This script requires `gdrive` to be available on your system, which needs to be set up first.
 
 CACHE_DIR="$HOME/.cache/open-url/google-drive"
+SYNC_ROOT="$HOME/GoogleDrive"
+
 mkdir -p "$CACHE_DIR"
 
 # match the pattern in $2 against the URL in $1. The pattern contains multiple groups, where as the second
@@ -27,9 +29,7 @@ else
     echo -e "$file_meta" > "$CACHE_DIR/$file_id"
 fi
 relative_path=$(echo -e "$file_meta" | grep "Path" | awk -F":" '{print($2)}' | xargs)
-
-
-local_path="$HOME/GoogleDrive/$relative_path"
+local_path="$SYNC_ROOT/$relative_path"
 
 if [ -f "$local_path" ] || [ -d "$local_path" ]; then
     echo "$local_path exists"

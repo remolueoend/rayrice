@@ -9,3 +9,7 @@ script  = "polybox-dir"
 [[handlers]]
 pattern = "https://drive.google.com/(drive/folders|file/d)/(.*)"
 script  = "google-drive"
+
+[[handlers]]
+pattern = "https://oc-vp-livestreaming01.ethz.ch/.+/index.m3u8"
+script  = "eth-livestream"

@@ -16,3 +16,4 @@ rofi=.config/rofi/config.rasi
 picom=.config/picom.conf
 xprofile=.xprofile
 progs=voidrice/progs.csv
+tmux=voidrice/.config/tmux/tmux.conf

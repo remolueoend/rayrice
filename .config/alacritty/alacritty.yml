@@ -67,3 +67,4 @@ key_bindings:
       mode: ~Search,
       action: ToggleViMode
     }
+theme: Ayu-Mirage

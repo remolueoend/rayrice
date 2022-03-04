@@ -37,6 +37,7 @@ A,balena-etcher,"Flash OS images to SD cards & USB drives, safely and easily"
 A,direnv,a shell extension that manages your environment
 ,discord,All-in-one voice and text chat for gamers that's free and secure.
 ,dmenu,Generic menu for X
+,dnsutils,"A complete, highly portable implementation of the DNS protocol"
 ,docker,"Pack, ship and run any application as a lightweight container"
 ,docker-compose,"Fast, isolated development environments using Docker"
 ,docx2txt,"Recovers text from DOCX files, with good formatting."
@@ -93,6 +94,7 @@ A,lsdesktopf,List available *.desktop files and search in their content.
 ,mpc,Minimalist command line interface to MPD
 ,mpd,"Flexible, powerful, server-side application for playing music"
 ,mpv,"a free, open source, and cross-platform media player"
+A,mugshot,Program to update personal user details
 ,mupdf,Lightweight PDF and XPS viewer
 ,mupdf-tools,Tools for Lightweight PDF and XPS viewer
 ,nasm,80x86 assembler designed for portability and modularity
@@ -182,10 +184,12 @@ A,toggldesktop-bin,Toggl time tracking software
 ,ttf-linux-libertine,provides the sans and serif fonts for LARBS.
 ,ttf-opensans,Sans-serif typeface commissioned by Google
 A,ttf-symbola,Font for symbol blocks of the Unicode Standard (TTF)
+,ueberzug,
 ,unclutter,hides an inactive mouse.
 ,unrar,The RAR uncompression program
 ,unzip,For extracting and viewing files in .zip archives
 ,urlscan,Mutt and terminal url selector
+,valgring,
 ,virtualbox,Powerful x86 virtualization for enterprise as well as home use
 ,virtualbox-host-modules-arch,
 A,visual-studio-code-bin,Visual Studio Code (vscode): Editor for building and debugging modern web and cloud applications (official binary version)
@@ -228,4 +232,3 @@ A,yay,Yet another yogurt. Pacman wrapper and AUR helper written in go.
 A,zoom,Video Conferencing and Web Conferencing Service
 ,zsh,A very advanced and programmable command interpreter (shell) for UNIX
 A,zsh-zplugin-git,"Flexible Zsh plugin manager with clean fpath, reports, completion management, turbo mode"
-,dnsutils,"A complete, highly portable implementation of the DNS protocol"

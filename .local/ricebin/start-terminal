@@ -6,5 +6,9 @@
 # kitty --single-instance "$@"
 # kitty "$@"
 
-alacritty "$@"
+if [[ "$#" -eq 0 ]]; then
+    alacritty -e tmux
+else
+    alacritty "$@"
+fi
 

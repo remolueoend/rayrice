@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+if [[ "$#" -eq 0 ]]; then
+    mkdir -p /tmp/ocaml-repl
+    dir=$(mktemp -d -p /tmp/ocaml-repl/)
+else
+    dir="$1"
+fi
+
+pushd $dir
+if [[ ! -f main.ml ]]; then
+    echo -e "" >> main.ml
+fi
+
+if [[ ! -f .ocamlformat ]]; then
+    echo -e "profile = ocamlformat\nversion = 0.19.0" >> .ocamlformat
+fi
+
+opam switch default
+eval $(opam env)
+
+start-terminal -e sh -c "cd $dir &&  echo main.ml | entr -c sh -c 'ocamlopt -o main main.ml && ./main'" &
+code -n $dir/main.ml
+popd
