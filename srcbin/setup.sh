@@ -57,15 +57,6 @@ install_password_store() {
     fi
 }
 
-# installs the custom shortcut tool based on dynalist.io as backend and rofi as frontend
-install_dyna_bookmarks() {
-    local src_dir="$source_root/dyna-bookmarks"
-    if __clone "git@github.com:remolueoend/dyna-bookmarks.git" "$src_dir" "dyna-bookmarks"; then
-        cd "$src_dir/packages/cli"
-        yarn install
-    fi
-}
-
 # installs our custom keyboard driver for remapping keys.
 # Uses https://gitlab.com/interception/linux/tools for capuring and forwarding keys.
 install_udevmon_layers() {
@@ -106,7 +97,6 @@ install_fzf_tab
 install_kitty_themes
 install_zplugin
 install_password_store
-install_dyna_bookmarks
 install_udevmon_layers
 install_prezto_theme
 

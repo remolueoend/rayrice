@@ -68,6 +68,7 @@ A,htop-vim-git,Interactive text-mode process viewer. Patched for vim keybindings
 ,i3lock,Improved screenlocker based upon XCB and PAM
 ,imagemagick,An image viewing/manipulation program
 ,inetutils,A collection of common network programs
+,inotify-tools,inotify-tools is a C library and a set of command-line programs for Linux providing a simple interface to inotify.
 A,insync,"An unofficial Google Drive and OneDrive client that runs on Linux, with support for various desktops"
 ,interception-tools,A minimal composable infrastructure on top of libudev and libevdev
 ,jq,Command-line JSON processor
@@ -203,6 +204,7 @@ A,visual-studio-code-bin,Visual Studio Code (vscode): Editor for building and de
 ,xcape,gives the special escape/super mappings of LARBS.
 ,xclip,Command line interface to the X11 clipboard
 A,xcursor-breeze,Breeze cursor theme (KDE Plasma 5). This package is for usage in non-KDE Plasma desktops.
+,xdotool,
 ,xf86-input-synaptics,Synaptics driver for notebook touchpads
 ,xfce4,
 ,xfce4-goodies,

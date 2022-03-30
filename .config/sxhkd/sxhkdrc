@@ -44,7 +44,7 @@ super + shift + c
 super + shift + e
 	tutorialvids
 ctrl + shift + 4
-  screenshot
+  flameshot gui     
 
 # Et cetera...
 super + grave
