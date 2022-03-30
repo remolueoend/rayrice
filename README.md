@@ -1,4 +1,4 @@
-# Rice
+# Rayrice
 
 🔼 **Heads up**: This repo is originally forked from [Luke Smith's rice](https://github.com/LukeSmithxyz/voidrice). Therefore credit where credit's due. But I distance myself from anything else, especially politically, coming from Luke's direction. If you're reading this, you probably know what this means.
 
