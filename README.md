@@ -1,6 +1,6 @@
 # Voidrice
 
-These are my dotfiles, based on Luke's rice: https://github.com/LukeSmithxyz/voidrice:
+🔼 This repo is originally forked from [Luke Smith's rice](https://github.com/LukeSmithxyz/voidrice). Therefore credit where credit's due. But I distance myself from anything else, especially politically, coming from Luke's direction. If you're reading this, you probably know what this means.
 
 - Very useful scripts are in `~/.local/ricebin/`
 - Settings for:
@@ -24,12 +24,6 @@ These are my dotfiles, based on Luke's rice: https://github.com/LukeSmithxyz/voi
 	- Directory bookmarks in `~/.config/directories`
 
 ## Usage
-
-I also recommend trying out
-[mutt-wizard](https://github.com/lukesmithxyz/mutt-wizard), which additionally
-works with this setup. It gives you an easy-to-install terminal-based email
-client regardless of your email provider. It is integrated into these dotfiles
-as well.
 
 ## Install these dotfiles and all dependencies
 
