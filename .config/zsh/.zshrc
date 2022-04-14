@@ -37,7 +37,7 @@ export PATH=/var/lib/snapd/snap/bin:$PATH
 function killport {
     # kill the process listening on the given port
     # $1: port where the process is listening on
-    sudo kill $(sudo lsof -t -i:"$1")
+    sudo kill $(lsof -t -i:$1)
 }
 
 function use_python {
@@ -77,6 +77,15 @@ function mkd {
     mkdir -pv $1
     cd $1
 }
+
+reboot_to_windows () {
+    # requires to set GRUB_DEFAULT=saved in /etc/default/grub and then grub-mkconfig -o /boot/grub/grub.cfg
+    # if windows entry is missing in /boot/grub/grub.cfg, follow the instructions (mount windows or EFI partition) at
+    # https://wiki.archlinux.org/title/GRUB#Configuration, chapter 'detecting other operating systems'
+    windows_title=$(sudo grep -i windows /boot/grub/grub.cfg | cut -d "'" -f 2)
+    sudo grub-reboot "$windows_title" && sudo reboot
+}
+alias reboot-to-windows='reboot_to_windows'
 
 # Enable colors and change prompt:
 autoload -U colors && colors # Load colors

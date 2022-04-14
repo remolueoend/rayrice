@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
 
-printf "Beginning upgrade.\\n"
+printf "Updating keyring\\n"
+sudo pacman -S archlinux-keyring
 
+printf "Beginning upgrade.\\n"
 yay -Syu --sudoflags "-A"
 pkill -RTMIN+8 "${STATUSBAR:-dwmblocks}"
 

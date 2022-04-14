@@ -6,7 +6,6 @@ A,1password-cli,1Password command line tool
 A,alacritty-themes,A cross-platform GPU-accelerated Terminal emulator.
 ,alsa-utils,Advanced Linux Sound Architecture - Utilities
 ,android-file-transfer,Android MTP client with minimalistic UI
-,anki,Helps you remember facts (like words/phrases in a foreign language) efficiently
 A,ant-gtk-theme,A flat and light theme with a modern look
 ,arandr,is a UI for screen adjustment.
 ,arc-gtk-theme,"A flat theme with transparent elements for GTK 3, GTK 2 and Gnome-Shell"
@@ -29,7 +28,6 @@ A,balena-etcher,"Flash OS images to SD cards & USB drives, safely and easily"
 ,cmake,A cross-platform open-source make system
 ,d-feet,D-Bus debugger for GNOME
 ,dbeaver,Free universal SQL Client for developers and database administrators (community edition)
-,dbeaver-plugin-sshj,DBeaver plugin for SSHv2 tunnels with Bouncy Castle algorithm
 ,dbeaver-plugin-sshj-lib,SSHv2 library for Java for DBeaver plugin for SSHv2 tunnels
 ,deluge-gtk,GTK UI for Deluge
 ,dex,Program to generate and execute DesktopEntry files of type Application
@@ -48,7 +46,6 @@ A,duc,A library and suite of tools for inspecting disk usage.
 A,evince-no-gnome,"GTK3 document viewer, complete features, no gnome dependencies"
 ,evtest,Input device event monitor and query tool
 ,exa,ls replacement
-A,expressvpn,Proprietary VPN client for Linux
 ,fd,"Simple, fast and user-friendly alternative to find"
 ,ffmpeg,"Complete solution to record, convert and stream audio and video"
 ,firefox,Standalone web browser from mozilla.org
@@ -64,6 +61,7 @@ A,ghcup-hs-bin,an installer for the general purpose language Haskell
 ,gnome-keyring,Stores passwords and encryption keys
 ,highlight,Fast and flexible source code highlighter (CLI version)
 ,hplip,"Drivers for HP DeskJet, OfficeJet, Photosmart, Business Inkjet and some LaserJet"
+,htop,Interactive process viewer
 A,htop-vim-git,Interactive text-mode process viewer. Patched for vim keybindings
 ,i3-gaps,"A fork of i3wm tiling window manager with more features, including gaps"
 ,i3lock,Improved screenlocker based upon XCB and PAM
