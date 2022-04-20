@@ -36,7 +36,7 @@ export PATH=/var/lib/snapd/snap/bin:$PATH
 
 function killport {
     # kill the process listening on the given port
-    # $1: port where the process is listening on
+    # $1: port on which the process is listening on
     sudo kill $(lsof -t -i:$1)
 }
 
@@ -78,7 +78,7 @@ function mkd {
     cd $1
 }
 
-reboot_to_windows () {
+reboot_to_windows() {
     # requires to set GRUB_DEFAULT=saved in /etc/default/grub and then grub-mkconfig -o /boot/grub/grub.cfg
     # if windows entry is missing in /boot/grub/grub.cfg, follow the instructions (mount windows or EFI partition) at
     # https://wiki.archlinux.org/title/GRUB#Configuration, chapter 'detecting other operating systems'
@@ -103,7 +103,6 @@ SAVEHIST=$HISTSIZE
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
 
-
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -117,7 +116,6 @@ compdef p='pacman'
 setopt complete_aliases
 compdef yay-pkg-install='yay'
 setopt complete_aliases
-
 
 # vi mode
 bindkey -v
