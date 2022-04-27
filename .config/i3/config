@@ -72,18 +72,12 @@ bindsym $mod+z			focus mode_toggle
 
 bindsym $mod+Shift+Escape	exec --no-startup-id prompt "Exit i3?" "i3 exit"
 
-bindsym $mod+grave		exec --no-startup-id dmenuunicode
-##bindsym $mod+asciitilde
 # workspace navigation
 bindsym $mod+n		workspace prev
 bindsym $mod+m		workspace next
 
 #STOP/HIDE EVERYTHING:
 bindsym $mod+Shift+Delete	exec --no-startup-id pulsemixer --mute ; exec --no-startup-id mpc pause && pkill -RTMIN+10 i3blocks ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e lf
-
-# Show selection:
-bindsym $mod+Insert		exec --no-startup-id notify-send "📋 Clipboard contents:" "$(xclip -o -selection clipboard)"
-##bindsym $mod+Pause
 
 # #---Letter Key Bindings---# #
 bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
@@ -193,9 +187,6 @@ for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
 
-# #---Function Buttons---# #
-bindsym $mod+Shift+F1	exec --no-startup-id toggle-welcome
-
 # #---Arrow Keys---# #
 bindsym $mod+Left		focus left
 bindsym $mod+Shift+Left		move left
@@ -234,3 +225,4 @@ mode "$mode_launcher" {
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
+

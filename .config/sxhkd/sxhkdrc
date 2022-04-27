@@ -18,13 +18,13 @@ super + space
 	rofi -combi-modi window,drun,run -show combi -modi combi -line-padding 4 -columns 1 -width 40 -padding 30 -hide-scrollbar -show-icons
 super + ctrl + i
   fs-shortcuts
-super + ctrl + u
-  powermenu
 super + ctrl + p
-  rofi-1password
+  powermenu
 super + ctrl + o
   with-secure-env dyna-bookmarks rofi
 	# with-secure-env $SRCBIN_DIR/dyna-bookmarks/packages/cli/open-bookmark
+super + ctrl + u
+	rofimoji
 
 # tools
 super + u
@@ -47,8 +47,6 @@ ctrl + shift + 4
   flameshot gui     
 
 # Et cetera...
-super + grave
-	rofimoji
 super + Scroll_Lock
 	killall screenkey || screenkey
 super + Insert

@@ -29,7 +29,7 @@ values."
    dotspacemacs-enable-lazy-installation 'unused
    ;; If non-nil then Spacemacs will ask for confirmation before installing
    ;; a layer lazily. (default t)
-   dotspacemacs-ask-for-lazy-installation t
+   dotspacemacs-ask-foq-lazy-installation t
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
@@ -96,6 +96,7 @@ values."
      ligo-mode
      anki-editor
      lsp-grammarly
+     keytar
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -381,6 +382,8 @@ you should place your code here."
   ; ranger settings:
   (setq ranger-show-hidden t)
   (setq ranger-cleanup-eagerly t)
+  ; same fontsize for emacs and emacsclient
+  (setq default-frame-alist '((font . "Source Code Pro-12")))
   ; set terminal command for opening a new terminal
   ;; (push (cons 'start-terminal (list "start-terminal")) terminal-here-terminal-command-table)
   ;; (validate-setq terminal-here-linux-terminal-command 'alacritty)
