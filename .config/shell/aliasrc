@@ -55,7 +55,6 @@ alias \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
 	SS="sudo systemctl" \
-	ec="emacsclient -c" \
 	note="TERM=screen-256color emacsclient -t -e \(spacemacs/new-empty-buffer\)" \
 	wiki="et $HOME/wiki/" \
 	sysrice="sudo yadm -Y /etc/sysrice" \
@@ -72,4 +71,6 @@ alias \
 	theme="kitty-theme --config ~/.config/kittythemechanger.py" \
 	toggle-theme="theme -t && theme -L" \
 	dark="change-theme dark" \
-	light="change-theme light"
+	light="change-theme light" \
+  protocol="et ~/GoogleDrive/Documents/Schule/ETH/Bsc-Thesis/Meetings/meetings.org" \
+  thesis-notes="et ~/GoogleDrive/Documents/Schule/ETH/Bsc-Thesis/notes/notes.org"

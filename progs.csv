@@ -179,6 +179,7 @@ A,tlpui-git,A GTK user interface for TLP written in Python
 A,toggldesktop-bin,Toggl time tracking software
 ,trash-cli,Command line trashcan (recycle bin) interface
 ,ttf-bitstream-vera,Bitstream Vera fonts.
+,ttf-fira-code,Monospaced font with programming ligatures
 ,ttf-inconsolata,Monospace font for pretty code listings and for the terminal
 ,ttf-joypixels,Emoji as a Service (formerly EmojiOne)
 ,ttf-linux-libertine,provides the sans and serif fonts for LARBS.
@@ -233,3 +234,4 @@ A,yay,Yet another yogurt. Pacman wrapper and AUR helper written in go.
 A,zoom,Video Conferencing and Web Conferencing Service
 ,zsh,A very advanced and programmable command interpreter (shell) for UNIX
 A,zsh-zplugin-git,"Flexible Zsh plugin manager with clean fpath, reports, completion management, turbo mode"
+,ttf-jetbrains-mono,"Typeface for developers, by JetBrains"

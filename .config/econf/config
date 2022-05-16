@@ -18,3 +18,4 @@ xprofile=.xprofile
 progs=voidrice/progs.csv
 tmux=voidrice/.config/tmux/tmux.conf
 kmonad=voidrice/.config/kmonad/config.kbd
+alacritty=voidrice/.config/alacritty/alacritty.yml

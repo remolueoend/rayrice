@@ -1,9 +1,11 @@
 env:
   WINIT_X11_SCALE_FACTOR: "1.0"
 font:
+  normal:
+    family: Fira Code
   size: 12
   vi_mode_cursor:
-    text: CellBackground
+    text: cellbackground
     cursor: CellForeground
   search:
     matches:
