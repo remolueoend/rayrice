@@ -1,0 +1,44 @@
+#| layer template for KB:
+  _     _    _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _    _    _    _    _    _    _    _    _    _         _
+  _     _    _    _    _    _    _    _    _    _    _              _
+  _     _    _                   _                   _    _    _     
+|#
+
+(defcfg
+  input (device-file "/dev/input/by-id/usb-04d9_USB-HID_Keyboard-event-kbd")
+  output (uinput-sink "KMonad kbd" "sleep 1s; xset r rate 200 50; sleep 1s; setxkbmap -option compose:rctrl")
+  cmp-seq rctrl
+  allow-cmd true
+)
+
+(defsrc
+  esc   1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab   q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps  a    s    d    f    g    h    j    k    l    ;    '         ret
+  lsft  z    x    c    v    b    n    m    ,    .    /              rsft
+  lctl  lmet lalt           spc                      ralt rmet rctl
+)
+
+(defalias
+  l1 (layer-toggle rightalts)
+  rst (cmd-button "systemctl --user restart kmonad")
+  kil (cmd-button "systemctl --user stop kmonad")
+)
+
+(deflayer base
+  `     1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab   q    w    e    r    t    y    u    i    o    p    [    ]    \
+  esc   a    s    d    f    g    h    j    k    l    ;    '         ret
+  lsft  z    x    c    v    b    n    m    ,    .    /              rsft
+  lalt  lmet lctl           spc                      @l1  rmet rctl
+)
+
+(deflayer rightalts
+  _     _    _    _    _    _    _    _    -    -    _    _    _    @rst
+  _     _    _    _    _    _    _    ü    +"   ö    _    _    _    _
+  _     ä    _    _    _    _    left down up   rght _    _         _
+  _     _    _    _    _    _    +~   _    _    _    _              _
+  _     _    _                   _                   _    _    _
+)
