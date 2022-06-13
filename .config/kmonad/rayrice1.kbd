@@ -1,9 +1,9 @@
-#| layer template for KB:
+#| layer template for KB Paradise V60:
   _     _    _    _    _    _    _    _    _    _    _    _    _    _
   _     _    _    _    _    _    _    _    _    _    _    _    _    _
   _     _    _    _    _    _    _    _    _    _    _    _         _
   _     _    _    _    _    _    _    _    _    _    _              _
-  _     _    _                   _                   _    _    _     
+  _     _    _                   _                   _    _    _ 
 |#
 
 (defcfg
@@ -11,6 +11,7 @@
   output (uinput-sink "KMonad kbd" "sleep 1s; xset r rate 200 50; sleep 1s; setxkbmap -option compose:rctrl")
   cmp-seq rctrl
   allow-cmd true
+  fallthrough true
 )
 
 (defsrc
