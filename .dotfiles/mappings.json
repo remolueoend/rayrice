@@ -73,5 +73,6 @@
   ".config/gtk-4.0": "~/.config/gtk-4.0",
   ".gnupg/gpg.conf": "~/.gnupg/gpg.conf",
   ".config/open-url": "~/.config/open-url",
-  ".config/kmonad": "~/.config/kmonad"
+  ".config/kmonad": "~/.config/kmonad",
+  ".config/rofimoji.rc": "~/.config/rofimoji.rc"
 }

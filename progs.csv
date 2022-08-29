@@ -23,6 +23,7 @@ A,balena-etcher,"Flash OS images to SD cards & USB drives, safely and easily"
 ,binutils,
 ,blueman,GTK+ Bluetooth Manager
 ,ccls,"C/C++/ObjC language server supporting cross references, hierarchies, completion and semantic highlighting"
+,chezmoi,Manage your dotfiles across multiple machines
 ,chromium,"A web browser built for speed, simplicity, and security"
 ,clang,C language family frontend for LLVM
 ,cmake,A cross-platform open-source make system
@@ -46,6 +47,7 @@ A,duc,A library and suite of tools for inspecting disk usage.
 A,evince-no-gnome,"GTK3 document viewer, complete features, no gnome dependencies"
 ,evtest,Input device event monitor and query tool
 ,exa,ls replacement
+A,expressvpn,Proprietary VPN client for Linux
 ,fd,"Simple, fast and user-friendly alternative to find"
 ,ffmpeg,"Complete solution to record, convert and stream audio and video"
 ,firefox,Standalone web browser from mozilla.org
@@ -75,6 +77,8 @@ A,insync,"An unofficial Google Drive and OneDrive client that runs on Linux, wit
 ,jupyterlab,JupyterLab computational environment
 ,kdeconnect,Adds communication between KDE and your smartphone
 A,kmonad,An advanced keyboard manager - static binary version
+,lib32-alsa-lib,
+,lib32-alsa-plugins,
 ,lib32-nvidia-utils,NVIDIA drivers utilities (32-bit)
 ,libreoffice-fresh,LibreOffice branch which contains new features and program enhancements
 ,lightdm,A lightweight display manager
@@ -109,6 +113,7 @@ A,mugshot,Program to update personal user details
 ,network-manager-applet,Applet for managing network connections
 ,networkmanager,Network connection manager and user applications
 ,networkmanager-openconnect,NetworkManager VPN plugin for OpenConnect
+,networkmanager-openvpn,NetworkManager VPN plugin for OpenVPN
 ,networkmanager-vpnc,NetworkManager VPN plugin for VPNC
 ,newsboat,is a terminal RSS client.
 ,nitrogen,Background browser and setter for X windows
@@ -136,6 +141,7 @@ A,pdfsam,A free open source tool to split and merge pdf documents
 ,perl,"A highly capable, feature-rich programming language"
 ,picom,X compositor that may fix tearing issues
 A,pinta,Drawing/editing program modeled after Paint.NET. It's goal is to provide a simplified alternative to GIMP for casual users
+,pipewire-alsa,
 ,pipewire-pulse,Low-latency audio/video router and processor - PulseAudio replacement
 ,playerctl,"mpris media player controller and lib for spotify, vlc, audacious, bmp, xmms2, and others."
 A,pmount,mount removable devices as normal user
@@ -211,6 +217,7 @@ A,xcursor-breeze,Breeze cursor theme (KDE Plasma 5). This package is for usage i
 A,xfce4-i3-workspaces-plugin-git,A workspace switcher plugin for xfce4-panel which can be used for the i3 window manager
 ,xfce4-pulseaudio-plugin,Pulseaudio plugin for Xfce4 panel
 ,xfce4-whiskermenu-plugin,Menu for Xfce4
+,xorg-mkfontscale,Create an index of scalable font files for X
 ,xorg-server,Xorg X server
 ,xorg-server-xvfb,Virtual framebuffer X server
 ,xorg-xbacklight,enables changing screen brightness levels.
@@ -234,4 +241,3 @@ A,yay,Yet another yogurt. Pacman wrapper and AUR helper written in go.
 A,zoom,Video Conferencing and Web Conferencing Service
 ,zsh,A very advanced and programmable command interpreter (shell) for UNIX
 A,zsh-zplugin-git,"Flexible Zsh plugin manager with clean fpath, reports, completion management, turbo mode"
-,ttf-jetbrains-mono,"Typeface for developers, by JetBrains"

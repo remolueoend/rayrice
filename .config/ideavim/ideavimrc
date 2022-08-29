@@ -1,10 +1,32 @@
-let mapleader=","
+source ~/.intellimacs/spacemacs.vim
+
+" (Optional) Enable other Intellimacs modules
+source ~/.intellimacs/extra.vim
+source ~/.intellimacs/major.vim
+source ~/.intellimacs/hybrid.vim
+
+" (Optional) Enable which-key plugin
+source ~/.intellimacs/which-key.vim
+
+" (Optional) My own vim commands
+nnoremap Y y$
+
+" (Optional) Comma for major mode
+nmap , <leader>m
+vmap , <leader>m
+
+" (Optional) Add/edit actions
+nnoremap <leader>gl    :action Vcs.Show.Log<CR>
+vnoremap <leader>gl    :action Vcs.Show.Log<CR>
+
+" let mapleader=","
 " <leader><leader>,; see https://github.com/AlexPl292/IdeaVim-EasyMotion
 set easymotion
 " toggle comments with gc:
 set commentary
 " see https://github.com/JetBrains/ideavim/wiki/`ideajoin`-examples 
 set ideajoin
+set clipboard+=unnamed
 
 " search and replace selected text using ctrl-r in visual mode:
 " see: https://stackoverflow.com/questions/676600/vim-search-and-replace-selected-text#:~:text=By pressing ctrl %2B r in,y or decline with n . 

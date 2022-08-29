@@ -40,15 +40,15 @@ function killport {
     sudo kill $(lsof -t -i:$1)
 }
 
-function use_python {
-    # enables python version [$:3.5.6] for the current shell using pyenv
+function use_pyenv {
+    # enables python version [$:3.8.1] for the current shell using pyenv
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
     local VERSION=${1:-3.8.1}
     pyenv shell $VERSION && echo "Now using $(python --version)"
 }
 
-function load_nvm() {
+function use_nvm() {
     # load NVM in the current shell, pretty slow
     source /usr/share/nvm/init-nvm.sh
 }
