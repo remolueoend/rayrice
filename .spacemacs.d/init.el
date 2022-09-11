@@ -43,6 +43,7 @@ values."
    ;; ----------------------------------------------------------------
    ;; themes-megapack ;; additional themes, see: https://themegallery.robdor.com/
    '(multiple-cursors
+     nixos
      typescript
      csv
      javascript
