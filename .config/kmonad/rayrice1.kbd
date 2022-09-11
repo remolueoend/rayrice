@@ -37,7 +37,7 @@
 )
 
 (deflayer rightalts
-  _     _    _    _    _    _    _    _    -    -    _    _    _    @rst
+  _     f1   f2   _    _    _    _    _    -    -    _    _    _    @rst
   _     _    _    _    _    _    _    ü    +"   ö    _    _    _    _
   _     ä    _    _    _    _    left down up   rght _    _         _
   _     _    _    _    _    _    +~   _    _    _    _              _
