@@ -24,6 +24,7 @@ export PATH=$HOME/.dotnet/tools:$PATH
 export PATH=$HOME/.opam/default/bin:$PATH
 # haskell
 export GHCUP_USE_XDG_DIRS=1 # use XDG dirs, see: https://gitlab.haskell.org/haskell/ghcup-hs/#xdg-support
+export PATH=$HOME/.cabal/bin:$PATH
 # Ruby gem executables:
 export PATH=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH
 # Go

@@ -46,7 +46,6 @@ A,duc,A library and suite of tools for inspecting disk usage.
 A,evince-no-gnome,"GTK3 document viewer, complete features, no gnome dependencies"
 ,evtest,Input device event monitor and query tool
 ,exa,ls replacement
-A,expressvpn,Proprietary VPN client for Linux
 ,fd,"Simple, fast and user-friendly alternative to find"
 ,ffmpeg,"Complete solution to record, convert and stream audio and video"
 ,firefox,Standalone web browser from mozilla.org
@@ -59,6 +58,7 @@ A,gdrive,Google Drive CLI Client
 A,ghcup-hs-bin,an installer for the general purpose language Haskell
 ,git,the fast distributed version control system
 ,git-lfs,Git extension for versioning large files
+,gnome-disk-utility,Disk Management Utility for GNOME
 ,gnome-keyring,Stores passwords and encryption keys
 ,highlight,Fast and flexible source code highlighter (CLI version)
 ,hplip,"Drivers for HP DeskJet, OfficeJet, Photosmart, Business Inkjet and some LaserJet"
@@ -104,6 +104,7 @@ A,mugshot,Program to update personal user details
 ,ncdu,Disk usage analyzer with an ncurses interface
 ,ncmpcpp,Almost exact clone of ncmpc with some new features
 ,nemo,Cinnamon file manager (Nautilus fork)
+,nemo-fileroller,File archiver extension for Nemo
 ,nemo-preview,Quick file previewer for Nemo
 ,nemo-seahorse,PGP encryption and signing extension for Nemo
 ,nemo-share,Samba extension for Nemo
@@ -124,6 +125,7 @@ A,noto-fonts-emoji-apple,"Google Noto emoji fonts replaced with apple branded em
 A,nvm,Node Version Manager - Simple bash script to manage multiple active node.js versions
 ,odt2txt,extracts the text out of OpenDocument Texts
 ,opam,OCaml package manager
+,openssl,
 A,optimus-manager,Management utility to handle GPU switching for Optimus laptops
 A,optimus-manager-qt,A Qt interface for Optimus Manager that allows to configure and switch GPUs on Optimus laptops using the tray menu
 A,otf-hasklig,"A font with symbol ligatures, intended for Haskell code"
