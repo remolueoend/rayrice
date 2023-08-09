@@ -43,7 +43,9 @@ values."
    ;; ----------------------------------------------------------------
    ;; themes-megapack ;; additional themes, see: https://themegallery.robdor.com/
    '(multiple-cursors
+     git
      nixos
+     idris
      typescript
      csv
      javascript
@@ -58,7 +60,6 @@ values."
                       auto-completion-enable-sort-by-usage t)
      better-defaults
      emacs-lisp
-     git
      (ocaml :variables ocaml-format-on-save t)
      markdown
      (org :variables
@@ -72,6 +73,7 @@ values."
      syntax-checking
      version-control
      yaml
+     vimscript
      themes-megapack
      lsp
      dap

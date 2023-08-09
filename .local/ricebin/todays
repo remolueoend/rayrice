@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+today_dir="$XDG_DATA_HOME/today"
+
+mkdir -p "$today_dir"
+ranger "$today_dir"

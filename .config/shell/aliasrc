@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Use neovim for vim if present.
-[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
-
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
 	cp="cp -iv" \
@@ -34,15 +31,16 @@ alias \
 	xi="sudo xbps-install" \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
-	z="zathura" \
-	open="xdg-open"
+	z="zathura"
 
 # GIT related shortcuts
 alias \
 	gf="git fetch" \
 	gp="git push" \
+	gf="git fetch" \
 	gu="git pull" \
-	gc="git commit"
+	gc="git commit" \
+  gm="git checkout main && git pull"
 
 # common typos
 alias \
@@ -64,13 +62,19 @@ alias \
 	editmr="with-secret-env forge edit-mr -o" \
 	openmr="with-secret-env forge open-mr" \
 	createissue="with-secret-env forge create-issue -o" \
-	copy="xclip -selection c" \
-	paste="xclip -selection c -o" \
 	ssh="TERM=xterm-color ssh" \
 	kitty="kitty --single-instance" \
 	theme="kitty-theme --config ~/.config/kittythemechanger.py" \
 	toggle-theme="theme -t && theme -L" \
 	dark="change-theme dark" \
 	light="change-theme light" \
+  npr="npm run" \
   protocol="et ~/GoogleDrive/Documents/Schule/ETH/Bsc-Thesis/Meetings/meetings.org" \
   thesis-notes="et ~/GoogleDrive/Documents/Schule/ETH/Bsc-Thesis/notes/notes.org"
+
+# environment specific aliases
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+[ -x "$(command -v xdg-open)" ] && alias open="xdg-open"
+[ -x "$(command -v xclip)" ] && alias copy="xclip -selection -c" paste="xclip -selection c -o"
+[ -x "$(command -v pbcopy)" ] && alias copy="pbcopy" paste="pbpaste"
+[ -x "$(command -v exa)" ] && alias la="exa --long --all --header"

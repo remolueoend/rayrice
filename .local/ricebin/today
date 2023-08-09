@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+today_dir="$XDG_DATA_HOME/today"
+today_file="$today_dir/$(date '+%Y.%m.%d').org"
+
+mkdir -p "$today_dir"
+$EDITOR "$today_file"

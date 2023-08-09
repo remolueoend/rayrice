@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+/opt/homebrew/opt/libpq/bin/psql $@
+

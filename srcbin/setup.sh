@@ -42,6 +42,11 @@ install_fzf_tab() {
     __clone "https://github.com/Aloxaf/fzf-tab" "$src_dir" "fzf-tab" || true
 }
 
+function install_zsh_autosuggestions {
+    local src_dir="$source_root/zsh-autosuggestions"
+    __clone "https://github.com/zsh-users/zsh-autosuggestions" "$src_dir" "zsh-autosuggestions" || true
+}
+
 # installs https://github.com/dexpota/kitty-themes
 # collection of kitty themes which are linked from the kitty config
 install_kitty_themes() {
@@ -94,10 +99,11 @@ show_next_steps() {
 }
 
 install_fzf_tab
-install_kitty_themes
-install_zplugin
+install_zsh_autosuggestions
+# install_kitty_themes
+# install_zplugin
 install_password_store
-install_udevmon_layers
+# install_udevmon_layers
 install_prezto_theme
 
 show_next_steps

@@ -8,6 +8,9 @@
 	signingkey = EB906E4565F2F93A720650FB3998512762130C97
 [core]
 	autocrlf = input
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
@@ -27,6 +30,9 @@
 [alias]
   reb-master = pull --rebase=interactive origin master
   reb-master-common = !git fetch origin && git rebase -i $(git merge-base HEAD origin/master)
+  reb-main = pull --rebase=interactive origin main
+  reb-main-common = !git fetch origin && git rebase -i $(git merge-base HEAD origin/main)
+  nb-main = switch -c "$1" main
   wdiff = diff --word-diff=color --unified=1
 	h = help
   st = status
@@ -101,19 +107,17 @@
 [fetch]
 	recurseSubmodules = false
 [commit]
-	gpgsign = true
+	gpgsign = false
 [gpg]
 	program = gpg
 [merge]
-	tool = kdiff3
-[mergetool "kdiff3"]
-	path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+	conflictstyle = diff3
 [rebase]
 	autosquash = true
 [credential]
 	helper = cache
 [diff]
-	tool = bc3
+	colorMoved = default
 [cinnabar]
 	version-check = 1608031299
 	helper = /home/remo/.mozbuild/git-cinnabar/git-cinnabar-helper

@@ -8,7 +8,11 @@
 # needs to be here instead of zshrc, xprofile requires this when running on logon:
 # Also make sure everything under .local/ricebin gets prepended to allow overwriting
 # installed binaries
-export PATH="$(du -L "$HOME/.local/ricebin" | cut -f2 | paste -sd ':'):$PATH"
+
+export PATH="$(du -L "$HOME/.local/ricebin" | cut -f2 | tr '\n' ':'):$PATH"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export PATH="$(du -L "$HOME/.local/ricebin-macos" | cut -f2 | tr '\n' ':'):$PATH"
+fi
 export PATH="$PATH:$HOME/.local/bin"
 
 # Default programs:
@@ -20,7 +24,9 @@ export READER="evince"
 export FILE="ranger"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/Documents/referbib"
-export SSH_ASKPASS=/usr/lib/seahorse/ssh-askpass
+if [ -f "/usr/lib/seahorse/ssh-askpass" ]; then
+	export SSH_ASKPASS=/usr/lib/seahorse/ssh-askpass
+fi
 export STATUSBAR=i3blocks
 
 # ~/ Clean-up:
@@ -43,7 +49,6 @@ export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
 export KODI_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/kodi"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
-export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
@@ -77,7 +82,17 @@ export NPM_CONFIG_TMP=$XDG_RUNTIME_DIR/npm
 # NIX
 export NIX_PATH="$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels"
 
+# MacPorts
+if [ -d "/opt/local/bin" ]; then
+    export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+    export MANPATH="/opt/local/share/man:$MANPATH"
+fi
+
+# Homebrew
+[ -d /opt/homebrew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # global directories
 export SRCBIN_DIR="$HOME/srcbin"
 
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && shortcuts >/dev/null 2>&1 &
+

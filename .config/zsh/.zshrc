@@ -1,5 +1,9 @@
 # Luke's config for the Zoomer Shell
 
+function is_installed {
+    type "$1" >/dev/null
+}
+
 ZFUNC_FOLDER="$HOME/.zfunc"
 mkdir -p $ZFUNC_FOLDER
 fpath=($ZFUNC_FOLDER "${fpath[@]}")
@@ -9,7 +13,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-export DOTFILES_ROOT="$HOME/voidrice"
+export DOTFILES_ROOT="$HOME/rayrice"
 
 ## PATH extensions
 # NPM/yarn global packages:
@@ -19,21 +23,37 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/share/cargo/bin:$PATH
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 # dotnet
-export PATH=$HOME/.dotnet/tools:$PATH
-# ocaml
-export PATH=$HOME/.opam/default/bin:$PATH
-# haskell
-export GHCUP_USE_XDG_DIRS=1 # use XDG dirs, see: https://gitlab.haskell.org/haskell/ghcup-hs/#xdg-support
-export PATH=$HOME/.cabal/bin:$PATH
-# Ruby gem executables:
-export PATH=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH
-# Go
-export PATH=$PATH:$GOPATH/bin:$GOPATH/src/github.com/docker/docker-credential-helpers/bin
-# custom built executables:
-export PATH=$SRCBIN_DIR/build:$PATH
+if is_installed "dotnet"; then
+    export PATH=$HOME/.dotnet/tools:$PATH
+fi
 
-# binaries installed via snap:
-export PATH=/var/lib/snapd/snap/bin:$PATH
+# ocaml
+if is_installed "opam"; then
+    export PATH=$HOME/.opam/default/bin:$PATH
+fi
+
+# haskell
+if is_installed "ghcup"; then
+    export GHCUP_USE_XDG_DIRS=1 # use XDG dirs, see: https://gitlab.haskell.org/haskell/ghcup-hs/#xdg-support
+    export PATH=$HOME/.cabal/bin:$PATH
+fi
+
+# Ruby gem executables:
+if is_installed "ruby"; then
+    export PATH=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH
+fi
+
+# Go
+if is_installed "go"; then
+    export PATH=$PATH:$GOPATH/bin:$GOPATH/src/github.com/docker/docker-credential-helpers/bin
+    # custom built executables:
+    export PATH=$SRCBIN_DIR/build:$PATH
+fi
+
+if is_installed "snap"; then
+    # binaries installed via snap:
+    export PATH=/var/lib/snapd/snap/bin:$PATH
+fi
 
 function killport {
     # kill the process listening on the given port
@@ -44,14 +64,13 @@ function killport {
 function use_pyenv {
     # enables python version [$:3.8.1] for the current shell using pyenv
     eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-    local VERSION=${1:-3.8.1}
-    pyenv shell $VERSION && echo "Now using $(python --version)"
 }
 
 function use_nvm() {
+    NVM_DIR="$HOME/.nvm"
     # load NVM in the current shell, pretty slow
-    source /usr/share/nvm/init-nvm.sh
+    [ -e "/usr/share/nvm/init-nvm.sh" ] && \. "/usr/share/nvm/init-nvm.sh"
+    [ -e "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 }
 
 function use_ocaml {
@@ -112,19 +131,20 @@ compinit
 _comp_options+=(globdots) # Include hidden files.
 
 # Custom completions for some scrips:
-compdef pacman-pkg-install='pacman'
-compdef p='pacman'
-setopt complete_aliases
-compdef yay-pkg-install='yay'
-setopt complete_aliases
+if is_installed "pacman"; then
+    compdef pacman-pkg-install='pacman'
+    compdef p='pacman'
+    setopt complete_aliases
+    compdef yay-pkg-install='yay'
+    setopt complete_aliases
+fi
+
 
 # vi mode
 bindkey -v
+# default history handler:
 bindkey "^R" history-incremental-search-backward
 #unsetopt correct
-
-# manual plugins
-export KEYTIMEOUT=1
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -132,6 +152,15 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
+
+bindkey -s '^o' 'rangercd\n'
+bindkey -s '^a' 'bc -lq\n'
+bindkey '^[[P' delete-char
+bindkey '^e' edit-command-line
+bindkey "^F" forward-word
+# bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/config ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/config
 
 rangercd() {
     # Use ranger to switch directories and bind it to ctrl-o
@@ -148,58 +177,58 @@ rangercd() {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-bindkey -s '^o' 'rangercd\n'
 
-bindkey -s '^a' 'bc -lq\n'
-
-# bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
-
-bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line
 zle -N edit-command-line
-bindkey '^e' edit-command-line
+
+# manual plugins
+export KEYTIMEOUT=1
 
 # source plugins
 source $SRCBIN_DIR/fzf-tab/fzf-tab.plugin.zsh
-
-# source plugin manager and its plugins:
-local zplugin_entry="$SRCBIN_DIR/zplugin/zplugin.zsh"
-if [ -f $zplugin_entry ]; then
-    source $zplugin_entry
-    zplugin light zsh-users/zsh-autosuggestions
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#aaaaaa"
-    bindkey "^F" forward-word
-    # zplugin light Valiev/almostontop
-else
-    echo "[zshrc:warning]: expected zplugin to be installed at $zplugin_entry"
-fi
+source $SRCBIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
+# plugin settings
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#aaaaaa"
 
 # hooks
-eval "$(direnv hook zsh)"
+if is_installed "direnv"; then
+    eval "$(direnv hook zsh)"
+fi
 
 # manages a single instance of ssh-agent.
 # we could also let it register keys by itself,
 # but we want to do it manually using `ssh-add`
 # using passwords provided by 1password
 # eval $(keychain --eval --quiet --noask id_github id_gitlab)
-eval $(gnome-keyring-daemon --start)
-export SSH_AUTH_SOCK
+if is_installed "gnome-keyring-daemon"; then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
 
 # PERL stuff
-PATH="/home/remo/perl5/bin${PATH:+:${PATH}}"
-export PATH
-PERL5LIB="/home/remo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
-export PERL5LIB
-PERL_LOCAL_LIB_ROOT="/home/remo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
-export PERL_LOCAL_LIB_ROOT
-PERL_MB_OPT="--install_base \"/home/remo/perl5\""
-export PERL_MB_OPT
-PERL_MM_OPT="INSTALL_BASE=/home/remo/perl5"
-export PERL_MM_OPT
+if is_installed "perl"; then
+    PATH="$HOME/perl5/bin${PATH:+:${PATH}}"
+    export PATH
+    PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+    export PERL5LIB
+    PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+    export PERL_LOCAL_LIB_ROOT
+    PERL_MB_OPT="--install_base \"$HOME/perl5\""
+    export PERL_MB_OPT
+    PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"
+    export PERL_MM_OPT
+fi
+
+# activate python by default:
+use_pyenv
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+
 # disable cursor highlighting to avoid issues with alacritty:
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern line root)
+
+test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2_shell_integration.zsh"
+

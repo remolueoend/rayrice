@@ -1,3 +1,4 @@
+" ============ intellimacs ============
 source ~/.intellimacs/spacemacs.vim
 
 " (Optional) Enable other Intellimacs modules
@@ -7,6 +8,14 @@ source ~/.intellimacs/hybrid.vim
 
 " (Optional) Enable which-key plugin
 source ~/.intellimacs/which-key.vim
+
+" ============ intellimacs customizations ============
+" major mode -> Go to Test
+let g:WhichKeyDesc_Major_Goto_Test = "<leader>mgT Test"
+nnoremap <leader>mgT    :action GotoTest<CR>
+vnoremap <leader>mgT    <Esc>:action GotoTest<CR>
+
+" source ~/.config/nvim/init.vim
 
 " (Optional) My own vim commands
 nnoremap Y y$
@@ -19,7 +28,7 @@ vmap , <leader>m
 nnoremap <leader>gl    :action Vcs.Show.Log<CR>
 vnoremap <leader>gl    :action Vcs.Show.Log<CR>
 
-" let mapleader=","
+let mapleader=","
 " <leader><leader>,; see https://github.com/AlexPl292/IdeaVim-EasyMotion
 set easymotion
 " toggle comments with gc:
@@ -31,3 +40,8 @@ set clipboard+=unnamed
 " search and replace selected text using ctrl-r in visual mode:
 " see: https://stackoverflow.com/questions/676600/vim-search-and-replace-selected-text#:~:text=By pressing ctrl %2B r in,y or decline with n . 
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
+" disable bell, see:
+" https://superuser.com/questions/622898/how-to-turn-off-the-bell-sound-in-intellij
+set visualbell
+set noerrorbells

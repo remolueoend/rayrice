@@ -1,5 +1,8 @@
 use_nvm() {
 	NODE_VERSION="$1"
-  source /usr/share/nvm/init-nvm.sh
+  NVM_DIR="$HOME/.nvm"
+  # load NVM in the current shell, pretty slow
+  [ -e "/usr/share/nvm/init-nvm.sh" ] && \. "/usr/share/nvm/init-nvm.sh"
+  [ -e "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 	nvm use "$NODE_VERSION"
 }
