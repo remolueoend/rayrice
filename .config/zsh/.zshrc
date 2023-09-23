@@ -50,9 +50,15 @@ if is_installed "go"; then
     export PATH=$SRCBIN_DIR/build:$PATH
 fi
 
+# snap on linux
 if is_installed "snap"; then
     # binaries installed via snap:
     export PATH=/var/lib/snapd/snap/bin:$PATH
+fi
+
+# latex (mactex) on macos via brew:
+if [ -d /Library/TeX/texbin ]; then
+    export PATH=$PATH:/Library/TeX/texbin
 fi
 
 function killport {

@@ -10,10 +10,14 @@ source ~/.intellimacs/hybrid.vim
 source ~/.intellimacs/which-key.vim
 
 " ============ intellimacs customizations ============
-" major mode -> Go to Test
-let g:WhichKeyDesc_Major_Goto_Test = "<leader>mgT Test"
+" major mode -> [g]oto [T]est
 nnoremap <leader>mgT    :action GotoTest<CR>
-vnoremap <leader>mgT    <Esc>:action GotoTest<CR>
+" major mode -> [g]oto -> Edit[S]ource
+nnoremap <leader>mgs    :action EditSource<CR>
+
+" could be removed:
+" let g:WhichKeyDesc_Major_Goto_Test = "<leader>mgT Test"
+" vnoremap <leader>mgT    <Esc>:action GotoTest<CR>
 
 " source ~/.config/nvim/init.vim
 

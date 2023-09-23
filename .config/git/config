@@ -27,11 +27,13 @@
 [diff "pandoc"]
     textconv=pandoc --to=markdown
     prompt = false
+[diff "diff-pdf"]
+	  command = f() { diff-pdf --view "$2 $1;" } ";" f
 [alias]
   reb-master = pull --rebase=interactive origin master
   reb-master-common = !git fetch origin && git rebase -i $(git merge-base HEAD origin/master)
   reb-main = pull --rebase=interactive origin main
-  reb-main-common = !git fetch origin && git rebase -i $(git merge-base HEAD origin/main)
+  reb-main-common = !git fetch origin && git rebase -i $(git merge-base HEAD origin main)
   nb-main = switch -c "$1" main
   wdiff = diff --word-diff=color --unified=1
 	h = help

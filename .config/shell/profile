@@ -9,6 +9,9 @@
 # Also make sure everything under .local/ricebin gets prepended to allow overwriting
 # installed binaries
 
+# Homebrew (expands path, should happen before ricebin):
+[ -d /opt/homebrew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 export PATH="$(du -L "$HOME/.local/ricebin" | cut -f2 | tr '\n' ':'):$PATH"
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH="$(du -L "$HOME/.local/ricebin-macos" | cut -f2 | tr '\n' ':'):$PATH"
@@ -56,8 +59,6 @@ export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
 
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"
-# export SUDO_ASKPASS="$HOME/.local/ricebin/dmenupass"
-export SUDO_ASKPASS="/usr/lib/seahorse/ssh-askpass"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
@@ -87,9 +88,6 @@ if [ -d "/opt/local/bin" ]; then
     export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
     export MANPATH="/opt/local/share/man:$MANPATH"
 fi
-
-# Homebrew
-[ -d /opt/homebrew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # global directories
 export SRCBIN_DIR="$HOME/srcbin"

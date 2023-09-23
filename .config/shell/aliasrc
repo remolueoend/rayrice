@@ -59,7 +59,7 @@ alias \
 	la="exa --long --all --header" \
 	trello="with-secret-env trello" \
 	personal="with-secret-env personal" \
-	editmr="with-secret-env forge edit-mr -o" \
+	editmr="with-secret-env forge edit-mr" \
 	openmr="with-secret-env forge open-mr" \
 	createissue="with-secret-env forge create-issue -o" \
 	ssh="TERM=xterm-color ssh" \
@@ -69,6 +69,7 @@ alias \
 	dark="change-theme dark" \
 	light="change-theme light" \
   npr="npm run" \
+  agenda="et -t --eval '(org-agenda-list)' '(delete-other-windows)'" \
   protocol="et ~/GoogleDrive/Documents/Schule/ETH/Bsc-Thesis/Meetings/meetings.org" \
   thesis-notes="et ~/GoogleDrive/Documents/Schule/ETH/Bsc-Thesis/notes/notes.org"
 

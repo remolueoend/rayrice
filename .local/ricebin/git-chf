@@ -1,3 +1,10 @@
-#!/bin/zsh
+#!/bin/bash
 
-git checkout $(git branch -a | fzf | xargs)
+if [ $# -eq 0 ]; then
+    git checkout $(git branch -a | fzf | xargs)
+else
+    git checkout "$@"
+fi
+
+
+
