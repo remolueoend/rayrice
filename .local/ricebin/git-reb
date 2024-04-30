@@ -1,0 +1,12 @@
+#!/bin/bash
+
+git fetch origin
+
+if [ $# -eq 0 ]; then
+    branch=$(git branch -a | fzf | xargs)
+    [ ! -z $branch ] && git rebase -i $branch
+else
+    git rebase -i "$@"
+fi
+
+

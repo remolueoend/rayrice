@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-
-# wrapper script required to use wrapped alias
-# in scripts and not only interactive shells
-
-with-secret-env /usr/bin/aws "$@"

@@ -1,0 +1,50 @@
+import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[env]
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+
+[font]
+size = 12
+
+[font.normal]
+family = "Fira Code"
+
+
+[colors]
+vi_mode_cursor = { cursor = "CellForeground", text = "CellBackground" }
+
+[colors.search]
+matches = { background = "#ffffff", foreground = "#000000" }
+focused_match = { background = "CellForeground", foreground = "CellBackground" }
+
+
+[[hints.enabled]]
+command = "open"
+post_processing = true
+regex = "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)//.*"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[hints.enabled]]
+command = "open"
+post_processing = false
+regex = '''((/home/remo/)|(~/))[^\s']+'''
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "H"
+mode = "~Search"
+mods = "Shift|Control"

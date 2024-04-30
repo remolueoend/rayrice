@@ -38,8 +38,8 @@ or clone the repo files directly to your home directory and install the
 
 ## Useful tools
 
-| name  | tags                       |
-| ----- | ------                     |
-| duc   | disk space                 |
-| tlp   | energy battery performance |
+| name | tags                       |
+|------|----------------------------|
+| duc  | disk space                 |
+| tlp  | energy battery performance |
 

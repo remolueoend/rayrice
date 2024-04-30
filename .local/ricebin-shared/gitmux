@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+. "$(dirname "$(which "$0")")/shared.sh"
+
+run_shared_command "gitmux" "$@"

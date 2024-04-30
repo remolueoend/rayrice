@@ -3,4 +3,4 @@
 today_dir="$XDG_DATA_HOME/today"
 
 mkdir -p "$today_dir"
-ranger "$today_dir"
+ranger --cmd="chain set sort name; set sort_reverse=True" "$today_dir"

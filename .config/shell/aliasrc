@@ -40,7 +40,8 @@ alias \
 	gf="git fetch" \
 	gu="git pull" \
 	gc="git commit" \
-  gm="git checkout main && git pull"
+  gm="git checkout main && git pull" \
+  gpf="git push --force-with-lease"
 
 # common typos
 alias \
@@ -53,7 +54,7 @@ alias \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
 	SS="sudo systemctl" \
-	note="TERM=screen-256color emacsclient -t -e \(spacemacs/new-empty-buffer\)" \
+	note="TERM=screen-256color emacsclient -t -e '(progn (spacemacs/new-empty-buffer) (text-mode))'" \
 	wiki="et $HOME/wiki/" \
 	sysrice="sudo yadm -Y /etc/sysrice" \
 	la="exa --long --all --header" \

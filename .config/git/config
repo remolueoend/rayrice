@@ -1,3 +1,6 @@
+[url "gitlab.ergon.ch:ergon/"]
+	insteadOf = git@gitlab.com:ergon/
+
 [filter "media"]
 	required = true
 	clean = git media clean %f
@@ -66,6 +69,7 @@
   ff = merge --ff-only HEAD@{u}
   rem = rebase-maybe
   continue = rebase --continue
+	rc = rebase --continue
   skip = rebase --skip
   solve = mergetool
   splice = mergetool --tool=splice
@@ -127,3 +131,7 @@
 	defaultBranch = main
 [pull]
 	rebase = true
+
+# directory specific overrides
+[includeIf "gitdir:~/dev/rm/"]
+	path = "~/dev/rm/.gitconfig"

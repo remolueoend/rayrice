@@ -4,6 +4,14 @@ function is_installed {
     type "$1" >/dev/null
 }
 
+function socket_exists {
+    if [ -S "$1" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 ZFUNC_FOLDER="$HOME/.zfunc"
 mkdir -p $ZFUNC_FOLDER
 fpath=($ZFUNC_FOLDER "${fpath[@]}")
@@ -211,6 +219,8 @@ fi
 if is_installed "gnome-keyring-daemon"; then
     eval $(gnome-keyring-daemon --start)
     export SSH_AUTH_SOCK
+elif socket_exists "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"; then
+    export SSH_AUTH_SOCK="$(readlink -f $HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock)"
 fi
 
 # PERL stuff

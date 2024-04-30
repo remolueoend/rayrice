@@ -23,6 +23,8 @@
   ".config/sxhkd": "~/.config/sxhkd",
   ".config/i3": "~/.config/i3",
   ".local/ricebin": "~/.local/ricebin",
+  ".local/ricebin-macos": "~/.local/ricebin-macos",
+  ".local/ricebin-shared": "~/.local/ricebin-shared",
   ".local/share/applications": "~/.local/share/applications",
   ".local/share/larbs": "~/.local/share/larbs",
   ".config/dunst/dunstrc": "~/.config/dunst/dunstrc",
@@ -63,7 +65,7 @@
   ".config/rofi/config.rasi": "~/.config/rofi/config.rasi",
   ".config/picom.conf": "~/.config/picom.conf",
   ".direnvrc": "~/.direnvrc",
-  ".config/alacritty/alacritty.yml": "~/.config/alacritty/alacritty.yml",
+  ".config/alacritty": "~/.config/alacritty",
   ".config/flameshot/flameshot.ini": "~/.config/flameshot/flameshot.ini",
   ".config/nu/config.toml": "~/.config/nu/config.toml",
   ".config/locale.conf": "~/.config/locale.conf",
@@ -74,5 +76,6 @@
   ".gnupg/gpg.conf": "~/.gnupg/gpg.conf",
   ".config/open-url": "~/.config/open-url",
   ".config/kmonad": "~/.config/kmonad",
-  ".config/rofimoji.rc": "~/.config/rofimoji.rc"
+  ".config/rofimoji.rc": "~/.config/rofimoji.rc",
+  ".config/karabiner/karabiner.json": "~/.config/karabiner/karabiner.json"
 }
