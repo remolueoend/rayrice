@@ -77,5 +77,7 @@
   ".config/open-url": "~/.config/open-url",
   ".config/kmonad": "~/.config/kmonad",
   ".config/rofimoji.rc": "~/.config/rofimoji.rc",
-  ".config/karabiner/karabiner.json": "~/.config/karabiner/karabiner.json"
+  ".config/karabiner/karabiner.json": "~/.config/karabiner/karabiner.json",
+  ".config/skhd": "~/.config/skhd",
+  ".config/yabai": "~/.config/yabai"
 }
