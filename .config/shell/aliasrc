@@ -57,7 +57,7 @@ alias \
 	note="TERM=screen-256color emacsclient -t -e '(progn (spacemacs/new-empty-buffer) (text-mode))'" \
 	wiki="et $HOME/wiki/" \
 	sysrice="sudo yadm -Y /etc/sysrice" \
-	la="exa --long --all --header" \
+	la="eza --long --all --header" \
 	trello="with-secret-env trello" \
 	personal="with-secret-env personal" \
 	editmr="with-secret-env forge edit-mr" \
@@ -80,3 +80,4 @@ alias \
 [ -x "$(command -v xclip)" ] && alias copy="xclip -selection -c" paste="xclip -selection c -o"
 [ -x "$(command -v pbcopy)" ] && alias copy="pbcopy" paste="pbpaste"
 [ -x "$(command -v exa)" ] && alias la="exa --long --all --header"
+[ -x "$(command -v trash)" ] && alias trash-put="trash"

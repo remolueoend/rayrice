@@ -51,6 +51,7 @@ values."
      javascript
      html
      rust
+     haskell
      python
      systemd
      helm

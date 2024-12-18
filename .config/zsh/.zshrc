@@ -216,6 +216,7 @@ fi
 # but we want to do it manually using `ssh-add`
 # using passwords provided by 1password
 # eval $(keychain --eval --quiet --noask id_github id_gitlab)
+export OS_SSH_AUTH_SOCK="$SSH_AUTH_SOCK"
 if is_installed "gnome-keyring-daemon"; then
     eval $(gnome-keyring-daemon --start)
     export SSH_AUTH_SOCK

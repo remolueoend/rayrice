@@ -90,6 +90,6 @@ launch_mode < m : ~/.config/skhd/focus-app.sh Mattermost ; skhd -k "escape"
 launch_mode < f : ~/.config/skhd/focus-app.sh Firefox ; skhd -k "escape"
 launch_mode < i : ~/.config/skhd/focus-app.sh "IntelliJ IDEA Ultimate" ; skhd -k "escape"
 launch_mode < o : ~/.config/skhd/focus-app.sh Outlook ; skhd -k "escape"
-launch_mode < t : ~/.config/skhd/focus-app.sh "Microsoft Teams (work or school)" ; skhd -k "escape"
+launch_mode < t : ~/.config/skhd/focus-app.sh "Microsoft Teams" ; skhd -k "escape"
 launch_mode < space : ~/.config/skhd/focus-app.sh "Toggl Track" ; skhd -k "escape"
 launch_mode < escape ; default

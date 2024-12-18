@@ -39,7 +39,6 @@ yabai -m rule --add app='^System Information$' manage=off
 yabai -m rule --add app='^System Preferences$' manage=off
 yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add title='Settings$' manage=off
-yabai -m rule --add title='Toggl Track' manage=off
 
 # Some IntelliJ settings, in case you are using it. float IntelliJ Preference panes
 # yabai -m rule --add app='JetBrains Toolbox' manage=off
