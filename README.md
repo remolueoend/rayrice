@@ -42,4 +42,5 @@ or clone the repo files directly to your home directory and install the
 |------|----------------------------|
 | duc  | disk space                 |
 | tlp  | energy battery performance |
+| [dotfiles](https://github.com/rhysd/dotfiles) | dotfiles manager |
 
