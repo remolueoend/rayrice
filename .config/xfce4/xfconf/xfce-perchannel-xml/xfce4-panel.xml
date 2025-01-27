@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <channel name="xfce4-panel" version="1.0">
   <property name="configver" type="int" value="2"/>
@@ -37,6 +37,8 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-items" type="array">
+        <value type="string" value="toolbox"/>
+        <value type="string" value="chrome_status_icon_1"/>
         <value type="string" value="hp-systray"/>
         <value type="string" value="zoom"/>
         <value type="string" value="discord1"/>
@@ -51,6 +53,10 @@
         <value type="string" value="blueman"/>
       </property>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “⚡️🌊🏄‍♀️” active: ⚡️🌊🏄‍♀️ (97%)"/>
+        <value type="string" value="wi-fi network connection “⚡️🌊🏄‍♀️” active: ⚡️🌊🏄‍♀️ (100%)"/>
+        <value type="string" value="wi-fi network connection “⚡️🌊🏄‍♀️” active: ⚡️🌊🏄‍♀️ (79%)"/>
+        <value type="string" value="networking disabled"/>
         <value type="string" value="deluge"/>
         <value type="string" value="yad"/>
         <value type="string" value="toggl desktop"/>
@@ -72,6 +78,8 @@
       <property name="fuzziness" type="uint" value="0"/>
       <property name="tooltip-format" type="string" value="%x"/>
       <property name="digital-format" type="string" value="%d.%m %T"/>
+      <property name="digital-time-format" type="string" value="%d.%m %T"/>
+      <property name="digital-layout" type="uint" value="3"/>
     </property>
     <property name="plugin-13" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
@@ -80,11 +88,30 @@
     <property name="plugin-5" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="mpris-players" type="string" value="chromium.instance5056;chromium.instance926538;dragonplayer;firefox.instance1026066;firefox.instance106044;firefox.instance1085603;firefox.instance1100823;firefox.instance1166161;firefox.instance1172109;firefox.instance1200142;firefox.instance1218072;firefox.instance1246023;firefox.instance13244;firefox.instance140428;firefox.instance1469;firefox.instance1534;firefox.instance15482;firefox.instance1606;firefox.instance1657;firefox.instance1719;firefox.instance177292;firefox.instance194826;firefox.instance218397;firefox.instance2449;firefox.instance267240;firefox.instance287715;firefox.instance323519;firefox.instance38638;firefox.instance405067;firefox.instance415364;firefox.instance424741;firefox.instance437230;firefox.instance440759;firefox.instance446322;firefox.instance458596;firefox.instance476521;firefox.instance49562;firefox.instance501700;firefox.instance52967;firefox.instance587872;firefox.instance59316;firefox.instance666693;firefox.instance762440;firefox.instance803211;firefox.instance847242;firefox.instance905850;firefox.instance96627;mpv;mpv.instance44225;mpv.instance835710;playerctld;spotify"/>
+      <property name="known-players" type="string" value="firefox"/>
     </property>
     <property name="plugin-15" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-16" type="string" value="i3-workspaces"/>
-    <property name="plugin-17" type="string" value="whiskermenu"/>
+    <property name="plugin-17" type="string" value="whiskermenu">
+      <property name="button-icon" type="string" value="org.xfce.panel.whiskermenu"/>
+      <property name="launcher-icon-size" type="int" value="3"/>
+      <property name="view-mode" type="int" value="0"/>
+      <property name="favorites-in-recent" type="bool" value="true"/>
+      <property name="position-search-alternate" type="bool" value="true"/>
+      <property name="position-categories-alternate" type="bool" value="true"/>
+      <property name="command-switchuser" type="string" value="gdmflexiserver"/>
+      <property name="favorites" type="array">
+      </property>
+      <property name="recent" type="array">
+        <value type="string" value="file.desktop"/>
+        <value type="string" value="nemo.desktop"/>
+        <value type="string" value="thunar-settings.desktop"/>
+        <value type="string" value="Alacritty.desktop"/>
+        <value type="string" value="firefox.desktop"/>
+        <value type="string" value="org.fontforge.FontForge.desktop"/>
+      </property>
+    </property>
   </property>
 </channel>
