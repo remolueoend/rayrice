@@ -1,9 +1,5 @@
 #!/usr/bin/env sh
 
-# use fixed background for now:
-setbg
-exit
-
 tmp_path="$(mktemp -d)/earth.jpg"
 file_path=~/.local/share/earth_wallpaper
 
@@ -15,3 +11,6 @@ magick \
     -draw "rectangle 0,1777 1808,1808" \
     -draw "rectangle 0,1500 200,1808" \
     -composite PNG32:"$file_path"
+
+
+xwallpaper --focus $file_path
