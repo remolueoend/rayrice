@@ -79,5 +79,7 @@
   ".config/rofimoji.rc": "~/.config/rofimoji.rc",
   ".config/karabiner/karabiner.json": "~/.config/karabiner/karabiner.json",
   ".config/skhd": "~/.config/skhd",
-  ".config/yabai": "~/.config/yabai"
+  ".config/yabai": "~/.config/yabai",
+  ".config/aerospace/aerospace.toml": "~/.config/aerospace/aerospace.toml",
+  ".config/fzf": "~/.config/fzf/"
 }

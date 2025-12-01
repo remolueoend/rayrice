@@ -15,6 +15,7 @@
 export PATH="$(du -L "$HOME/.local/ricebin" | cut -f2 | tr '\n' ':'):$PATH"
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH="$(du -L "$HOME/.local/ricebin-macos" | cut -f2 | tr '\n' ':'):$PATH"
+    export RAYRICE_IS_MACOS=1
 fi
 export PATH="$PATH:$HOME/.local/bin"
 
@@ -95,3 +96,4 @@ export SRCBIN_DIR="$HOME/srcbin"
 
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && shortcuts >/dev/null 2>&1 &
 
+export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"

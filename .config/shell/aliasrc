@@ -11,7 +11,6 @@ alias \
 
 # Colorize commands when possible.
 alias \
-	ls="ls -hN --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi"
@@ -80,4 +79,4 @@ alias \
 [ -x "$(command -v xclip)" ] && alias copy="xclip -selection -c" paste="xclip -selection c -o"
 [ -x "$(command -v pbcopy)" ] && alias copy="pbcopy" paste="pbpaste"
 [ -x "$(command -v exa)" ] && alias la="exa --long --all --header"
-[ -x "$(command -v trash)" ] && alias trash-put="trash"
+# [ -x "$(command -v trash)" ] && alias trash-put="trash"

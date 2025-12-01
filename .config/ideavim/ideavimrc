@@ -15,8 +15,13 @@ let g:WhichKeyDesc_Major_Goto_Test = "<leader>mgi goto test"
 nnoremap <leader>mgT    :action GotoTest<CR>
 vnoremap <leader>mgT    <Esc>:action GotoTest<CR>
 
+" major mode -> [g]oto [r]elated symbol
+let g:WhichKeyDesc_Major_Goto_Related = "<leader>mgr goto related symbol"
+nnoremap <leader>mgr    :action GotoRelated<CR>
+vnoremap <leader>mgr    <Esc>:action GotoRelated<CR>
+
 " major mode -> [g]oto -> Edit[S]ource
-let g:WhichKeyDesc_Major_EditSource = "<leader>mgi edit source"
+let g:WhichKeyDesc_Major_EditSource = "<leader>mgs edit source"
 nnoremap <leader>mgs    :action EditSource<CR>
 vnoremap <leader>mgs    <Esc>:action EditSource<CR>
 

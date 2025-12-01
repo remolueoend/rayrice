@@ -39,82 +39,67 @@ values."
    ;; ----------------------------------------------------------------
    ;; Example of useful layers you may want to use right away.
    ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-   ;; <M-m f e R> (Emacs style) to install them.
-   ;; ----------------------------------------------------------------
-   ;; themes-megapack ;; additional themes, see: https://themegallery.robdor.com/
-   '(multiple-cursors
-     git
-     nixos
-     idris
-     typescript
-     csv
-     javascript
-     html
-     rust
-     haskell
-     python
-     systemd
-     helm
-     (auto-completion :variables
-                      auto-completion-enable-help-tooltip t
-                      auto-completion-enable-snippets-in-popup t
-                      auto-completion-enable-sort-by-usage t)
-     better-defaults
-     emacs-lisp
-     (ocaml :variables ocaml-format-on-save t)
-     markdown
-     (org :variables
-          org-enable-bootstrap-support t
-          org-enable-roam-protocol t)
-     (shell :variables
-            shell-default-shell 'eshell
-            shell-default-height 30
-            shell-default-position 'bottom)
-     (spell-checking :variables
-                     spell-checking-enable-by-default nil)
-     syntax-checking
-     version-control
-     yaml
-     vimscript
-     themes-megapack
-     lsp
-     dap
-     xclipboard
-     latex
-     (c-c++ :variables
-            c-c++-backend 'lsp-ccls
-            c++-enable-organize-includes-on-save t
-            c-c++-enable-clang-format-on-save t
-            c-c++-lsp-enable-semantic-highlight 'rainbow)
-     )
-   ;; List of additional packages that will be installed without being
-   ;; wrapped in a layer. If you need some configuration for these
-   ;; packages, then consider creating a layer. You can also put the
-   ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages
-   '(
-     yasnippet-snippets
-     doom-themes
-     keychain-environment
-     exec-path-from-shell
-     bnf-mode
-     ligo-mode
-     anki-editor
-     lsp-grammarly
-     keytar
-     )
-   ;; A list of packages that cannot be updated.
-   dotspacemacs-frozen-packages '()
-   ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
-   ;; Defines the behaviour of Spacemacs when installing packages.
-   ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
-   ;; `used-only' installs only explicitly used packages and uninstall any
-   ;; unused packages as well as their unused dependencies.
-   ;; `used-but-keep-unused' installs only the used packages but won't uninstall
-   ;; them if they become unused. `all' installs *all* packages supported by
-   ;; Spacemacs and never uninstall them. (default is `used-only')
-   dotspacemacs-install-packages 'used-only))
+  ;; <M-m f e R> (Emacs style) to install them.
+  ;; ----------------------------------------------------------------
+  ;; themes-megapack ;; additional themes, see: https://themegallery.robdor.com/
+  '(multiple-cursors
+    toml
+    git
+    csv
+    javascript
+    python
+    systemd
+    helm
+    (auto-completion :variables
+                     auto-completion-enable-help-tooltip t
+                     auto-completion-enable-snippets-in-popup t
+                     auto-completion-enable-sort-by-usage t)
+    better-defaults
+    emacs-lisp
+    markdown
+    (org :variables
+         org-enable-bootstrap-support t
+         org-enable-roam-protocol t)
+    (shell :variables
+           shell-default-shell 'eshell
+           shell-default-height 30
+           shell-default-position 'bottom)
+    (spell-checking :variables
+                    spell-checking-enable-by-default nil)
+    syntax-checking
+    version-control
+    yaml
+    vimscript
+    themes-megapack
+    lsp
+    dap
+    xclipboard
+    )
+  ;; List of additional packages that will be installed without being
+  ;; wrapped in a layer. If you need some configuration for these
+  ;; packages, then consider creating a layer. You can also put the
+  ;; configuration in `dotspacemacs/user-config'.
+  dotspacemacs-additional-packages
+  '(
+    yasnippet-snippets
+    doom-themes
+    keychain-environment
+    exec-path-from-shell
+    bnf-mode
+    keytar
+    )
+  ;; A list of packages that cannot be updated.
+  dotspacemacs-frozen-packages '()
+  ;; A list of packages that will not be installed and loaded.
+  dotspacemacs-excluded-packages '()
+  ;; Defines the behaviour of Spacemacs when installing packages.
+  ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
+  ;; `used-only' installs only explicitly used packages and uninstall any
+  ;; unused packages as well as their unused dependencies.
+  ;; `used-but-keep-unused' installs only the used packages but won't uninstall
+  ;; them if they become unused. `all' installs *all* packages supported by
+  ;; Spacemacs and never uninstall them. (default is `used-only')
+  dotspacemacs-install-packages 'used-only))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -367,7 +352,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
                               (org-export-define-derived-backend 'html-inline-images 'html
                                 :menu-entry '(?h "Export to HTML" ((?m "As MHTML file an open" org-html-export-to-mhtml))))))
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-)
+  )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -376,23 +361,23 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ; custom shortcut for triggering company automcompletion:
+                                        ; custom shortcut for triggering company automcompletion:
   (define-key evil-insert-state-map (kbd "C-SPC") 'company-indent-or-complete-common)
-  ; always follow symlinks to files managed by vcs/git:
+                                        ; always follow symlinks to files managed by vcs/git:
   (setq vc-follow-symlinks t)
-  ; load env vars on startup, required to get ssh-agent/keychain integration working:
+                                        ; load env vars on startup, required to get ssh-agent/keychain integration working:
   (keychain-refresh-environment)
-  ; increase preview font size, required by latex preview mode:
+                                        ; increase preview font size, required by latex preview mode:
   (set-default 'preview-scale-function 1.2)
-  ; ranger settings:
+                                        ; ranger settings:
   (setq ranger-show-hidden t)
   (setq ranger-cleanup-eagerly t)
-  ; same fontsize for emacs and emacsclient
+                                        ; same fontsize for emacs and emacsclient
   (setq default-frame-alist '((font . "Source Code Pro-12")))
-  ; set terminal command for opening a new terminal
+                                        ; set terminal command for opening a new terminal
   ;; (push (cons 'start-terminal (list "start-terminal")) terminal-here-terminal-command-table)
   ;; (validate-setq terminal-here-linux-terminal-command 'alacritty)
-  ; include external functions files:
+                                        ; include external functions files:
   ;; (add-to-list 'load-path "~/.spacemacs.d")
   ;; (require 'custom-functions)
   (load-file "~/.spacemacs.d/custom-functions.el")
@@ -402,7 +387,7 @@ you should place your code here."
    (append org-babel-load-languages
            '((latex . t)
              (C . t))))
-)
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -427,100 +412,100 @@ you should place your code here."
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(beacon-color "#d54e53")
- '(custom-safe-themes
-   '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default))
- '(evil-want-Y-yank-to-eol nil)
- '(exwm-floating-border-color "#2e2f37")
- '(fci-rule-color "#383838")
- '(flycheck-color-mode-line-face-to-color 'mode-line-buffer-id)
- '(frame-background-mode 'dark)
- '(helm-completion-style 'emacs)
- '(highlight-tail-colors ((("#2d3e3e" "#2d3e3e") . 0) (("#333d49" "#333d49") . 20)))
- '(hl-todo-keyword-faces
-   '(("TODO" . "#dc752f")
-     ("NEXT" . "#dc752f")
-     ("THEM" . "#2d9574")
-     ("PROG" . "#4f97d7")
-     ("OKAY" . "#4f97d7")
-     ("DONT" . "#f2241f")
-     ("FAIL" . "#f2241f")
-     ("DONE" . "#86dc2f")
-     ("NOTE" . "#b1951d")
-     ("KLUDGE" . "#b1951d")
-     ("HACK" . "#b1951d")
-     ("TEMP" . "#b1951d")
-     ("FIXME" . "#dc752f")
-     ("XXX+" . "#dc752f")
-     ("\\?\\?\\?+" . "#dc752f")))
- '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
- '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
- '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#3f444a"))
- '(magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
- '(objed-cursor-color "#ff6c6b")
- '(org-agenda-files
-   '("~/agenda/captures.org" "/Users/remo/agenda/agenda_main.org" "/Users/remo/org/notes.org"))
- '(org-capture-default-notes-file "~/agenda/capture")
- '(package-selected-packages
-   '(anki-editor org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot yasnippet-snippets utop tuareg caml ocp-indent merlin zenburn-theme zen-and-art-theme white-sand-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme spinner organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme parent-mode heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flycheck-rust flycheck-pos-tip pkg-info epl flx flatui-theme flatland-theme farmhouse-theme exotica-theme highlight goto-chg undo-tree espresso-theme f dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme s color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme bind-map bind-key badwolf-theme packed apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme popup toml-mode racer pos-tip cargo rust-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data helm-company helm-c-yasnippet fuzzy company-tern dash-functional tern company-statistics company auto-yasnippet ac-ispell auto-complete tide typescript-mode flycheck web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode yaml-mode mmm-mode markdown-toc markdown-mode gh-md hydra lv projectile avy anzu iedit smartparens evil helm helm-core async powerline dash smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit transient git-commit with-editor ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))
- '(pdf-view-midnight-colors '("#655370" . "#fbf8ef"))
- '(rustic-ansi-faces
-   ["#282c34" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
- '(safe-local-variable-values
-   '((eval setq flycheck-clang-include-path
-           (list
-            (expand-file-name "~/dev/eth/embedded-systems/lab2/libraries/")))
-     (eval setq flycheck-clang-include-path
-           (list
-            (expand-file-name "~/remo/dev/eth/embedded-systems/lab2/")))
-     (org-latex-pdf-process "pdflatex --shell-escape %f")
-     (org-latex-pdf-process . "pdflatex --shell-escape %f")
-     (c-c++lsp-enable-semantic-highlight . rainbow)
-     (eval setq flycheck-clang-include-path
-           (list
-            (expand-file-name "~/dev/libs/eigen-3.3.7")))
-     (org-confirm-babel-evaluate)
-     (typescript-backend . tide)
-     (typescript-backend . lsp)
-     (javascript-backend . tern)
-     (javascript-backend . lsp)
-     (go-backend . go-mode)
-     (go-backend . lsp)))
- '(vc-annotate-background "#282c34")
- '(vc-annotate-color-map
-   (list
-    (cons 20 "#98be65")
-    (cons 40 "#b4be6c")
-    (cons 60 "#d0be73")
-    (cons 80 "#ECBE7B")
-    (cons 100 "#e6ab6a")
-    (cons 120 "#e09859")
-    (cons 140 "#da8548")
-    (cons 160 "#d38079")
-    (cons 180 "#cc7cab")
-    (cons 200 "#c678dd")
-    (cons 220 "#d974b7")
-    (cons 240 "#ec7091")
-    (cons 260 "#ff6c6b")
-    (cons 280 "#cf6162")
-    (cons 300 "#9f585a")
-    (cons 320 "#6f4e52")
-    (cons 340 "#5B6268")
-    (cons 360 "#5B6268")))
- '(vc-annotate-very-old-color nil)
- '(window-divider-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background nil))))
- '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
-)
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(ansi-color-faces-vector
+     [default bold shadow italic underline bold bold-italic bold])
+   '(beacon-color "#d54e53")
+   '(custom-safe-themes
+     '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default))
+   '(evil-want-Y-yank-to-eol nil)
+   '(exwm-floating-border-color "#2e2f37")
+   '(fci-rule-color "#383838")
+   '(flycheck-color-mode-line-face-to-color 'mode-line-buffer-id)
+   '(frame-background-mode 'dark)
+   '(helm-completion-style 'emacs)
+   '(highlight-tail-colors ((("#2d3e3e" "#2d3e3e") . 0) (("#333d49" "#333d49") . 20)))
+   '(hl-todo-keyword-faces
+     '(("TODO" . "#dc752f")
+       ("NEXT" . "#dc752f")
+       ("THEM" . "#2d9574")
+       ("PROG" . "#4f97d7")
+       ("OKAY" . "#4f97d7")
+       ("DONT" . "#f2241f")
+       ("FAIL" . "#f2241f")
+       ("DONE" . "#86dc2f")
+       ("NOTE" . "#b1951d")
+       ("KLUDGE" . "#b1951d")
+       ("HACK" . "#b1951d")
+       ("TEMP" . "#b1951d")
+       ("FIXME" . "#dc752f")
+       ("XXX+" . "#dc752f")
+       ("\\?\\?\\?+" . "#dc752f")))
+   '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
+   '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
+   '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#3f444a"))
+   '(magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
+   '(objed-cursor-color "#ff6c6b")
+   '(org-agenda-files
+     '("~/agenda/captures.org" "/Users/remo/agenda/agenda_main.org" "/Users/remo/org/notes.org"))
+   '(org-capture-default-notes-file "~/agenda/capture")
+   '(package-selected-packages
+     '(anki-editor org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot yasnippet-snippets utop tuareg caml ocp-indent merlin zenburn-theme zen-and-art-theme white-sand-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme spinner organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme parent-mode heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flycheck-rust flycheck-pos-tip pkg-info epl flx flatui-theme flatland-theme farmhouse-theme exotica-theme highlight goto-chg undo-tree espresso-theme f dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme s color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme bind-map bind-key badwolf-theme packed apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme popup toml-mode racer pos-tip cargo rust-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data helm-company helm-c-yasnippet fuzzy company-tern dash-functional tern company-statistics company auto-yasnippet ac-ispell auto-complete tide typescript-mode flycheck web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode yaml-mode mmm-mode markdown-toc markdown-mode gh-md hydra lv projectile avy anzu iedit smartparens evil helm helm-core async powerline dash smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit transient git-commit with-editor ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))
+   '(pdf-view-midnight-colors '("#655370" . "#fbf8ef"))
+   '(rustic-ansi-faces
+     ["#282c34" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
+   '(safe-local-variable-values
+     '((eval setq flycheck-clang-include-path
+             (list
+              (expand-file-name "~/dev/eth/embedded-systems/lab2/libraries/")))
+       (eval setq flycheck-clang-include-path
+             (list
+              (expand-file-name "~/remo/dev/eth/embedded-systems/lab2/")))
+       (org-latex-pdf-process "pdflatex --shell-escape %f")
+       (org-latex-pdf-process . "pdflatex --shell-escape %f")
+       (c-c++lsp-enable-semantic-highlight . rainbow)
+       (eval setq flycheck-clang-include-path
+             (list
+              (expand-file-name "~/dev/libs/eigen-3.3.7")))
+       (org-confirm-babel-evaluate)
+       (typescript-backend . tide)
+       (typescript-backend . lsp)
+       (javascript-backend . tern)
+       (javascript-backend . lsp)
+       (go-backend . go-mode)
+       (go-backend . lsp)))
+   '(vc-annotate-background "#282c34")
+   '(vc-annotate-color-map
+     (list
+      (cons 20 "#98be65")
+      (cons 40 "#b4be6c")
+      (cons 60 "#d0be73")
+      (cons 80 "#ECBE7B")
+      (cons 100 "#e6ab6a")
+      (cons 120 "#e09859")
+      (cons 140 "#da8548")
+      (cons 160 "#d38079")
+      (cons 180 "#cc7cab")
+      (cons 200 "#c678dd")
+      (cons 220 "#d974b7")
+      (cons 240 "#ec7091")
+      (cons 260 "#ff6c6b")
+      (cons 280 "#cf6162")
+      (cons 300 "#9f585a")
+      (cons 320 "#6f4e52")
+      (cons 340 "#5B6268")
+      (cons 360 "#5B6268")))
+   '(vc-annotate-very-old-color nil)
+   '(window-divider-mode nil))
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(default ((t (:background nil))))
+   '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
+  )

@@ -4,7 +4,7 @@ DIR=$(dirname $0)
 source $DIR/shared.sh
 
 # todo: make base path configurable
-cd $HOME
+cd $HOME/rayrice
 
 if [ "$#" -eq 0 ]; then
     $EDITOR "voidrice/.config"

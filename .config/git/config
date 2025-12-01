@@ -12,6 +12,7 @@
 [core]
 	autocrlf = input
 	pager = delta
+	ignorecase = false
 [interactive]
 	diffFilter = delta --color-only
 [filter "hawser"]
@@ -25,6 +26,7 @@
 	process = git-lfs filter-process
 [push]
 	default = upstream
+	autoSetupRemote = true
 [color]
 	ui = auto
 [diff "pandoc"]
@@ -41,6 +43,8 @@
   wdiff = diff --word-diff=color --unified=1
 	h = help
   st = status
+	s = switch
+	abs = !git absorb --base=$(git merge-base HEAD origin main)
 
   l = log --graph --pretty=format:\"%C(yellow)[%h]%Creset %C(cyan)%an:%Creset %C(white)%s%Creset%C(green)%d%Creset %C(black bold)%ar%Creset\"
   lstat = "!cd ${GIT_PREFIX:-.} && git l --stat"

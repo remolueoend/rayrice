@@ -12,9 +12,26 @@ function socket_exists {
     fi
 }
 
+function dir_exists {
+    if [ -d "$1" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+function add_to_path_if_exists {
+    if dir_exists "$1"; then
+        export PATH="$1:$PATH"
+    fi
+}
+
 ZFUNC_FOLDER="$HOME/.zfunc"
 mkdir -p $ZFUNC_FOLDER
 fpath=($ZFUNC_FOLDER "${fpath[@]}")
+if dir_exists ${ASDF_DATA_DIR}/completions; then
+    fpath=(${ASDF_DATA_DIR}/completions $fpath)
+fi
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -24,16 +41,17 @@ fi
 export DOTFILES_ROOT="$HOME/rayrice"
 
 ## PATH extensions
-# NPM/yarn global packages:
-export PATH=$HOME/.npm/bin:$HOME/.yarn/bin:$PATH
-# rust binaries
-export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$HOME/.local/share/cargo/bin:$PATH
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-# dotnet
-if is_installed "dotnet"; then
-    export PATH=$HOME/.dotnet/tools:$PATH
+
+# asdf
+if is_installed "asdf"; then
+    export PATH="${ASDF_DATA_DIR}/shims:$PATH"
 fi
+
+# NPM/yarn global packages:
+# export PATH=$HOME/.npm/bin:$HOME/.yarn/bin:$PATH
+# if dir_exists "$(npm config get prefix)/bin"; then
+#     export PATH="$(npm config get prefix)/bin/:$PATH"
+# fi
 
 # ocaml
 if is_installed "opam"; then
@@ -68,6 +86,9 @@ fi
 if [ -d /Library/TeX/texbin ]; then
     export PATH=$PATH:/Library/TeX/texbin
 fi
+
+# trash-cli on MacOS is keg-only:
+add_to_path_if_exists /opt/homebrew/opt/trash-cli/bin
 
 function killport {
     # kill the process listening on the given port
@@ -154,12 +175,6 @@ if is_installed "pacman"; then
 fi
 
 
-# vi mode
-bindkey -v
-# default history handler:
-bindkey "^R" history-incremental-search-backward
-#unsetopt correct
-
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -174,6 +189,7 @@ bindkey '^e' edit-command-line
 bindkey "^F" forward-word
 # bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
+source <(fzf --zsh)
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/config ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/config
 
 rangercd() {
@@ -200,8 +216,10 @@ zle -N edit-command-line
 # manual plugins
 export KEYTIMEOUT=1
 
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+
 # source plugins
-source $SRCBIN_DIR/fzf-tab/fzf-tab.plugin.zsh
+# source $SRCBIN_DIR/fzf-tab/fzf-tab.plugin.zsh
 source $SRCBIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 # plugin settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#aaaaaa"
@@ -238,8 +256,6 @@ if is_installed "perl"; then
     export PERL_MM_OPT
 fi
 
-# activate python by default:
-use_pyenv
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
