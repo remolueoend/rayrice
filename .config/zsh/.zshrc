@@ -42,10 +42,20 @@ export DOTFILES_ROOT="$HOME/rayrice"
 
 ## PATH extensions
 
+# Rust
+add_to_path_if_exists "$HOME/.local/share/cargo/bin"
+
 # asdf
 if is_installed "asdf"; then
     export PATH="${ASDF_DATA_DIR}/shims:$PATH"
 fi
+
+if is_installed "mise"; then
+    eval "$(mise activate zsh --shims)"
+fi
+
+# jetbrains tools
+add_to_path_if_exists "$HOME/.local/bin/jetbrains"
 
 # NPM/yarn global packages:
 # export PATH=$HOME/.npm/bin:$HOME/.yarn/bin:$PATH
@@ -265,3 +275,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern line root)
 
 test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2_shell_integration.zsh"
 
+# stop teleport from trying to add keys to 1password ssh agent, it won't work:
+if [[ "$SSH_AUTH_SOCK" == *"1password"* ]]; then
+    export TELEPORT_ADD_KEYS_TO_AGENT=no
+fi

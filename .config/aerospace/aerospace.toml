@@ -97,9 +97,11 @@ automatically-unhide-macos-hidden-apps = true
     # '''
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    alt-slash = 'layout tiles horizontal vertical'
-    alt-comma = 'layout accordion horizontal vertical'
-    alt-f     = 'fullscreen'
+    alt-slash    = 'layout tiles horizontal vertical'
+    alt-comma    = 'layout accordion horizontal vertical'
+    alt-f        = 'fullscreen'
+    alt-shift-f  = 'layout floating tiling'
+    alt-e        = 'layout tiles accordion'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     alt-h = 'focus left'
@@ -135,7 +137,6 @@ automatically-unhide-macos-hidden-apps = true
     alt-b = 'workspace B'
     alt-c = 'workspace C'
     alt-d = 'workspace D'
-    alt-e = 'workspace E'
     alt-g = 'workspace G'
     alt-m = 'workspace M'
     alt-n = 'workspace N'
@@ -146,7 +147,6 @@ automatically-unhide-macos-hidden-apps = true
     alt-t = 'workspace T'
     alt-v = 'workspace V'
     alt-w = 'workspace W'
-    alt-x = 'workspace X'
     alt-z = 'workspace Z'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -207,34 +207,44 @@ automatically-unhide-macos-hidden-apps = true
 
 
 # move windows to their statically assigned workspaces:
+
+# Chats
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
 run = ['move-node-to-workspace chat']
-
 [[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
 run = ['move-node-to-workspace chat']
-
 [[on-window-detected]]
 if.app-id = 'org.zulip.zulip-electron'
 run = ['move-node-to-workspace chat']
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = ['move-node-to-workspace chat']
+[[on-window-detected]]
+if.app-id = 'Mattermost.Desktop'
+run = ['move-node-to-workspace chat']
 
+# Office
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'
 run = ['move-node-to-workspace office']
-
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+run = ['move-node-to-workspace office']
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
 run = ['move-node-to-workspace office']
 
+# Music
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = ['move-node-to-workspace music']
-
 [[on-window-detected]]
 if.app-name-regex-substring = 'SoundCloud'
 run = ['move-node-to-workspace music']
 
+# Agents
 [[on-window-detected]]
 if.app-name-regex-substring = 'LLM'
 run = ['move-node-to-workspace llm']
@@ -244,11 +254,22 @@ run = ['move-node-to-workspace llm']
 [[on-window-detected]]
 if.app-name-regex-substring = 'ChatGPT'
 run = ['move-node-to-workspace llm']
+[[on-window-detected]]
+if.app-name-regex-substring = 'Gemini'
+run = ['move-node-to-workspace llm'
+]
 
+# Dashboards
+[[on-window-detected]]
+if.app-name-regex-substring = 'Gitlab'
+run = ['move-node-to-workspace dashboards']
+[[on-window-detected]]
+if.app-name-regex-substring = 'Grafana'
+run = ['move-node-to-workspace dashboards']
 
 # move workspaces to their statically assigned monitors
 [workspace-to-monitor-force-assignment]
-    chat = ['secondary', 'main']
-    office = ['secondary', 'main']
+    chat = ['HP E27q G4 \(4\)', 'main']
+    office = ['HP E27q G4 \(2\)', 'main']
     music = ['secondary', 'main']
     llm = ['secondary', 'main']

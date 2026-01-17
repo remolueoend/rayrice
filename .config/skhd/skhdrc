@@ -20,8 +20,8 @@ alt - d ; launch_mode
 launch_mode < c : aerospace workspace "chat" ; skhd -k "escape"
 launch_mode < o : aerospace workspace "office" ; skhd -k "escape"
 launch_mode < m : aerospace workspace "music" ; skhd -k "escape"
+launch_mode < a : aerospace workspace "llm" ; skhd -k "escape"
 launch_mode < f : ~/.config/skhd/focus-app.sh Firefox ; skhd -k "escape"
 launch_mode < i : ~/.config/skhd/focus-app.sh "IntelliJ IDEA Ultimate" ; skhd -k "escape"
-launch_mode < a : ~/.config/skhd/focus-app.sh "LLM" ; skhd -k "escape"
 launch_mode < t : ~/.config/skhd/switch-theme.sh ; skhd -k "escape"
 launch_mode < escape ; default

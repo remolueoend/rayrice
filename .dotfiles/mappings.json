@@ -81,6 +81,5 @@
   ".config/skhd": "~/.config/skhd",
   ".config/yabai": "~/.config/yabai",
   ".config/aerospace/aerospace.toml": "~/.config/aerospace/aerospace.toml",
-  ".config/fzf": "~/.config/fzf/",
-  ".config/zprezto/prompt_remo_setup": "~/.config/zsh/.zprezto/modules/prompt/functions/prompt_remo_setup"
+  ".config/fzf": "~/.config/fzf/"
 }

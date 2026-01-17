@@ -20,6 +20,11 @@ let g:WhichKeyDesc_Major_Goto_Related = "<leader>mgr goto related symbol"
 nnoremap <leader>mgr    :action GotoRelated<CR>
 vnoremap <leader>mgr    <Esc>:action GotoRelated<CR>
 
+" major mode -> [g]oto [p]arent symbol
+let g:WhichKeyDesc_Major_Goto_Parent = "<leader>mgp goto parent symbol"
+nnoremap <leader>mgp    :action GotoSuperMethod<CR>
+vnoremap <leader>mgp    <Esc>:action GotoSuperMethod<CR>
+
 " major mode -> [g]oto -> Edit[S]ource
 let g:WhichKeyDesc_Major_EditSource = "<leader>mgs edit source"
 nnoremap <leader>mgs    :action EditSource<CR>
