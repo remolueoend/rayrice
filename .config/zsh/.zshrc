@@ -40,6 +40,13 @@ fi
 
 export DOTFILES_ROOT="$HOME/rayrice"
 
+## Set default browser:
+if dir_exists "/Applications/Google Chrome.app"; then
+    export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+elif is_installed "firefox"; then
+    export BROWSER="firefox"
+fi
+
 ## PATH extensions
 
 # Rust
@@ -111,13 +118,6 @@ function use_pyenv {
     eval "$(pyenv init -)"
 }
 
-function use_nvm() {
-    NVM_DIR="$HOME/.nvm"
-    # load NVM in the current shell, pretty slow
-    [ -e "/usr/share/nvm/init-nvm.sh" ] && \. "/usr/share/nvm/init-nvm.sh"
-    [ -e "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-}
-
 function use_ocaml {
     eval $(opam env)
 }
@@ -183,6 +183,11 @@ if is_installed "pacman"; then
     compdef yay-pkg-install='yay'
     setopt complete_aliases
 fi
+
+if is_installed kubectl; then
+    source <(kubectl completion zsh)
+fi
+
 
 
 # Use vim keys in tab complete menu:

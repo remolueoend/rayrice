@@ -1,6 +1,3 @@
-[url "gitlab.ergon.ch:ergon/"]
-	insteadOf = git@gitlab.com:ergon/
-
 [filter "media"]
 	required = true
 	clean = git media clean %f
@@ -138,5 +135,6 @@
 	rebase = true
 
 # directory specific overrides
-[includeIf "gitdir:~/dev/rm/"]
+# [includeIf "gitdir:~/dev/rm/"]
+[include]
 	path = "~/dev/rm/.gitconfig"

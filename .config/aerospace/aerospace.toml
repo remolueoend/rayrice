@@ -133,6 +133,7 @@ automatically-unhide-macos-hidden-apps = true
     alt-7 = 'workspace 7'
     alt-8 = 'workspace 8'
     alt-9 = 'workspace 9'
+    alt-0 = 'workspace 10'
     alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
     alt-b = 'workspace B'
     alt-c = 'workspace C'
@@ -159,6 +160,7 @@ automatically-unhide-macos-hidden-apps = true
     alt-shift-7 = 'move-node-to-workspace 7'
     alt-shift-8 = 'move-node-to-workspace 8'
     alt-shift-9 = 'move-node-to-workspace 9'
+    alt-shift-0 = 'move-node-to-workspace 10'
     alt-shift-a = 'move-node-to-workspace A'
     alt-shift-b = 'move-node-to-workspace B'
     alt-shift-c = 'move-node-to-workspace C'
@@ -243,6 +245,9 @@ run = ['move-node-to-workspace music']
 [[on-window-detected]]
 if.app-name-regex-substring = 'SoundCloud'
 run = ['move-node-to-workspace music']
+[[on-window-detected]]
+if.app-name-regex-substring = 'YouTube'
+run = ['move-node-to-workspace music']
 
 # Agents
 [[on-window-detected]]
@@ -269,7 +274,7 @@ run = ['move-node-to-workspace dashboards']
 
 # move workspaces to their statically assigned monitors
 [workspace-to-monitor-force-assignment]
-    chat = ['HP E27q G4 \(4\)', 'main']
-    office = ['HP E27q G4 \(2\)', 'main']
-    music = ['secondary', 'main']
-    llm = ['secondary', 'main']
+    chat = ['HP E27q G4 \(4\)', 'DELL U2719D \(2\)', 'secondary', 'main']
+    office = ['HP E27q G4 \(2\)', 'DELL U2719D \(2\)', 'secondary', 'main']
+    music = ['DELL U2719D \(2\)', 'secondary', 'main']
+    llm = ['DELL U2719D \(2\)', 'secondary', 'main']

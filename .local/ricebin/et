@@ -1,3 +1,8 @@
 #!/usr/bin/env sh
 
-emacsclient -t -c "$@"
+# re-use the same frame when running inside vterm, otherwise create a new one:
+if [ "$INSIDE_EMACS" = "vterm" ]; then
+    emacsclient "$@"
+else
+    emacsclient -t -c "$@"
+fi

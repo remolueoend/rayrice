@@ -61,8 +61,8 @@ values."
           org-enable-bootstrap-support t
           org-enable-roam-protocol t)
      (shell :variables
-            shell-default-shell 'eshell
-            shell-default-height 30
+            shell-default-shell 'vterm
+            shell-default-height 60
             shell-default-position 'bottom)
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
@@ -343,7 +343,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
                               (flyspell-prog-mode)
                               ;; register new export menu entry which is defined in '~/.spacemacs.d/custom-functions.el':
                               (org-export-define-derived-backend 'html-inline-images 'html
-                                                                 :menu-entry '(?h "Export to HTML" ((?m "As MHTML file an open" org-html-export-to-mhtml))))))
+                                :menu-entry '(?h "Export to HTML" ((?m "As MHTML file an open" org-html-export-to-mhtml))))))
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   (setq catppuccin-flavor 'mocha)
   )

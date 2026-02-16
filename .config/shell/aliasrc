@@ -53,7 +53,7 @@ alias \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
 	SS="sudo systemctl" \
-	note="TERM=screen-256color emacsclient -t -e '(progn (spacemacs/new-empty-buffer) (text-mode))'" \
+	note="emacsclient -t -e '(progn (spacemacs/new-empty-buffer) (org-mode))'" \
 	wiki="et $HOME/wiki/" \
 	sysrice="sudo yadm -Y /etc/sysrice" \
 	la="eza --long --all --header" \
