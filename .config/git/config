@@ -1,6 +1,3 @@
-[url "gitlab.ergon.ch:ergon/"]
-	insteadOf = git@gitlab.com:ergon/
-
 [filter "media"]
 	required = true
 	clean = git media clean %f
@@ -45,6 +42,7 @@
   st = status
 	s = switch
 	abs = !git absorb --base=$(git merge-base HEAD origin main)
+	abs-master = !git absorb --base=$(git merge-base HEAD origin master)
 
   l = log --graph --pretty=format:\"%C(yellow)[%h]%Creset %C(cyan)%an:%Creset %C(white)%s%Creset%C(green)%d%Creset %C(black bold)%ar%Creset\"
   lstat = "!cd ${GIT_PREFIX:-.} && git l --stat"
@@ -137,5 +135,6 @@
 	rebase = true
 
 # directory specific overrides
-[includeIf "gitdir:~/dev/rm/"]
+# [includeIf "gitdir:~/dev/rm/"]
+[include]
 	path = "~/dev/rm/.gitconfig"

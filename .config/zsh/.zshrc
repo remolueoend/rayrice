@@ -40,12 +40,29 @@ fi
 
 export DOTFILES_ROOT="$HOME/rayrice"
 
+## Set default browser:
+if dir_exists "/Applications/Google Chrome.app"; then
+    export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+elif is_installed "firefox"; then
+    export BROWSER="firefox"
+fi
+
 ## PATH extensions
+
+# Rust
+add_to_path_if_exists "$HOME/.local/share/cargo/bin"
 
 # asdf
 if is_installed "asdf"; then
     export PATH="${ASDF_DATA_DIR}/shims:$PATH"
 fi
+
+if is_installed "mise"; then
+    eval "$(mise activate zsh --shims)"
+fi
+
+# jetbrains tools
+add_to_path_if_exists "$HOME/.local/bin/jetbrains"
 
 # NPM/yarn global packages:
 # export PATH=$HOME/.npm/bin:$HOME/.yarn/bin:$PATH
@@ -99,13 +116,6 @@ function killport {
 function use_pyenv {
     # enables python version [$:3.8.1] for the current shell using pyenv
     eval "$(pyenv init -)"
-}
-
-function use_nvm() {
-    NVM_DIR="$HOME/.nvm"
-    # load NVM in the current shell, pretty slow
-    [ -e "/usr/share/nvm/init-nvm.sh" ] && \. "/usr/share/nvm/init-nvm.sh"
-    [ -e "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 }
 
 function use_ocaml {
@@ -173,6 +183,11 @@ if is_installed "pacman"; then
     compdef yay-pkg-install='yay'
     setopt complete_aliases
 fi
+
+if is_installed kubectl; then
+    source <(kubectl completion zsh)
+fi
+
 
 
 # Use vim keys in tab complete menu:
@@ -265,3 +280,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern line root)
 
 test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2_shell_integration.zsh"
 
+# stop teleport from trying to add keys to 1password ssh agent, it won't work:
+if [[ "$SSH_AUTH_SOCK" == *"1password"* ]]; then
+    export TELEPORT_ADD_KEYS_TO_AGENT=no
+fi

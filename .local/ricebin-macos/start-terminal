@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+# Simple script used as $TERMINAL.
+# spawns a new terminal with custom args additionally to all given arguments:
+
+osascript <<EOF
+    tell application "iTerm2"
+         create window with default profile command "zsh -c 'cd $(pwd); exec zsh'"
+         tell current session of current window
+              write text "$@"
+         end tell
+    end tell
+EOF

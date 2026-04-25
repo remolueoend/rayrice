@@ -22,8 +22,6 @@ export PATH="$PATH:$HOME/.local/bin"
 # Default programs:
 export EDITOR="et"
 export TERMINAL="start-terminal"
-export BROWSER="firefox"
-export browser="firefox"
 export READER="evince"
 export FILE="ranger"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
@@ -58,6 +56,7 @@ export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export ANSIBLE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/ansible/ansible.cfg"
 export UNISON="${XDG_DATA_HOME:-$HOME/.local/share}/unison"
+export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/opentofu/.tofurc"
 
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"
