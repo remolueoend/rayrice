@@ -49,11 +49,8 @@
   ".config/alsa": "~/.config/alsa",
   ".config/ncmpcpp/config": "~/.config/ncmpcpp/config",
   ".config/ncmpcpp/bindings": "~/.config/ncmpcpp/bindings",
-  ".spacemacs.d/custom-functions.el": "~/.spacemacs.d/custom-functions.el",
-  ".spacemacs.d/init.el": "~/.spacemacs.d/init.el",
   ".config/ideavim/ideavimrc": "~/.config/ideavim/ideavimrc",
   ".config/kitty": "~/.config/kitty",
-  ".emacs.d/private/snippets": "~/.emacs.d/private/snippets",
   ".config/wget/wgetrc": "~/.config/wget/wgetrc",
   ".config/npm": "~/.config/npm",
   ".config/fs-shortcuts": "~/.config/fs-shortcuts",
@@ -81,5 +78,6 @@
   ".config/skhd": "~/.config/skhd",
   ".config/yabai": "~/.config/yabai",
   ".config/aerospace/aerospace.toml": "~/.config/aerospace/aerospace.toml",
-  ".config/fzf": "~/.config/fzf/"
+  ".config/fzf": "~/.config/fzf/",
+  ".config/doom": "~/.config/doom/"
 }
