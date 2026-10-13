@@ -58,7 +58,7 @@ if is_installed "asdf"; then
 fi
 
 if is_installed "mise"; then
-    eval "$(mise activate zsh --shims)"
+    eval "$(mise activate zsh)"
 fi
 
 # jetbrains tools
@@ -230,8 +230,6 @@ zle -N edit-command-line
 
 # manual plugins
 export KEYTIMEOUT=1
-
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 # source plugins
 # source $SRCBIN_DIR/fzf-tab/fzf-tab.plugin.zsh

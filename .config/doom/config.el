@@ -83,6 +83,16 @@
 (map! :leader
       :desc "M-x" "SPC" #'execute-extended-command)
 
-(setq doom-theme 'catppuccin)
 
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14))
+
+;; set catppuccin as theme, switch flavor between light/dark mode:
+(setq doom-theme 'catppuccin)
+
+(defun my-switch-catppuccin-flavor (appearance)
+  (pcase appearance
+    ('light (setq catppuccin-flavor 'latte))
+    ('dark (setq catppuccin-flavor 'mocha)))
+  (catppuccin-reload))
+(when (boundp 'ns-system-appearance-change-functions)
+  (add-hook 'ns-system-appearance-change-functions #'my-switch-catppuccin-flavor))

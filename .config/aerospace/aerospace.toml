@@ -274,7 +274,7 @@ run = ['move-node-to-workspace dashboards']
 
 # move workspaces to their statically assigned monitors
 [workspace-to-monitor-force-assignment]
-    chat = ['HP E27q G4 \(4\)', 'DELL U2719D \(2\)', 'secondary', 'main']
-    office = ['HP E27q G4 \(2\)', 'DELL U2719D \(2\)', 'secondary', 'main']
+    chat = ['HP E27q G4 \(2\)', 'DELL U2719D \(2\)', 'secondary', 'main']
+    office = ['HP E27q G4 \(1\)', 'DELL U2719D \(2\)', 'secondary', 'main']
     music = ['DELL U2719D \(2\)', 'secondary', 'main']
-    llm = ['DELL U2719D \(2\)', 'secondary', 'main']
+    llm = ['HP E27q G4 \(4\)', 'DELL U2719D \(2\)', 'secondary', 'main']
